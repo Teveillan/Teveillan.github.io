@@ -23,8 +23,6 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
-  
-
   <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 
@@ -34,9 +32,9 @@
     <div class="overlay"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
-		<div class="profilepic">
-			<img src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg">
-		</div>
+		<a href="/" class="profilepic">
+			<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+		</a>
 
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Teveillan</a></h1>
@@ -113,7 +111,7 @@
 					        
 								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
 					        
-								<a class="google" target="_blank" href="mailto:teveillan@gmail.com" title="google">google</a>
+								<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
 					        
 						</div>
 					</nav>
@@ -121,7 +119,7 @@
 				
 				
 				<section class="switch-part switch-part2">
-					<div class="widget tagcloud">
+					<div class="widget tagcloud" id="js-tagcloud">
 						<a href="/tags/BestCoder/" style="font-size: 20px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 10px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 20px;">MacOS</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
 					</div>
 				</section>
@@ -129,11 +127,13 @@
 				
 				
 				<section class="switch-part switch-part3">
+					<div id="js-friends">
 					
 			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://darkrhythm.net/">Pira-黄大神</a>
 			        
 			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
 			        
+			        </div>
 				</section>
 				
 
@@ -141,7 +141,7 @@
 				
 				<section class="switch-part switch-part4">
 				
-					我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
 				</section>
 				
 			</div>
@@ -151,15 +151,17 @@
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
-  	<div class="overlay"></div>
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Teveillan</h1>
+  	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg">
+				<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
 			</div>
-
 			<hgroup>
-			  <h1 class="header-author"><a href="/">Teveillan</a></h1>
+			  <h1 class="header-author">Teveillan</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
@@ -187,14 +189,14 @@
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
 			        
-						<a class="google" target="_blank" href="mailto:teveillan@gmail.com" title="google">google</a>
+						<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
 			        
 				</div>
 			</nav>
 		</header>				
 	</div>
 </nav>
-      
+      <div class="body-wrap">
   
     <article id="post-转-部署MAC上的Sublime-Text-LaTex中文环境" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -202,14 +204,6 @@
       <a href="/2015/05/11/转-部署MAC上的Sublime-Text-LaTex中文环境/" class="article-date">
   	<time datetime="2015-05-11T06:35:22.000Z" itemprop="datePublished">5月 11 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tech/">Tech</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/">LaTeX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/">MacOS</a></li></ul>
-
     </div>
   
   <div class="article-inner">
@@ -226,6 +220,7 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -233,17 +228,29 @@
 <p>LaTex就不多做介绍了，其实一般人用到的机会也不多（包括我）。只是这段时间在Coursera上新课程的时候，偶尔需要，所以从零开始摸索了一下，也顺便进一步发现了Sublime Text的强大。</p>
 <p>MAC上的LaTex部署，一般是两条思路，一个是直接安装MacTex，自带编写环境什么的；另一个是Sublime Text（或者Textmate等其他编辑器）+LaTexTools插件。方式二其实也是需要依赖MacTex的，但相对来说体量小、不需要经常切换编辑器，所以果断的介绍方式二。</p>
 <p>亲测：MacOS 10.10, Sublime Text 3可用。（2015年5月）</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/05/11/转-部署MAC上的Sublime-Text-LaTex中文环境/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaTeX/">LaTeX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/">MacOS</a></li></ul>
+	</div>
+
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Tech/">Tech</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/11/转-部署MAC上的Sublime-Text-LaTex中文环境/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -260,14 +267,6 @@
       <a href="/2015/05/07/编程之美2015初赛第一场/" class="article-date">
   	<time datetime="2015-05-07T11:51:01.000Z" itemprop="datePublished">5月 7 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/红名之路/">红名之路</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程之美/">编程之美</a></li></ul>
-
     </div>
   
   <div class="article-inner">
@@ -284,6 +283,7 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -296,17 +296,29 @@
 <li><code>num2 = map[P][color2] + (color[ fa[p] ] == color2)</code></li>
 </ul>
 <p>更新的时候只用将父节点的子节点的color1—, color2++。<br>在O(log)级的复杂度内就能完成更新查询操作。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/05/07/编程之美2015初赛第一场/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程之美/">编程之美</a></li></ul>
+	</div>
+
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/07/编程之美2015初赛第一场/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -323,14 +335,6 @@
       <a href="/2015/05/02/CDQ分治/" class="article-date">
   	<time datetime="2015-05-02T08:48:26.000Z" itemprop="datePublished">5月 2 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
-
     </div>
   
   <div class="article-inner">
@@ -347,6 +351,7 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -365,17 +370,29 @@
 <li>处理[L, mid] 和 [mid + 1, R]之间的联系</li>
 </ol>
 </blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2015/05/02/CDQ分治/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+	</div>
+
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/02/CDQ分治/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -392,14 +409,6 @@
       <a href="/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/" class="article-date">
   	<time datetime="2015-04-21T09:57:45.000Z" itemprop="datePublished">4月 21 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/红名之路/">红名之路</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BestCoder/">BestCoder</a></li></ul>
-
     </div>
   
   <div class="article-inner">
@@ -416,6 +425,7 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -427,17 +437,29 @@
 <li>第二个人只能取0或1中得一个，而第一个人两个都可以选。第一个人自然取第二个人取不到的值。</li>
 </ul>
 <p>但是，当在这两种情况之外，决策就不唯一了。这时，先把低位的决策解决了就很有必要。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BestCoder/">BestCoder</a></li></ul>
+	</div>
+
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -454,14 +476,6 @@
       <a href="/2015/01/09/BestCoder-Round-25/" class="article-date">
   	<time datetime="2015-01-09T05:57:46.000Z" itemprop="datePublished">1月 9 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/红名之路/">红名之路</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BestCoder/">BestCoder</a></li></ul>
-
     </div>
   
   <div class="article-inner">
@@ -478,22 +492,35 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1001_Harry_and_Magical_Computer">1001 Harry and Magical Computer</h2><p>就是判断有没有环存在。<br>点比较少，Floyd一遍O(n^3)就行。</p>
 <h2 id="1002_Harry_And_Magic_Box">1002 Harry And Magic Box</h2><p>官方题解是O(n^4)的，其实中间有一维可以省略。（小地方而已。。不管也罢。。）<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/09/BestCoder-Round-25/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BestCoder/">BestCoder</a></li></ul>
+	</div>
+
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/09/BestCoder-Round-25/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -510,12 +537,6 @@
       <a href="/2015/01/09/-转-Manacher算法-回文串处理/" class="article-date">
   	<time datetime="2015-01-09T03:45:39.000Z" itemprop="datePublished">1月 9 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-      
     </div>
   
   <div class="article-inner">
@@ -532,21 +553,30 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>Manacher</strong>算法是查找一个字符串的最长回文子串的线性算法。<br>在介绍算法之前，首先介绍一下什么是回文串，所谓回文串，简单来说就是正着读和反着读都是一样的字符串，比如abba，noon等等，一个字符串的最长回文子串即为这个字符串的子串中，是回文串的最长的那个。<br>计算字符串的最长回文字串最简单的算法就是枚举该字符串的每一个子串，并且判断这个子串是否为回文串，这个算法的时间复杂度为O(n^3)的，显然无法令人满意，稍微优化的一个算法是枚举回文串的中点，这里要分为两种情况，一种是回文串长度是奇数的情况，另一种是回文串长度是偶数的情况，枚举中点再判断是否是回文串，这样能把算法的时间复杂度降为O(n^2)，但是当n比较大的时候仍然无法令人满意，Manacher算法可以在线性时间复杂度内求出一个字符串的最长回文字串，达到了理论上的下界。</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/09/-转-Manacher算法-回文串处理/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/09/-转-Manacher算法-回文串处理/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -563,14 +593,6 @@
       <a href="/2015/01/07/Mac中安装Vim7-4/" class="article-date">
   	<time datetime="2015-01-07T04:58:51.000Z" itemprop="datePublished">1月 7 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tech/">Tech</a>
-  </div>
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/">MacOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VIM/">VIM</a></li></ul>
-
     </div>
   
   <div class="article-inner">
@@ -587,21 +609,34 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>Mac本身其实是预装了Vim的，但是目前的系统中都是Vim7.3版本的，而最新的Vim已经是7.4版了，因此为了能够使用最新版的vim，必须要对Mac中的vim要么升级，要么重装。在折腾过程中，遇到了一些问题，这里记录，以鉴后人。</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/07/Mac中安装Vim7-4/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/">MacOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VIM/">VIM</a></li></ul>
+	</div>
+
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Tech/">Tech</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/07/Mac中安装Vim7-4/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -618,12 +653,6 @@
       <a href="/2015/01/04/最短路-SPFA/" class="article-date">
   	<time datetime="2015-01-04T07:32:34.000Z" itemprop="datePublished">1月 4 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-      
     </div>
   
   <div class="article-inner">
@@ -640,6 +669,7 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -652,17 +682,25 @@
 <ul>
 <li>初始化</li>
 <li>松弛操作
-        
-          <p class="article-more-link">
-            <a href="/2015/01/04/最短路-SPFA/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/04/最短路-SPFA/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -679,12 +717,6 @@
       <a href="/2015/01/04/网络流/" class="article-date">
   	<time datetime="2015-01-04T05:01:59.000Z" itemprop="datePublished">1月 4 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-      
     </div>
   
   <div class="article-inner">
@@ -701,23 +733,32 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <p>网络流，也被称为最大流。</p>
 <p>模型也非常简单，就是一个管道系统，在有源点，汇点，和一堆有流速限制的管道连接的情况下，问能从源点到汇点传输流量的最大流速是多少。如下图所示。</p>
 <p><img src="http://7tszmu.com1.z0.glb.clouddn.com/网络流.png" alt="Alt text"><br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/04/网络流/#more">more >></a>
-          </p>
-        
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/04/网络流/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -734,12 +775,6 @@
       <a href="/2015/01/02/New-Year/" class="article-date">
   	<time datetime="2015-01-02T15:16:29.000Z" itemprop="datePublished">1月 2 2015</time>
 </a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/随笔/">随笔</a>
-  </div>
-
-      
     </div>
   
   <div class="article-inner">
@@ -756,6 +791,7 @@
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -763,10 +799,19 @@
 
       
     </div>
-    <footer class="article-footer">
+    
+    <div class="article-info article-info-index">
       
       
-    </footer>
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/随笔/">随笔</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
@@ -778,7 +823,7 @@
 
   
   
-
+</div>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
@@ -795,7 +840,15 @@
     
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
   <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-  <script src="/js/main.js" type="text/javascript"></script>
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
 
   </div>
 </body>
