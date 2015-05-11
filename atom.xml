@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teveillan.com/"/>
-  <updated>2015-05-07T14:39:16.000Z</updated>
+  <updated>2015-05-11T06:39:19.000Z</updated>
   <id>http://teveillan.com/</id>
   
   <author>
@@ -13,6 +13,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[[转]部署MAC上的Sublime Text+LaTeX中文环境]]></title>
+    <link href="http://teveillan.com/2015/05/11/%E8%BD%AC-%E9%83%A8%E7%BD%B2MAC%E4%B8%8A%E7%9A%84Sublime-Text-LaTex%E4%B8%AD%E6%96%87%E7%8E%AF%E5%A2%83/"/>
+    <id>http://teveillan.com/2015/05/11/转-部署MAC上的Sublime-Text-LaTex中文环境/</id>
+    <published>2015-05-11T06:35:22.000Z</published>
+    <updated>2015-05-11T06:39:19.000Z</updated>
+    <content type="html"><![CDATA[<p>原文链接：<a href="http://www.readern.com/sublime-text-latex-chinese-under-mac.html" target="_blank" rel="external">http://www.readern.com/sublime-text-latex-chinese-under-mac.html</a><br>作者：Read ERN</p>
+<p>LaTex就不多做介绍了，其实一般人用到的机会也不多（包括我）。只是这段时间在Coursera上新课程的时候，偶尔需要，所以从零开始摸索了一下，也顺便进一步发现了Sublime Text的强大。</p>
+<p>MAC上的LaTex部署，一般是两条思路，一个是直接安装MacTex，自带编写环境什么的；另一个是Sublime Text（或者Textmate等其他编辑器）+LaTexTools插件。方式二其实也是需要依赖MacTex的，但相对来说体量小、不需要经常切换编辑器，所以果断的介绍方式二。</p>
+<p>亲测：MacOS 10.10, Sublime Text 3可用。（2015年5月）</p>
+<a id="more"></a>
+<h3 id="安装步骤">安装步骤</h3><ol>
+<li>首先需要安装Sublime Text 3和<a href="https://packagecontrol.io/installation" target="_blank" rel="external">Package Control</a>，这个有大把的帖子。</li>
+<li>MacTex现在是一个2G+的大包子，其实里面很多东西我们不需要，所以本着节约精神，我们安装<a href="http://mirror.ctan.org/systems/mac/mactex/mactex-basic.pkg" target="_blank" rel="external">MacTex_Basic</a>包就行了，现在的版本大概是100M以内。这个安装也是傻瓜的。</li>
+<li>在Sublime Text里<code>Command+Shift+P</code>调出命令窗口，输入<code>Install</code>，之后选择LaTexTools，网络OK的话，很快就完成了插件安装。</li>
+<li>LaTexTools插件会在编译你的Tex文件后，调用Skim这个PDF阅读器打开编译出的PDF文件，因此你还需要安装<a href="http://skim-app.sourceforge.net/" target="_blank" rel="external">Skim</a>.</li>
+<li>运行一下Skim，进入<code>偏好设置——同步</code>，在<code>PDF-Tex同步支持</code>那里选择<code>Sublime Text</code>。这样，当你在Sublime Text里修改tex文件时，Skim预览也会相应变更。</li>
+<li>完成上面所有步骤，其实就已经搭建完成基本环境。创建一个test.tex文档，贴上我后面附的测试代码，保存一下。(原Po说这里可以开始编译了，亲测是不行的，等完成第七步再编译。)</li>
+<li>让我们最后来修改编译和中文环境:<br>打开编辑<code>~/Library/Application\ Support/Sublime\ Text/Packages/Users/LaTeXTools.sublime-settings</code>，将其中”builder”条目改为：<br><code>&quot;builder&quot;: &quot;simple&quot;</code><br>接着打开编辑<code>~/Library/Application\ Support/Sublime\ Text\ 3/Packages/LaTeXTools/builders/simpleBuilder.py</code><br>找到其中大概第41行<br><code>pdflatex = [&quot;dflatex&quot;, &quot;-interaction=nonstopmode&quot;, &quot;-synctex=1&quot;]</code><br>修改为<br><code>pdflatex = [&quot;xelatex&quot;, &quot;-interaction=nonstopmode&quot;, &quot;-synctex=1&quot;]</code><br>保存后关闭，<code>Command + B</code>编译一下，一切OK！</li>
+</ol>
+<p><strong>补充</strong>:<br>配置好后，如果编译的时候提示:</p>
+<blockquote>
+<p>LaTeXTools: you need to migrate your preferences. See the README file for instructions.</p>
+</blockquote>
+<p>调出命令窗口(<code>Command+Shift+P</code>), 输入如下命令: <code>LaTeXTools: Reconfigure and migrate setting</code>.</p>
+<p>最后再给一个个性化设置。上面写了，LaTeXTools默认调用Skim，这一方面是因为LaTeXTools是跨平台的插件，Skim也同样跨平台开源，另一方面Skim确实对LaTeX的PDF支持很好。但是用OS X的网友们其实还有个选择，就是调用系统默认的PDF程序来打开编译后的成果，特别是“预览”还是很好用的。目前LaTeXTools的开发者还没有给出设置方法，所以，仍然要靠改代码：<br>修改<code>~/Library/Application\ Support/Sublime\ Text\ 3/Packages/LaTeXTools/jumpToPDF.py</code>, 将其中<code>if plat == &#39;darwin&#39;:</code> 之后开始的两段直接注释掉，替换为：<br><code>subprocess.Popen([‘open’] + [pdffile])</code><br>同样保存后就生效啦。目前用起来，系统自带的预览还是能满足我的需求滴。</p>
+<p>测试代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;&#10;\usepackage&#123;fontspec, xunicode, xltxtra&#125;  &#10;\setmainfont&#123;Hiragino Sans GB&#125;  &#10;&#10;\title&#123;Title&#125;&#10;\author&#123;&#125;&#10;&#10;\begin&#123;document&#125;&#10;&#10;\maketitle&#123;&#125;&#10;&#10;\section&#123;Introduction&#125;&#10;&#10;This is where you will write your content. &#22312;&#36825;&#37324;&#20889;&#19978;&#20869;&#23481;&#12290;&#10;&#10;\end&#123;document&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="LaTex的其他选择">LaTex的其他选择</h3><p>如果只是偶尔需要输入公式，这里介绍一个在线的LaTex公式编辑器<a href="http://www.codecogs.com/latex/eqneditor.php" target="_blank" rel="external">http://www.codecogs.com/latex/eqneditor.php</a></p>
+<p>有iPad的，你们有福了，还有个手写公式后自动识别、生成LaTex公式的App：<a href="https://itunes.apple.com/us/app/myscript-mathpad-handwriting/id674996719?mt=8" target="_blank" rel="external">Script MathPad</a>。简单的使用已经足够了，如果需要经常使用，导出功能需要内购（4.99刀）。顺便说一句，这家公司的手写App都很强大，手写计算器、手写Notes都挺好用，而且不贵。</p>
+<h4 id="参考链接：">参考链接：</h4><p>MacTex页面：<a href="http://tug.org/mactex/morepackages.html" target="_blank" rel="external">http://tug.org/mactex/morepackages.html</a></p>
+<p>Skim官网：<a href="http://skim-app.sourceforge.net" target="_blank" rel="external">http://skim-app.sourceforge.net</a></p>
+<p>LaTexTools官网：<a href="https://github.com/SublimeText/LaTeXTools" target="_blank" rel="external">https://github.com/SublimeText/LaTeXTools</a></p>
+<p>前六步骤的具体介绍：<a href="http://economistry.com/2013/01/installing-and-using-latex-for-mac/" target="_blank" rel="external">http://economistry.com/2013/01/installing-and-using-latex-for-mac/</a> 不过需要注意，这里是用了完整的MacTex</p>
+<p>发现xelatex是受了这里的启发：<a href="http://www.teeboneding.com/blog/2013/06/01/write-ntu-master-thesis-with-xelatex-template-on-mac/" target="_blank" rel="external">http://www.teeboneding.com/blog/2013/06/01/write-ntu-master-thesis-with-xelatex-template-on-mac/</a> 但需要注意，这里的编译代码测试无效。</p>
+<p>第七步受了这里的启发：<a href="https://github.com/SublimeText/LaTeXTools/issues/303" target="_blank" rel="external">https://github.com/SublimeText/LaTeXTools/issues/303</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>原文链接：<a href="http://www.readern.com/sublime-text-latex-chinese-under-mac.html">http://www.readern.com/sublime-text-latex-chinese-under-mac.html</a><br>作者：Read ERN</p>
+<p>LaTex就不多做介绍了，其实一般人用到的机会也不多（包括我）。只是这段时间在Coursera上新课程的时候，偶尔需要，所以从零开始摸索了一下，也顺便进一步发现了Sublime Text的强大。</p>
+<p>MAC上的LaTex部署，一般是两条思路，一个是直接安装MacTex，自带编写环境什么的；另一个是Sublime Text（或者Textmate等其他编辑器）+LaTexTools插件。方式二其实也是需要依赖MacTex的，但相对来说体量小、不需要经常切换编辑器，所以果断的介绍方式二。</p>
+<p>亲测：MacOS 10.10, Sublime Text 3可用。（2015年5月）</p>]]>
+    
+    </summary>
+    
+      <category term="LaTeX" scheme="http://teveillan.com/tags/LaTeX/"/>
+    
+      <category term="MacOS" scheme="http://teveillan.com/tags/MacOS/"/>
+    
+      <category term="Tech" scheme="http://teveillan.com/categories/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[编程之美2015初赛第一场]]></title>
