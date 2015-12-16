@@ -200,6 +200,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-HDU-5296-Annoying-problem" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/16/HDU-5296-Annoying-problem/" class="article-date">
+  	<time datetime="2015-12-16T14:39:30.000Z" itemprop="datePublished">12月 16 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/16/HDU-5296-Annoying-problem/">HDU 5296 Annoying problem</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最初以为是DP，结果发现并不是。= =</p>
+<p>题意：在一棵树上，边有权重。有两种操作：</p>
+<ol>
+<li>如果v不在集合中，那么将点v放入到集合</li>
+<li>如果v在集合中，那么将v移出集合<br>求每次操作后，选择一些边将集合中的点连在一起，问边权和为多少。</li>
+</ol>
+<p>先初始化dfs序，以及跟节点到点x的距离dis。每当我们要插入一个点x，找到在集合中且dfs序比x第一个大的点u，以及第一个小的点v。则新增的边的边权为<br>$$dis[x]−dis[lca(x,u)]−dis[lca(x,v)]+dis[lca(u,v)]$$</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/16/HDU-5296-Annoying-problem/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-HDU-5293-Tree-chain-problem" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -783,69 +851,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-BestCoder-Round-25" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/09/BestCoder-Round-25/" class="article-date">
-  	<time datetime="2015-01-09T05:57:46.000Z" itemprop="datePublished">1月 9 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/09/BestCoder-Round-25/">BestCoder Round #25</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1001_Harry_and_Magical_Computer">1001 Harry and Magical Computer</h2><p>就是判断有没有环存在。<br>点比较少，Floyd一遍O(n^3)就行。</p>
-<h2 id="1002_Harry_And_Magic_Box">1002 Harry And Magic Box</h2><p>官方题解是O(n^4)的，其实中间有一维可以省略。（小地方而已。。不管也罢。。）<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BestCoder/">BestCoder</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/01/09/BestCoder-Round-25/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
