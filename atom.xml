@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teveillan.com/"/>
-  <updated>2015-12-16T14:40:15.000Z</updated>
+  <updated>2016-03-25T04:40:33.000Z</updated>
   <id>http://teveillan.com/</id>
   
   <author>
@@ -13,6 +13,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[HDU 5648 DZY Loves Math]]></title>
+    <link href="http://teveillan.com/2016/03/25/HDU-5648-DZY-Loves-Math/"/>
+    <id>http://teveillan.com/2016/03/25/HDU-5648-DZY-Loves-Math/</id>
+    <published>2016-03-25T04:37:42.000Z</published>
+    <updated>2016-03-25T04:40:33.000Z</updated>
+    <content type="html"><![CDATA[<p>DZY Loves 系列…DZY大神你怎么什么都喜欢…</p>
+<p>传送门: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5648" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5648</a></p>
+<p>题意: 求$\sum<em>{i=1} ^ n \sum</em>{j=1} ^m gcd(i ~ AND ~j, i~ OR~ j) $, 1 &lt;= n, m &lt;= 15000</p>
+<p>用三进制表示状态值, 每一位上的值:</p>
+<ul>
+<li>0: 表示均为0</li>
+<li>1: 表示一个为0, 一个为1</li>
+<li>2: 表示两个都为1 </li>
+</ul>
+<a id="more"></a>
+<p>记 $ l = \log_2 {max(n, m)} $，则枚举量为$3^l$</p>
+<p>每枚举一个状态值, 接下来便是求此状态的方案数目num, ans += num * gcd 。</p>
+<p>记AND值为x,OR 值为 y,令z = x ^ y .</p>
+<p>假设在每种方案下，i = a | x, j = b | x，很容易看出 a | b = a + b = z。<br>代入以下不等式：</p>
+<blockquote>
+<p>$ a + x &lt;= n $<br>$ b + x &lt;= m $</p>
+</blockquote>
+<p>化简以后得到</p>
+<blockquote>
+<p>$ z-m+x &lt;=  a &lt;= n-x $</p>
+</blockquote>
+<p>就是求 <strong>取z中二进制位为1的某些位组成a，且使a满足上面的不等式</strong> 的a的取值范围。</p>
+<p>熟悉数位DP的朋友很容易就看出来接下的步骤了。运用数位DP求num值就好。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> REP(i,n) for(int i=0;i&lt;(n);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> FOR(i,l,h) for(int i=(l);i&lt;=(h);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DWN(i,h,l) for(int i=(h);i&gt;=(l);--i)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> l, <span class="keyword">int</span> cur_value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt;= cur_value) <span class="keyword">return</span> <span class="number">1</span> &lt;&lt; __builtin_popcount(pos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>((<span class="number">1</span>&lt;&lt;l) &amp; pos) &#123;</span><br><span class="line">        <span class="keyword">if</span>((<span class="number">1</span>&lt;&lt;l) &lt;= cur_value) ret += dfs(pos^(<span class="number">1</span>&lt;&lt;l), l-<span class="number">1</span>, cur_value - (<span class="number">1</span>&lt;&lt;l));</span><br><span class="line">        ret += dfs(pos^(<span class="number">1</span>&lt;&lt;l), l-<span class="number">1</span>, cur_value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        ret += dfs(pos, l-<span class="number">1</span>, cur_value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> max_value)</span> </span>&#123; </span><br><span class="line">    <span class="comment">//数位DP,求在pos中选部分二进制为1的位组成a,且a&lt;=max_value的方案数</span></span><br><span class="line">    <span class="keyword">if</span>(max_value &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;len) &lt;= max_value) len++;</span><br><span class="line"></span><br><span class="line">    pos = pos &amp; ((<span class="number">1</span>&lt;&lt;len) - <span class="number">1</span>);<span class="comment">//把高位舍掉,反正也没用</span></span><br><span class="line">    <span class="keyword">int</span> ret = dfs(pos, len-<span class="number">1</span>, max_value);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> casnum, n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; casnum;</span><br><span class="line">    <span class="keyword">while</span>(casnum--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;len) &lt;= n || (<span class="number">1</span>&lt;&lt;len) &lt;= m) len++;</span><br><span class="line">        <span class="keyword">int</span> s = <span class="number">1</span>;</span><br><span class="line">        REP(i, len) s *= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        REP(i, s) &#123; <span class="comment">// 三进制枚举状态值</span></span><br><span class="line">            <span class="keyword">int</span> tmp = i, x = <span class="number">0</span>, y = <span class="number">0</span>; <span class="comment">// x为and值, y为or值</span></span><br><span class="line">            REP(j, len) &#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp % <span class="number">3</span> == <span class="number">1</span>) y |= (<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tmp % <span class="number">3</span> == <span class="number">2</span>) x |= (<span class="number">1</span>&lt;&lt;j), y |= (<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">                tmp /= <span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(y == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(x &gt; n || x &gt; m) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> z = x ^ y;</span><br><span class="line">            <span class="keyword">int</span> value = get(z, n-x) - get(z, z-m+x-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(x == <span class="number">0</span>) &#123; <span class="comment">//这里要注意.当x==0时, a 和 b 都不能为0</span></span><br><span class="line">                <span class="keyword">if</span>(z &lt;= n) --value;</span><br><span class="line">                <span class="keyword">if</span>(z &lt;= m) --value;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += __gcd(x, y) * max(value, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>DZY Loves 系列…DZY大神你怎么什么都喜欢…</p>
+<p>传送门: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5648">http://acm.hdu.edu.cn/showproblem.php?pid=5648</a></p>
+<p>题意: 求$\sum<em>{i=1} ^ n \sum</em>{j=1} ^m gcd(i ~ AND ~j, i~ OR~ j) $, 1 &lt;= n, m &lt;= 15000</p>
+<p>用三进制表示状态值, 每一位上的值:</p>
+<ul>
+<li>0: 表示均为0</li>
+<li>1: 表示一个为0, 一个为1</li>
+<li>2: 表示两个都为1 </li>
+</ul>]]>
+    
+    </summary>
+    
+      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+    
+      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[HDU 5296 Annoying problem]]></title>

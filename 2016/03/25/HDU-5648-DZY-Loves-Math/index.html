@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="FNQZfwk2LO" />
+  <meta name="google-site-verification" content="Tiy4g_fxDyWORG0NcTPGtG9BomPV280Nfmd_a4DwBnM" />
+ 
+  
+  <title>HDU 5648 DZY Loves Math | Teveillan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DZY Loves 系列…DZY大神你怎么什么都喜欢…
+传送门: http://acm.hdu.edu.cn/showproblem.php?pid=5648
+题意: 求$\sum{i=1} ^ n \sum{j=1} ^m gcd(i ~ AND ~j, i~ OR~ j) $, 1 &amp;lt;= n, m &amp;lt;= 15000
+用三进制表示状态值, 每一位上的值:
+
+0: 表示均为0
+1: 表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 5648 DZY Loves Math">
+<meta property="og:url" content="http://teveillan.com/2016/03/25/HDU-5648-DZY-Loves-Math/index.html">
+<meta property="og:site_name" content="Teveillan">
+<meta property="og:description" content="DZY Loves 系列…DZY大神你怎么什么都喜欢…
+传送门: http://acm.hdu.edu.cn/showproblem.php?pid=5648
+题意: 求$\sum{i=1} ^ n \sum{j=1} ^m gcd(i ~ AND ~j, i~ OR~ j) $, 1 &amp;lt;= n, m &amp;lt;= 15000
+用三进制表示状态值, 每一位上的值:
+
+0: 表示均为0
+1: 表">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 5648 DZY Loves Math">
+<meta name="twitter:description" content="DZY Loves 系列…DZY大神你怎么什么都喜欢…
+传送门: http://acm.hdu.edu.cn/showproblem.php?pid=5648
+题意: 求$\sum{i=1} ^ n \sum{j=1} ^m gcd(i ~ AND ~j, i~ OR~ j) $, 1 &amp;lt;= n, m &amp;lt;= 15000
+用三进制表示状态值, 每一位上的值:
+
+0: 表示均为0
+1: 表">
+  
+    <link rel="alternative" href="/atom.xml" title="Teveillan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teveillan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/红名之路">红名之路</a></li>
+				        
+							<li><a href="/categories/Algorithm">Algorithm</a></li>
+				        
+							<li><a href="/categories/Tech">Tech</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BestCoder/" style="font-size: 15px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 15px;">MacOS</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://darkrhythm.net/">Pira-黄大神</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Teveillan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teveillan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/红名之路">红名之路</a></li>
+		        
+					<li><a href="/categories/Algorithm">Algorithm</a></li>
+		        
+					<li><a href="/categories/Tech">Tech</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-HDU-5648-DZY-Loves-Math" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/25/HDU-5648-DZY-Loves-Math/" class="article-date">
+  	<time datetime="2016-03-25T04:37:42.000Z" itemprop="datePublished">3月 25 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HDU 5648 DZY Loves Math
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DZY Loves 系列…DZY大神你怎么什么都喜欢…</p>
+<p>传送门: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5648" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5648</a></p>
+<p>题意: 求$\sum<em>{i=1} ^ n \sum</em>{j=1} ^m gcd(i ~ AND ~j, i~ OR~ j) $, 1 &lt;= n, m &lt;= 15000</p>
+<p>用三进制表示状态值, 每一位上的值:</p>
+<ul>
+<li>0: 表示均为0</li>
+<li>1: 表示一个为0, 一个为1</li>
+<li>2: 表示两个都为1 </li>
+</ul>
+<a id="more"></a>
+<p>记 $ l = \log_2 {max(n, m)} $，则枚举量为$3^l$</p>
+<p>每枚举一个状态值, 接下来便是求此状态的方案数目num, ans += num * gcd 。</p>
+<p>记AND值为x,OR 值为 y,令z = x ^ y .</p>
+<p>假设在每种方案下，i = a | x, j = b | x，很容易看出 a | b = a + b = z。<br>代入以下不等式：</p>
+<blockquote>
+<p>$ a + x &lt;= n $<br>$ b + x &lt;= m $</p>
+</blockquote>
+<p>化简以后得到</p>
+<blockquote>
+<p>$ z-m+x &lt;=  a &lt;= n-x $</p>
+</blockquote>
+<p>就是求 <strong>取z中二进制位为1的某些位组成a，且使a满足上面的不等式</strong> 的a的取值范围。</p>
+<p>熟悉数位DP的朋友很容易就看出来接下的步骤了。运用数位DP求num值就好。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> REP(i,n) for(int i=0;i&lt;(n);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> FOR(i,l,h) for(int i=(l);i&lt;=(h);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DWN(i,h,l) for(int i=(h);i&gt;=(l);--i)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> l, <span class="keyword">int</span> cur_value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt;= cur_value) <span class="keyword">return</span> <span class="number">1</span> &lt;&lt; __builtin_popcount(pos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>((<span class="number">1</span>&lt;&lt;l) &amp; pos) &#123;</span><br><span class="line">        <span class="keyword">if</span>((<span class="number">1</span>&lt;&lt;l) &lt;= cur_value) ret += dfs(pos^(<span class="number">1</span>&lt;&lt;l), l-<span class="number">1</span>, cur_value - (<span class="number">1</span>&lt;&lt;l));</span><br><span class="line">        ret += dfs(pos^(<span class="number">1</span>&lt;&lt;l), l-<span class="number">1</span>, cur_value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        ret += dfs(pos, l-<span class="number">1</span>, cur_value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> max_value)</span> </span>&#123; </span><br><span class="line">    <span class="comment">//数位DP,求在pos中选部分二进制为1的位组成a,且a&lt;=max_value的方案数</span></span><br><span class="line">    <span class="keyword">if</span>(max_value &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;len) &lt;= max_value) len++;</span><br><span class="line"></span><br><span class="line">    pos = pos &amp; ((<span class="number">1</span>&lt;&lt;len) - <span class="number">1</span>);<span class="comment">//把高位舍掉,反正也没用</span></span><br><span class="line">    <span class="keyword">int</span> ret = dfs(pos, len-<span class="number">1</span>, max_value);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> casnum, n, m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; casnum;</span><br><span class="line">    <span class="keyword">while</span>(casnum--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((<span class="number">1</span>&lt;&lt;len) &lt;= n || (<span class="number">1</span>&lt;&lt;len) &lt;= m) len++;</span><br><span class="line">        <span class="keyword">int</span> s = <span class="number">1</span>;</span><br><span class="line">        REP(i, len) s *= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        REP(i, s) &#123; <span class="comment">// 三进制枚举状态值</span></span><br><span class="line">            <span class="keyword">int</span> tmp = i, x = <span class="number">0</span>, y = <span class="number">0</span>; <span class="comment">// x为and值, y为or值</span></span><br><span class="line">            REP(j, len) &#123;</span><br><span class="line">                <span class="keyword">if</span>(tmp % <span class="number">3</span> == <span class="number">1</span>) y |= (<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(tmp % <span class="number">3</span> == <span class="number">2</span>) x |= (<span class="number">1</span>&lt;&lt;j), y |= (<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">                tmp /= <span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(y == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(x &gt; n || x &gt; m) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> z = x ^ y;</span><br><span class="line">            <span class="keyword">int</span> value = get(z, n-x) - get(z, z-m+x-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(x == <span class="number">0</span>) &#123; <span class="comment">//这里要注意.当x==0时, a 和 b 都不能为0</span></span><br><span class="line">                <span class="keyword">if</span>(z &lt;= n) --value;</span><br><span class="line">                <span class="keyword">if</span>(z &lt;= m) --value;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += __gcd(x, y) * max(value, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/16/HDU-5296-Annoying-problem/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HDU 5296 Annoying problem</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="HDU-5648-DZY-Loves-Math" data-title="HDU 5648 DZY Loves Math" data-url="http://teveillan.com/2016/03/25/HDU-5648-DZY-Loves-Math/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"teveillan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teveillan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
