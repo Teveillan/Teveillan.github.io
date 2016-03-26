@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="FNQZfwk2LO" />
+  <meta name="google-site-verification" content="Tiy4g_fxDyWORG0NcTPGtG9BomPV280Nfmd_a4DwBnM" />
+ 
+  
+  <title>HDU 5649 DZY Loves Sorting | Teveillan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="祭奠我因为一个坑被白白浪费的一天…
+基础数据结构。线段树。区间更新，区间查询。
+传送门：http://acm.hdu.edu.cn/showproblem.php?pid=5649
+此题的难点在于，每次排序的时候，每个数在排序之后的位置不能一个一个来处理，这样复杂度肯定是不够的。
+So, 我们枚举一个答案mid，这样对于所有的数，只用区分它是比mid大，还是比mid小，由此进行批量处理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 5649 DZY Loves Sorting">
+<meta property="og:url" content="http://teveillan.com/2016/03/26/HDU-5649-DZY-Loves-Sorting/index.html">
+<meta property="og:site_name" content="Teveillan">
+<meta property="og:description" content="祭奠我因为一个坑被白白浪费的一天…
+基础数据结构。线段树。区间更新，区间查询。
+传送门：http://acm.hdu.edu.cn/showproblem.php?pid=5649
+此题的难点在于，每次排序的时候，每个数在排序之后的位置不能一个一个来处理，这样复杂度肯定是不够的。
+So, 我们枚举一个答案mid，这样对于所有的数，只用区分它是比mid大，还是比mid小，由此进行批量处理。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 5649 DZY Loves Sorting">
+<meta name="twitter:description" content="祭奠我因为一个坑被白白浪费的一天…
+基础数据结构。线段树。区间更新，区间查询。
+传送门：http://acm.hdu.edu.cn/showproblem.php?pid=5649
+此题的难点在于，每次排序的时候，每个数在排序之后的位置不能一个一个来处理，这样复杂度肯定是不够的。
+So, 我们枚举一个答案mid，这样对于所有的数，只用区分它是比mid大，还是比mid小，由此进行批量处理。">
+  
+    <link rel="alternative" href="/atom.xml" title="Teveillan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teveillan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/红名之路">红名之路</a></li>
+				        
+							<li><a href="/categories/Algorithm">Algorithm</a></li>
+				        
+							<li><a href="/categories/Tech">Tech</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BestCoder/" style="font-size: 15px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 15px;">MacOS</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://darkrhythm.net/">Pira-黄大神</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhuoyifan.net/">Yifan</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Teveillan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teveillan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/红名之路">红名之路</a></li>
+		        
+					<li><a href="/categories/Algorithm">Algorithm</a></li>
+		        
+					<li><a href="/categories/Tech">Tech</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-HDU-5649-DZY-Loves-Sorting" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/26/HDU-5649-DZY-Loves-Sorting/" class="article-date">
+  	<time datetime="2016-03-26T14:40:46.000Z" itemprop="datePublished">3月 26 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HDU 5649 DZY Loves Sorting
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>祭奠我因为一个坑被白白浪费的一天…</p>
+<p>基础数据结构。线段树。区间更新，区间查询。</p>
+<p>传送门：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=5649" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5649</a></p>
+<p>此题的难点在于，每次排序的时候，每个数在排序之后的位置不能一个一个来处理，这样复杂度肯定是不够的。</p>
+<p>So, 我们枚举一个答案mid，这样对于所有的数，只用区分它是比mid大，还是比mid小，由此进行批量处理。</p>
+<a id="more"></a>
+<blockquote>
+<ol>
+<li>枚举mid。</li>
+<li>每次操作开始，把初始位置上小于等于mid的位置标为1，剩下的标为0.</li>
+<li>对于每次排序。（假如是升序）先进行区间查询[l, r]区间内1的个数num。 把[l, l+num-1]全更新为1，剩下的更新为0</li>
+<li>查看第k位上是否为1。</li>
+</ol>
+</blockquote>
+<p>可以肯定的一点是，经过m次排序之后，最后排序的结果不以我们枚举的mid而发生变化。</p>
+<p>当我们第一次枚举mid = n的时候，在所有排序结束后，必然是所有位置上的数都为1.<br>当mid在逐渐变小的过程中，在排序结束后，某些位置上的数会由1变为0。<br>当第k位上恰好最后为1的时候，此时的mid值即为需要的答案。</p>
+<p>当然，直接枚举也是会超时的，加个二分就好了。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> pb push_back</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> mp make_pair</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> REP(i,n) for(int i=0;i&lt;(n);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> FOR(i,l,h) for(int i=(l);i&lt;=(h);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DWN(i,h,l) for(int i=(h);i&gt;=(l);--i)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pii;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> L pos&lt;&lt;1</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> R pos&lt;&lt;1|1</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MID ((l+r)&gt;&gt;1)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> LL L, l, MID</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> RR R, MID+1, r</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> node[N&lt;&lt;<span class="number">2</span>], lazy[N&lt;&lt;<span class="number">2</span>], v[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;pair&lt;pii, <span class="keyword">int</span>&gt; &gt; vec;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    lazy[pos] = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(l==r) node[pos] = (v[l] &lt;= value);</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        build(LL, value);</span><br><span class="line">        build(RR, value);</span><br><span class="line">        node[pos] = node[L] + node[R];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_down</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l == r || lazy[pos] == -<span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">    lazy[L] = lazy[R] = lazy[pos];</span><br><span class="line">    node[L] = lazy[pos] * (MID - l + <span class="number">1</span>);</span><br><span class="line">    node[R] = lazy[pos] * (r - MID);</span><br><span class="line">    lazy[pos] = -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_up</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;node[pos] = node[L] + node[R];&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> ll, <span class="keyword">int</span> rr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(ll &lt;= l &amp;&amp; r &lt;= rr) <span class="keyword">return</span> node[pos];</span><br><span class="line">    push_down(pos, l, r);</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(ll &lt;= MID) ret += query(LL, ll, rr);</span><br><span class="line">    <span class="keyword">if</span>(rr &gt;  MID) ret += query(RR, ll, rr);</span><br><span class="line">    push_up(pos, l, r);</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> ll, <span class="keyword">int</span> rr, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(ll &lt;= l &amp;&amp; r &lt;= rr) node[pos] = (r - l + <span class="number">1</span>) * value, lazy[pos] = value;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        push_down(pos, l, r);</span><br><span class="line">        <span class="keyword">if</span>(ll &lt;= MID) update(LL, ll, rr, value);</span><br><span class="line">        <span class="keyword">if</span>(rr &gt;  MID) update(RR, ll, rr, value);</span><br><span class="line">        push_up(pos, l, r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> mid, <span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    build(<span class="number">1</span>, <span class="number">1</span>, n, mid);</span><br><span class="line"></span><br><span class="line">    REP(i, vec.size()) &#123;</span><br><span class="line">        <span class="keyword">int</span> l = vec[i].first.first, r = vec[i].first.second, flag = vec[i].second;</span><br><span class="line">        <span class="keyword">int</span> num = query(<span class="number">1</span>, <span class="number">1</span>, n, l, r);</span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">0</span> || num == r - l + <span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(!flag) &#123;</span><br><span class="line">            update(<span class="number">1</span>, <span class="number">1</span>, n, l, l+num-<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            update(<span class="number">1</span>, <span class="number">1</span>, n, l+num, r, <span class="number">0</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            update(<span class="number">1</span>, <span class="number">1</span>, n, r-num+<span class="number">1</span>, r, <span class="number">1</span>);</span><br><span class="line">            update(<span class="number">1</span>, <span class="number">1</span>, n, l, r-num, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> query(<span class="number">1</span>, <span class="number">1</span>, n, k, k) == <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> casnum, n, m, k, x, y, z;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; casnum;</span><br><span class="line">    <span class="keyword">while</span>(casnum--) &#123;</span><br><span class="line">        vec.clear();</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        FOR(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;v[i]);</span><br><span class="line">        REP(i, m) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;z, &amp;x, &amp;y);</span><br><span class="line">            vec.pb(make_pair(pii(x, y), z));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">1</span>, r = n, ans;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">if</span>(solve(MID, n, m, k)) ans = MID, r = MID - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> l = MID + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/25/HDU-5648-DZY-Loves-Math/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HDU 5648 DZY Loves Math</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="HDU-5649-DZY-Loves-Sorting" data-title="HDU 5649 DZY Loves Sorting" data-url="http://teveillan.com/2016/03/26/HDU-5649-DZY-Loves-Sorting/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"teveillan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teveillan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
