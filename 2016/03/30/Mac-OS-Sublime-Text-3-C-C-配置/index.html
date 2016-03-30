@@ -6,17 +6,32 @@
   <meta name="google-site-verification" content="Tiy4g_fxDyWORG0NcTPGtG9BomPV280Nfmd_a4DwBnM" />
  
   
-  <title>New Year | Teveillan</title>
+  <title>Mac OS Sublime Text 3 C/C++ 配置 | Teveillan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="What’t this?">
+  <meta name="description" content="安装sublime text 3 插件1.安装 Package Control组件：
+
+按 control+` (键盘上1左边的按钮)调出console控制台;
+粘贴以下代码到底部命令行并回车:
+
+1import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="New Year">
-<meta property="og:url" content="http://teveillan.com/2015/01/02/New-Year/index.html">
+<meta property="og:title" content="Mac OS Sublime Text 3 C/C++ 配置">
+<meta property="og:url" content="http://teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/index.html">
 <meta property="og:site_name" content="Teveillan">
-<meta property="og:description" content="What’t this?">
+<meta property="og:description" content="安装sublime text 3 插件1.安装 Package Control组件：
+
+按 control+` (键盘上1左边的按钮)调出console控制台;
+粘贴以下代码到底部命令行并回车:
+
+1import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_p">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="New Year">
-<meta name="twitter:description" content="What’t this?">
+<meta name="twitter:title" content="Mac OS Sublime Text 3 C/C++ 配置">
+<meta name="twitter:description" content="安装sublime text 3 插件1.安装 Package Control组件：
+
+按 control+` (键盘上1左边的按钮)调出console控制台;
+粘贴以下代码到底部命令行并回车:
+
+1import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_p">
   
     <link rel="alternative" href="/atom.xml" title="Teveillan" type="application/atom+xml">
   
@@ -200,11 +215,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-New-Year" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Mac-OS-Sublime-Text-3-C-C-配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/02/New-Year/" class="article-date">
-  	<time datetime="2015-01-02T15:16:29.000Z" itemprop="datePublished">1月 2 2015</time>
+      <a href="/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/" class="article-date">
+  	<time datetime="2016-03-30T08:57:59.000Z" itemprop="datePublished">3月 30 2016</time>
 </a>
     </div>
   
@@ -217,7 +232,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      New Year
+      Mac OS Sublime Text 3 C/C++ 配置
     </h1>
   
 
@@ -225,11 +240,11 @@
       
       <div class="article-info article-info-post">
         
-        
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/随笔/">随笔</a>
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MacOS/">MacOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SublimeText/">SublimeText</a></li></ul>
 	</div>
 
+        
 
         <div class="clearfix"></div>
       </div>
@@ -237,7 +252,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>新的一年，要把CF刷红，TC刷红。<br>托福要过，N2看着办吧。。。<br>至于签了百度什么的。。。呵呵呵呵。。。妥妥地不想回去了。。。</p>
+        <h2 id="安装sublime_text_3_插件"><strong>安装sublime text 3 插件</strong></h2><p><strong>1.安装 Package Control组件：</strong></p>
+<ul>
+<li>按 control+` (键盘上1左边的按钮)调出console控制台;</li>
+<li>粘贴以下代码到底部命令行并回车:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), <span class="string">'wb'</span>).write(urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).read())</span><br></pre></td></tr></table></figure>
+<p><strong>2.用Package Control安装插件的方法</strong></p>
+<ul>
+<li><code>Preference -&gt; Package Control</code>打开控制栏，输入<code>install Package</code>回车。</li>
+</ul>
+<p><strong>3.常用插件</strong></p>
+<ol>
+<li><code>SublimeCodeIntel</code>:  代码提示及自动补全</li>
+<li><code>SideBar Enhancements</code>: 改进侧边栏</li>
+<li><code>SideBar Folders</code>: 增加了侧边栏对于文件夹的支持</li>
+</ol>
+<p>暂时没用到这么多..以后慢慢补吧…</p>
+<p><br> </p>
+<h2 id="内置输入数据"><strong>内置输入数据</strong></h2><p>本以为上面的弄完就万事大吉，但在编译运行的时候发现一个问题：运行时无法在控制台输入数据。愁。</p>
+<p>解决办法：<br><code>Tools -&gt; Build System -&gt; New Build System</code> 新建编译系统。在新打开的窗口中替换为以下代码</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">cmd</span>": <span class="value">[<span class="string">"bash"</span>, <span class="string">"-c"</span>, <span class="string">"g++ '$&#123;file&#125;' -o '$&#123;file_path&#125;/$&#123;file_base_name&#125;' &amp;&amp; osascript -e 'tell application \"Terminal\" to activate do script \"clear&amp;&amp;$&#123;file_path&#125;/$&#123;file_base_name&#125; &amp;&amp; read -p \\\"Press Enter to exit.\\\"&amp;&amp;exit\"'"</span>]</span>,</span><br><span class="line">    "<span class="attribute">file_regex</span>": <span class="value"><span class="string">"^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$"</span></span>,</span><br><span class="line">    "<span class="attribute">working_dir</span>": <span class="value"><span class="string">"$&#123;file_path&#125;"</span></span>,</span><br><span class="line">    "<span class="attribute">selector</span>": <span class="value"><span class="string">"source.c, source.c++"</span></span>,</span><br><span class="line"></span><br><span class="line">    "<span class="attribute">variants</span>":</span><br><span class="line">    <span class="value">[</span><br><span class="line">        &#123;</span><br><span class="line">            "<span class="attribute">name</span>": <span class="value"><span class="string">"Run"</span></span>,</span><br><span class="line">            "<span class="attribute">cmd</span>": <span class="value">[<span class="string">"bash"</span>, <span class="string">"-c"</span>, <span class="string">"g++ '$&#123;file&#125;' -o '$&#123;file_path&#125;/$&#123;file_base_name&#125;' &amp;&amp; '$&#123;file_path&#125;/$&#123;file_base_name&#125;'"</span>]</span><br><span class="line">        </span>&#125;</span><br><span class="line">    ]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>Command + s 保存，命名为MyC++。<br>在<code>Tools -&gt; Build System</code>选中<code>MyC++</code>。<br><code>Command + Shift + B</code>编译，选<code>MyC++</code>（不加Run的那个）。</p>
+<p>搞定~</p>
 
       
     </div>
@@ -247,15 +284,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/01/04/网络流/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          网络流
-        
-      </div>
-    </a>
   
+    <a href="/2016/03/26/HDU-5649-DZY-Loves-Sorting/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HDU 5649 DZY Loves Sorting</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -282,7 +315,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="New-Year" data-title="New Year" data-url="http://teveillan.com/2015/01/02/New-Year/"></div>
+	<div class="ds-thread" data-thread-key="Mac-OS-Sublime-Text-3-C-C-配置" data-title="Mac OS Sublime Text 3 C/C++ 配置" data-url="http://teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

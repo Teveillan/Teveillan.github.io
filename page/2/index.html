@@ -122,7 +122,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BestCoder/" style="font-size: 15px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 15px;">MacOS</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,76 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-编程之美2015初赛第一场" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/07/编程之美2015初赛第一场/" class="article-date">
+  	<time datetime="2015-05-07T11:51:01.000Z" itemprop="datePublished">5月 7 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/07/编程之美2015初赛第一场/">编程之美2015初赛第一场</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Hihocoder_1156_彩色的树">Hihocoder 1156 彩色的树</h2><p>题目链接: <a href="http://hihocoder.com/problemset/problem/1156">http://hihocoder.com/problemset/problem/1156</a></p>
+<p>在每个更新操作的过程中，假设点P最初的颜色为color1，更新后的颜色为color2。<br>我们记与点P相邻，颜色为color1的点为num1, 颜色为color2的点为num2。<br>则 ans += num1 - 1, ans -= num2 - 1。</p>
+<p>难点主要在于统计nun1, num2。直接暴力肯定是要TLE的，这里有个技巧。</p>
+<p>既然是在树中，我们用map存点P的子节点各种颜色的点有多少个，将父节点单独考虑。<br>查询的过程中:</p>
+<ul>
+<li><code>num1 = map[P][color1] + (color[ fa[P] ] == color1)</code></li>
+<li><code>num2 = map[P][color2] + (color[ fa[p] ] == color2)</code></li>
+</ul>
+<p>更新的时候只用将父节点的子节点的color1—, color2++。<br>在O(log)级的复杂度内就能完成更新查询操作。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程之美/">编程之美</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/07/编程之美2015初赛第一场/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-CDQ分治" class="article article-type-post" itemscope itemprop="blogPost">
   
