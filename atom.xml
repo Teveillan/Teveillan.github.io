@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teveillan.com/"/>
-  <updated>2016-03-30T09:12:38.000Z</updated>
+  <updated>2016-03-30T09:22:53.000Z</updated>
   <id>http://teveillan.com/</id>
   
   <author>
@@ -19,12 +19,13 @@
     <link href="http://teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-%E9%85%8D%E7%BD%AE/"/>
     <id>http://teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/</id>
     <published>2016-03-30T08:57:59.000Z</published>
-    <updated>2016-03-30T09:12:38.000Z</updated>
+    <updated>2016-03-30T09:22:53.000Z</updated>
     <content type="html"><![CDATA[<h2 id="安装sublime_text_3_插件"><strong>安装sublime text 3 插件</strong></h2><p><strong>1.安装 Package Control组件：</strong></p>
 <ul>
 <li>按 control+` (键盘上1左边的按钮)调出console控制台;</li>
 <li>粘贴以下代码到底部命令行并回车:</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), <span class="string">'wb'</span>).write(urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).read())</span><br></pre></td></tr></table></figure>
 <p><strong>2.用Package Control安装插件的方法</strong></p>
 <ul>
@@ -47,7 +48,10 @@
     <summary type="html">
     <![CDATA[<h2 id="安装sublime_text_3_插件"><strong>安装sublime text 3 插件</strong></h2><p><strong>1.安装 Package Control组件：</strong></p>
 <ul>
-<li>按 control+` (]]>
+<li>按 control+` (键盘上1左边的按钮)调出console控制台;</li>
+<li>粘贴以下代码到底部命令行并回车:</li>
+</ul>]]>
+    
     </summary>
     
       <category term="MacOS" scheme="http://teveillan.com/tags/MacOS/"/>

@@ -11,9 +11,7 @@
   <meta name="description" content="安装sublime text 3 插件1.安装 Package Control组件：
 
 按 control+` (键盘上1左边的按钮)调出console控制台;
-粘贴以下代码到底部命令行并回车:
-
-1import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_p">
+粘贴以下代码到底部命令行并回车:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac OS Sublime Text 3 C/C++ 配置">
 <meta property="og:url" content="http://teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/index.html">
@@ -21,17 +19,13 @@
 <meta property="og:description" content="安装sublime text 3 插件1.安装 Package Control组件：
 
 按 control+` (键盘上1左边的按钮)调出console控制台;
-粘贴以下代码到底部命令行并回车:
-
-1import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_p">
+粘贴以下代码到底部命令行并回车:">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac OS Sublime Text 3 C/C++ 配置">
 <meta name="twitter:description" content="安装sublime text 3 插件1.安装 Package Control组件：
 
 按 control+` (键盘上1左边的按钮)调出console控制台;
-粘贴以下代码到底部命令行并回车:
-
-1import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_p">
+粘贴以下代码到底部命令行并回车:">
   
     <link rel="alternative" href="/atom.xml" title="Teveillan" type="application/atom+xml">
   
@@ -257,6 +251,7 @@
 <li>按 control+` (键盘上1左边的按钮)调出console控制台;</li>
 <li>粘贴以下代码到底部命令行并回车:</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), <span class="string">'wb'</span>).write(urllib.request.urlopen( <span class="string">'http://sublime.wbond.net/'</span> + pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).read())</span><br></pre></td></tr></table></figure>
 <p><strong>2.用Package Control安装插件的方法</strong></p>
 <ul>
