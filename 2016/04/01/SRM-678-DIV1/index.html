@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="FNQZfwk2LO" />
+  <meta name="google-site-verification" content="Tiy4g_fxDyWORG0NcTPGtG9BomPV280Nfmd_a4DwBnM" />
+ 
+  
+  <title>SRM 678 DIV1 | Teveillan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Easy: A New Hope题意：假设一个星期有n天，一个人有n件不同的衣服（标号1~n），每件衣服每周穿一件。由此有N！种穿的方式。但是洗一件衣服需要D天（第x天洗了，x+D天才能穿）。现已知第一周和最后一周穿衣服的顺序，问中间最少隔了几个星期。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SRM 678 DIV1">
+<meta property="og:url" content="http://teveillan.com/2016/04/01/SRM-678-DIV1/index.html">
+<meta property="og:site_name" content="Teveillan">
+<meta property="og:description" content="Easy: A New Hope题意：假设一个星期有n天，一个人有n件不同的衣服（标号1~n），每件衣服每周穿一件。由此有N！种穿的方式。但是洗一件衣服需要D天（第x天洗了，x+D天才能穿）。现已知第一周和最后一周穿衣服的顺序，问中间最少隔了几个星期。">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SRM 678 DIV1">
+<meta name="twitter:description" content="Easy: A New Hope题意：假设一个星期有n天，一个人有n件不同的衣服（标号1~n），每件衣服每周穿一件。由此有N！种穿的方式。但是洗一件衣服需要D天（第x天洗了，x+D天才能穿）。现已知第一周和最后一周穿衣服的顺序，问中间最少隔了几个星期。">
+  
+    <link rel="alternative" href="/atom.xml" title="Teveillan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teveillan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/红名之路">红名之路</a></li>
+				        
+							<li><a href="/categories/Algorithm">Algorithm</a></li>
+				        
+							<li><a href="/categories/Tech">Tech</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SRM/" style="font-size: 10px;">SRM</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://darkrhythm.net/">Pira-黄大神</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhuoyifan.net/">Yifan</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Teveillan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teveillan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/红名之路">红名之路</a></li>
+		        
+					<li><a href="/categories/Algorithm">Algorithm</a></li>
+		        
+					<li><a href="/categories/Tech">Tech</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-SRM-678-DIV1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/01/SRM-678-DIV1/" class="article-date">
+  	<time datetime="2016-04-01T13:53:40.000Z" itemprop="datePublished">4月 1 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SRM 678 DIV1
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SRM/">SRM</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Easy:_A_New_Hope">Easy: A New Hope</h2><p>题意：假设一个星期有n天，一个人有n件不同的衣服（标号1~n），每件衣服每周穿一件。由此有N！种穿的方式。<br>但是洗一件衣服需要D天（第x天洗了，x+D天才能穿）。<br>现已知第一周和最后一周穿衣服的顺序，问中间最少隔了几个星期。</p>
+<a id="more"></a>
+<p>用数学方法表示，每周穿衣服的顺序可标示为长度为n的排序。<br>如{1, 2, 3, 4}。假设D＝3，则4号衣服下周最早可以在周三穿，提前了一天(4 - 3 ＝ 1)。</p>
+<p>由此便清楚了，本质上就是第一周的排序$P_1$，移动某些数字后，使其状态等于最后一周的状态$P_m$。而每个数字一周最多可以向前移动<code>n-D</code>位。</p>
+<p>枚举每个数字，求移动周数的最大值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> ANewHope</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">count</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; firstWeek, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; lastWeek, <span class="keyword">int</span> D)</span></span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> n = firstWeek.size();</span><br><span class="line">            D = n - D;</span><br><span class="line">            <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;first_p, last_p;</span><br><span class="line">            REP(i, n) first_p[ firstWeek[i] ] = i, last_p[ lastWeek[i] ] = i;</span><br><span class="line">            <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">            FOR(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">                <span class="keyword">if</span>(last_p[i] &lt; first_p[i]) </span><br><span class="line">                    ret = max(ret, (first_p[i] - last_p[i] + D - <span class="number">1</span>) / D);<span class="comment">//上取整</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ret + <span class="number">1</span>; <span class="comment">//加上第一周</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Middle:_The_Empire_Strikes_Back">Middle: The Empire Strikes Back</h2><p>题意：有n颗行星，坐标$(x_i, y_i)$。有m发子弹，当子弹威力为w时，对准一颗行星，可以消灭(0, 0)~$(x_i, y_i)$矩形内的行星。<br>问子弹威力最小应为多少。</p>
+<p>这种题上来不用多说先二分枚举子弹威力mid…</p>
+<p>行星坐标$(x_i, y_i)$以及矩形右上角的坐标$(x_i+mid, y_i+mid)$分开存。<br>都对y从大到小进行排序。<br>贪心。保存此时能毁灭的x的最大值max_x，随着行星坐标$y_i$的减小，求矩形坐标中$y_j+mid &gt; y_i$中最大的$x_j+mid$，并更新为max_x</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solve</span><span class="params">(<span class="built_in">vector</span>&lt;pii&gt;&amp;vec, <span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> mid)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;pii&gt;f(vec);</span><br><span class="line">    <span class="keyword">for</span>(pii &amp;tmp: f) tmp.first += mid, tmp.second += mid;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> max_x = -<span class="number">1</span>, id = n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    DWN(i, n-<span class="number">1</span>, <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(max_x &lt; vec[i].second) &#123;</span><br><span class="line">            ++ret;</span><br><span class="line">            <span class="keyword">while</span>(id &gt;= <span class="number">0</span> &amp;&amp; f[id].first &gt;= vec[i].first) &#123;</span><br><span class="line">                max_x = max(max_x, f[id].second);</span><br><span class="line">                id --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret &lt;= m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> TheEmpireStrikesBack</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> AX, <span class="keyword">int</span> BX, <span class="keyword">int</span> CX, <span class="keyword">int</span> AY, <span class="keyword">int</span> BY, <span class="keyword">int</span> CY, <span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;pii&gt;vec;</span><br><span class="line">            LL x = AX, y = AY;</span><br><span class="line">            vec.pb(pii(y, x));</span><br><span class="line">            FOR(i, <span class="number">1</span>, n-<span class="number">1</span>) &#123;</span><br><span class="line">                x = (x * BX + CX) % MOD;</span><br><span class="line">                y = (y * BY + CY) % MOD;</span><br><span class="line">                vec.pb(pii(y, x));</span><br><span class="line">            &#125;</span><br><span class="line">            sort(vec.begin(), vec.end());</span><br><span class="line">            <span class="keyword">int</span> l = <span class="number">0</span>, r = MOD, ans;</span><br><span class="line">            <span class="keyword">while</span>(l &lt;= r) &#123;</span><br><span class="line">                <span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(solve(vec, n, m, mid)) r = mid - <span class="number">1</span>, ans = mid;</span><br><span class="line">                <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac OS Sublime Text 3 C/C++ 配置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SRM-678-DIV1" data-title="SRM 678 DIV1" data-url="http://teveillan.com/2016/04/01/SRM-678-DIV1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"teveillan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teveillan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
