@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="FNQZfwk2LO" />
+  <meta name="google-site-verification" content="Tiy4g_fxDyWORG0NcTPGtG9BomPV280Nfmd_a4DwBnM" />
+ 
+  
+  <title>HDU 5657 CA Loves Math | Teveillan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="传送门: http://acm.hdu.edu.cn/showproblem.php?pid=5657题意：求[1, $A^n_{(10)}$]中，长度小于等于n，且为k的倍数的数有多少。
+此题…巨坑…
+比赛时思路是对的，对k进行分类讨论..然并卵…
+等A了才发现几个大坑:
+
+k的阀值在30000～60000之间才能A，高了低了都不行（想起了那些年计算几何中调精度的日子..）
+queue真心慢…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 5657 CA Loves Math">
+<meta property="og:url" content="http://teveillan.com/2016/04/03/HDU-5657-CA-Loves-Math/index.html">
+<meta property="og:site_name" content="Teveillan">
+<meta property="og:description" content="传送门: http://acm.hdu.edu.cn/showproblem.php?pid=5657题意：求[1, $A^n_{(10)}$]中，长度小于等于n，且为k的倍数的数有多少。
+此题…巨坑…
+比赛时思路是对的，对k进行分类讨论..然并卵…
+等A了才发现几个大坑:
+
+k的阀值在30000～60000之间才能A，高了低了都不行（想起了那些年计算几何中调精度的日子..）
+queue真心慢…">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 5657 CA Loves Math">
+<meta name="twitter:description" content="传送门: http://acm.hdu.edu.cn/showproblem.php?pid=5657题意：求[1, $A^n_{(10)}$]中，长度小于等于n，且为k的倍数的数有多少。
+此题…巨坑…
+比赛时思路是对的，对k进行分类讨论..然并卵…
+等A了才发现几个大坑:
+
+k的阀值在30000～60000之间才能A，高了低了都不行（想起了那些年计算几何中调精度的日子..）
+queue真心慢…">
+  
+    <link rel="alternative" href="/atom.xml" title="Teveillan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teveillan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/红名之路">红名之路</a></li>
+				        
+							<li><a href="/categories/Algorithm">Algorithm</a></li>
+				        
+							<li><a href="/categories/Tech">Tech</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SRM/" style="font-size: 10px;">SRM</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://darkrhythm.net/">Pira-黄大神</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhuoyifan.net/">Yifan</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Teveillan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teveillan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/红名之路">红名之路</a></li>
+		        
+					<li><a href="/categories/Algorithm">Algorithm</a></li>
+		        
+					<li><a href="/categories/Tech">Tech</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-HDU-5657-CA-Loves-Math" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/03/HDU-5657-CA-Loves-Math/" class="article-date">
+  	<time datetime="2016-04-03T12:44:47.000Z" itemprop="datePublished">4月 3 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HDU 5657 CA Loves Math
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>传送门: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5657" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5657</a><br>题意：求[1, $A^n_{(10)}$]中，长度小于等于n，且为k的倍数的数有多少。</p>
+<p>此题…巨坑…</p>
+<p>比赛时思路是对的，对k进行分类讨论..然并卵…</p>
+<p>等A了才发现几个大坑:</p>
+<ol>
+<li>k的阀值在30000～60000之间才能A，高了低了都不行（想起了那些年计算几何中调精度的日子..）</li>
+<li>queue真心慢…</li>
+<li>n = 0 or n = 1时坑比较多，建议单独处理</li>
+<li><strong>前导0是不算的!!!</strong>。但是题目给的数据比较坑，刚好两位，如果算了前导0，刚好也对。（包括第一题中MOD值为1e8+7…我充满了对这个世界的怨念…）</li>
+</ol>
+<p>所以说一直WA的可以按我上面的几点检查一下…我感觉我应该是把坑都踩完了…<br><a id="more"></a><br>—————————————正文———————————————</p>
+<p>对k进行分类，假设阀值为N（参考上面第一点）。<br>当k &gt;= N时，枚举k的倍数，再判断数字是否重复。<br>当k &lt; N时：<br>记dp[pos][j]：当用的数字集合为pos(状态压缩), 且mod k = j时的数目</p>
+<p>转移方程：<br>$$ dp[ pos| (1&lt;&lt;i) ] [ (j + A^x ) \% k] += dp[pos][j] $$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;queue&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cmath&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> REP(i,n) for(int i=0;i&lt;(n);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> FOR(i,l,h) for(int i=(l);i&lt;=(h);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DWN(i,h,l) for(int i=(h);i&gt;=(l);--i)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50000</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> A, LL x)</span> </span>&#123;<span class="comment">//判断数字是否重复</span></span><br><span class="line">    <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(x) &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = x % A;</span><br><span class="line">        <span class="keyword">if</span>(pos &amp; (<span class="number">1</span>&lt;&lt;tmp)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        pos |= (<span class="number">1</span>&lt;&lt;tmp);</span><br><span class="line">        x /= A;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">1</span>&lt;&lt;<span class="number">11</span>][N], f[<span class="number">12</span>];</span><br><span class="line"><span class="function">LL <span class="title">solve</span><span class="params">(<span class="keyword">int</span> A, <span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> k == <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> A / k;</span><br><span class="line"></span><br><span class="line">    n = min(n, A);</span><br><span class="line">    LL NN = <span class="number">1</span>;</span><br><span class="line">    REP(i, n) NN *= A;</span><br><span class="line">    LL ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(k &gt;= N) &#123; <span class="comment">//k&gt;=N时枚举k的倍数</span></span><br><span class="line">        LL tmp = k;</span><br><span class="line">        <span class="keyword">while</span>(tmp &lt;= NN) &#123;</span><br><span class="line">            <span class="keyword">if</span>(check(A, tmp)) ++ret;</span><br><span class="line">            tmp += k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    FOR(i, <span class="number">1</span>, n) f[i] = (f[i-<span class="number">1</span>] * A) % k;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    REP(pos, <span class="number">1</span>&lt;&lt;A) &#123;</span><br><span class="line">        <span class="keyword">int</span> num = __builtin_popcount(pos);</span><br><span class="line">        <span class="keyword">if</span>(num &gt;= n) <span class="keyword">continue</span>;</span><br><span class="line">            REP(i, A) <span class="keyword">if</span>((pos &amp; (<span class="number">1</span>&lt;&lt;i)) == <span class="number">0</span>)</span><br><span class="line">                REP(j, k) <span class="keyword">if</span>(dp[pos][j]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> x = pos | (<span class="number">1</span>&lt;&lt;i), y = (j + i * f[num]) % k;</span><br><span class="line">                    dp[x][y] += dp[pos][j];</span><br><span class="line">                    <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; y == <span class="number">0</span>) ret += dp[pos][j];</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(check(A, NN) &amp;&amp; (NN % k == <span class="number">0</span>)) ++ret; <span class="comment">//特判A^n</span></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> casnum, A, n, k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; casnum;</span><br><span class="line">    <span class="keyword">while</span>(casnum--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; A &gt;&gt; n &gt;&gt; k;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; solve(A, n, k) &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/01/SRM-678-DIV1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SRM 678 DIV1</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="HDU-5657-CA-Loves-Math" data-title="HDU 5657 CA Loves Math" data-url="http://teveillan.com/2016/04/03/HDU-5657-CA-Loves-Math/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"teveillan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teveillan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
