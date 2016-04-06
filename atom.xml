@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teveillan.com/"/>
-  <updated>2016-04-04T08:54:40.000Z</updated>
+  <updated>2016-04-06T05:22:58.000Z</updated>
   <id>http://teveillan.com/</id>
   
   <author>
@@ -13,6 +13,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[SRM 677 DIV1]]></title>
+    <link href="http://teveillan.com/2016/04/06/SRM-677-DIV1/"/>
+    <id>http://teveillan.com/2016/04/06/SRM-677-DIV1/</id>
+    <published>2016-04-06T04:58:13.000Z</published>
+    <updated>2016-04-06T05:22:58.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Easy:_DoubleOrOneEasy">Easy:  DoubleOrOneEasy</h2><p>给出a, b, A, B,有两种操作：</p>
+<ul>
+<li>a, b同时乘2</li>
+<li>a, b同时加1</li>
+</ul>
+<p>问最少经过多少次操作使得 a == A &amp;&amp; b == b<br><a id="more"></a><br>首先明确一点，在什么情况下有解。</p>
+<p>假如进行过x次乘法之后，a变为aa, b变为bb。<br>令$ aa = a * 2^x + y, bb = b * 2^x + z $，则y == z。</p>
+<p>也就是说，如果有解，则存在一个x，使得<br> $A - a * 2^x == B - b * 2 ^ x$</p>
+<p>一般来说这样的x是只有一个的(A == B &amp;&amp; a == b时特殊)。<br>贪心找到最大的x，就是最后进行过乘法的次数。<br>然后在此基础上找加法的个数。</p>
+<p>还是令 $y = A - a * 2^x$<br>首先贪心，最开始先进行$y / (1&lt;&lt;x)$次加法操作, 还剩下$z = y \% (1&lt;&lt;x) $需要补，再加上bitcount(z)就好了（自己想为什么）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = -<span class="number">1</span>, num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a &lt;= aa &amp;&amp; b &lt;= bb) &#123;</span><br><span class="line">        <span class="keyword">if</span>(aa - a == bb - b) ret = max(ret, num);</span><br><span class="line">        a &lt;&lt;= <span class="number">1</span>, b &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        ++num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> DoubleOrOneEasy</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">minimalSteps</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> num = solve(a, b, aa, bb);</span><br><span class="line">            <span class="keyword">if</span>(num == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> tmp = aa - (a &lt;&lt; num);</span><br><span class="line">            <span class="keyword">return</span> num + tmp / (<span class="number">1</span>&lt;&lt;num) + __builtin_popcount(tmp % (<span class="number">1</span>&lt;&lt;num));</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Medium:_DiameterOfRandomTree">Medium: DiameterOfRandomTree</h2><p>给出一个棵树,每条边等概率长度为1或2，求树的直径。</p>
+<p>用<code>dp[root][d1][l1]</code>表示根为root的子树，直径为d1，从根往下最长的链长度为l1的方案数。<br><code>dp[son][d2][l2]</code>表示子树的状态。<br>状态转移公式:</p>
+<blockquote>
+<p>$$ dp[root][max(max(d1, d2), l1 + l2 + 1)][max(l1, l2 + 1)] += dp[root][d1][l1] * dp[son][d2][l2] $$</p>
+<p>$$ dp[root][max(max(d1, d2), l1 + l2 + 2)][max(l1, l2 + 2)] += dp[root][d1][l1] * dp[son][d2][l2] $$</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">VI head[<span class="number">55</span>];</span><br><span class="line">LL dp[<span class="number">55</span>][<span class="number">2</span>][<span class="number">101</span>][<span class="number">101</span>], max_l[<span class="number">55</span>], dia[<span class="number">55</span>];<span class="comment">//dp中加了一维作滚动数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mem(dp), mem(max_l), mem(dia);</span><br><span class="line">    REP(i, <span class="number">50</span>) head[i].clear();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> pre)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sta = <span class="number">0</span>;</span><br><span class="line">    dp[cur][sta][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> to: head[cur]) &#123;</span><br><span class="line">        <span class="keyword">if</span>(to == pre) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">int</span> to_sta = dfs(to, cur); sta ^= <span class="number">1</span>;</span><br><span class="line">        mem(dp[cur][sta]);</span><br><span class="line">        FOR(d1, <span class="number">0</span>, dia[cur])</span><br><span class="line">            FOR(l1, <span class="number">0</span>, max_l[cur])</span><br><span class="line">                FOR(d2, <span class="number">0</span>, dia[to])</span><br><span class="line">                    FOR(l2, <span class="number">0</span>, max_l[to]) &#123;</span><br><span class="line">                        <span class="keyword">int</span> d = max(max(d1, d2), l1 + l2 + <span class="number">1</span>), l = max(l1, l2 + <span class="number">1</span>);</span><br><span class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</span><br><span class="line"></span><br><span class="line">                        d = max(max(d1, d2), l1 + l2 + <span class="number">2</span>), l = max(l1, l2 + <span class="number">2</span>);</span><br><span class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</span><br><span class="line">                    &#125;</span><br><span class="line">        dia[cur] = max(max(dia[cur], dia[to]), max_l[cur] + max_l[to] + <span class="number">2</span>);</span><br><span class="line">        max_l[cur] = max(max_l[cur], max_l[to] + <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sta;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> DiameterOfRandomTree</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">double</span> <span class="title">getExpectation</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; b)</span></span>&#123;</span><br><span class="line">            init();</span><br><span class="line">            REP(i, a.size()) &#123;</span><br><span class="line">                head[a[i]].pb(b[i]);</span><br><span class="line">                head[b[i]].pb(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> sta = dfs(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">double</span> ret = <span class="number">0</span>, div = (<span class="keyword">double</span>)(<span class="number">1l</span>l &lt;&lt; a.size());</span><br><span class="line">            FOR(i, <span class="number">0</span>, dia[<span class="number">0</span>])</span><br><span class="line">                FOR(j, <span class="number">0</span>, max_l[<span class="number">0</span>])</span><br><span class="line">                    ret += (<span class="keyword">double</span>) dp[<span class="number">0</span>][sta][i][j] / div * i;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Easy:_DoubleOrOneEasy">Easy:  DoubleOrOneEasy</h2><p>给出a, b, A, B,有两种操作：</p>
+<ul>
+<li>a, b同时乘2</li>
+<li>a, b同时加1</li>
+</ul>
+<p>问最少经过多少次操作使得 a == A &amp;&amp; b == b<br>]]>
+    
+    </summary>
+    
+      <category term="SRM" scheme="http://teveillan.com/tags/SRM/"/>
+    
+      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[HDU 5657 CA Loves Math]]></title>
@@ -849,69 +890,6 @@
 <ul>
 <li>初始化</li>
 <li>松弛操作]]>
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://teveillan.com/categories/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[网络流]]></title>
-    <link href="http://teveillan.com/2015/01/04/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
-    <id>http://teveillan.com/2015/01/04/网络流/</id>
-    <published>2015-01-04T05:01:59.000Z</published>
-    <updated>2015-05-06T13:24:03.000Z</updated>
-    <content type="html"><![CDATA[<p>网络流，也被称为最大流。</p>
-<p>模型也非常简单，就是一个管道系统，在有源点，汇点，和一堆有流速限制的管道连接的情况下，问能从源点到汇点传输流量的最大流速是多少。如下图所示。</p>
-<p><img src="http://7tszmu.com1.z0.glb.clouddn.com/网络流.png" alt="Alt text"><br><a id="more"></a><br>假定s为源点，t为汇点，中间各箭头为管道，各管道的流速限制均为1。<br>求最大流的话，很明显，最大流为2。有两条流量：</p>
-<ul>
-<li>s -&gt; 1 -&gt; 3 -&gt; t，流量为1</li>
-<li>s -&gt; 2 -&gt; 4 -&gt; t，流量为1</li>
-</ul>
-<p>现在是因为图比较简单，我们能一眼看出来。我们自然喜欢程序跑出来的结果是这样。</p>
-<p>在程序过程中，自然就是找到一条流量处理一条流量。<br>如果先找到 s -&gt; 1 -&gt; 3 -&gt; t，然后找到 s -&gt; 2 -&gt; 4 -&gt; t，自然皆大欢喜。<br>但是如果程序的第一条直接找到 s -&gt; 1 -&gt; 4 -&gt; t 了呢？这样的最终结果就只有一条流量。</p>
-<p>为了解决这个问题，有人提出了一种叫回退边（后悔边）的概念。<strong> 这个也是本算法的精髓所在。 </strong></p>
-<blockquote>
-<p>后悔边：如果我们根据原图建了一条从u到v，流量为f的边 (u,v)=f。 同时，我们也需要建一条从v到u，流量为0的边 (v,u)=0，这条边我们就称为后悔边。(u,v) 和 (v,u)互为反向边。 </p>
-</blockquote>
-<p>同时，在程序进行过程中，如果我们如果从残余网络中找到一条从s到v的流量为f，在更新的过程中，我们首先要把最终答案加上c，然后我们不仅要把在该流量上的各边的剩余流量减去f，同时还要把流量上各条边的反向边的流量加上f。</p>
-<p>这样做有什么好处呢?</p>
-<p>还是以上图为例，如果我们先找到了 s -&gt; 1 -&gt; 3 -&gt; t，流量为1。我们首先在最终答案中加1，然后在更新的过程中不仅要把 (s,1)、(1,4)、(4,t) 这几条边的剩余流量减1， 还要把 (1,s)、(4,1)、(t,4) 的剩余流量加1。 </p>
-<p>此时的残余网络为：</p>
-<ul>
-<li>(s,1) = 0, (1,s) = 1</li>
-<li>(s,2) = 1, (2,s) = 0</li>
-<li>(1,3) = 1, (3,1) = 0</li>
-<li>(1,4) = 0, (4,1) = 1</li>
-<li>(2,4) = 1, (4,2) = 0</li>
-<li>(3,t ) = 1, (t,3 ) = 0</li>
-<li>(4,t ) = 0, (t,4 ) = 1</li>
-</ul>
-<p>然后我们从残余网络中找流量，<strong>发现此时能找到一条 s -&gt; 2 -&gt; 4 -&gt; 1 -&gt; 3 -&gt; t 的流量了！</strong>然后我们还按之前的方式更新。再找的时候找不到新的流量了，算法结束。此时的结果是和我们之前用肉眼观察的结果是一样的。</p>
-<p>这就是后悔边的神奇之处。</p>
-<p><strong>后悔边，顾名思义，就是给了一条边后悔的权利。在算法过程中，原图的边和后悔边是没有区别的，所以找流量的时候也没有任何区别。</strong></p>
-<p>这条边存在的意义是，还拿刚刚那条 s -&gt; 2 -&gt; 4 -&gt; 1 -&gt; 3这条流量来说。里面存在一条后悔边(4,1)，它的意义是：</p>
-<ul>
-<li><strong> 之前已经更新过的流量中，有一条从4到t的流量<code>4 -&gt; t</code>，这条流量我可以用到。</strong></li>
-<li><strong> 目前的残余网络中，还存在一条从1到s得流量<code>1 -&gt; 3 -&gt; t</code>，这条流量可以替换你之前更新过的流量 <code>1 -&gt; 4 -&gt; t</code>。</strong></li>
-<li><strong> 为什么不能你用<code>1 -&gt; 3 -&gt; t</code>，我用<code>4 -&gt; t</code>呢。这样的得到的总流量多一些，我们来交换吧。</strong></li>
-<li><strong> 你把你的流量退回去，用我给你的。我用你之前的。 至于中间的(4,1)，退回去我也用不上，大不了都不用了吧。</strong></li>
-</ul>
-<p>这样下来，最佳方案就出现了。</p>
-<p>可以发现，在有后悔边存在的情况下，先找哪条流量后找哪条流量就已经不重要了。反正都是可以做修改的。这样的话，只要考虑如何高效地找流量就好了。这个当然不能随便找，有环的话肯定要进入死循环。</p>
-<p>在<strong>Dinic</strong>算法中，我们采用了分层图的形式。分层用BFS来实现。</p>
-<ul>
-<li>首先，将源点的level设为0，并将源点加入队列。</li>
-<li>从队列中取出一个点u，遍历以它为起点还有流量的边，找到点v。如果点v还没被加入队列过，将v的level设为level[u]+1，并将v加入队列。</li>
-<li>回到步骤2，直到队列为空。</li>
-</ul>
-<p>然后我们规定，level为<code>a</code>的点只能向level为<code>a+1</code>的点找流量,这样就能很有效地避免环的出现。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e7</span> + <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1e9</span>;</span><br><span class="line"><span class="keyword">struct</span> Edge&#123;</span><br><span class="line">    <span class="keyword">int</span> to,next;</span><br><span class="line">    <span class="keyword">int</span> c;</span><br><span class="line">&#125;edge[M];</span><br><span class="line"><span class="keyword">int</span> head[N], level[N], que[N], ip;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head, -<span class="number">1</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">    ip = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">makelevel</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span> </span>&#123; <span class="comment">//将图分层</span></span><br><span class="line">    <span class="built_in">memset</span>(level,<span class="number">0</span>,<span class="keyword">sizeof</span>(level));</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    que[num++]=s;</span><br><span class="line">    level[s]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> top=que[i];</span><br><span class="line">        <span class="keyword">if</span>(top==t)  <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">//找到t了，后面再找level肯定比t大</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=head[top];k!=-<span class="number">1</span>;k=edge[k].next) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!level[edge[k].to]&amp;&amp;edge[k].c&gt;<span class="number">0</span>) &#123;</span><br><span class="line">                que[num++]=edge[k].to;</span><br><span class="line">                level[edge[k].to]=level[top]+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now,<span class="keyword">int</span> maxf,<span class="keyword">int</span> t)</span> </span>&#123; <span class="comment">//从残余网络中找流量</span></span><br><span class="line">    <span class="keyword">if</span>(now==t)  <span class="keyword">return</span> maxf;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=head[now];k!=-<span class="number">1</span>;k=edge[k].next) &#123;</span><br><span class="line">        <span class="keyword">if</span>(edge[k].c&gt;<span class="number">0</span>&amp;&amp;level[edge[k].to]==(level[now]+<span class="number">1</span>)) &#123;</span><br><span class="line">            <span class="keyword">int</span> c=dfs(edge[k].to,min(maxf-ret,edge[k].c),t);</span><br><span class="line">            edge[k].c-=c;</span><br><span class="line">            edge[k^<span class="number">1</span>].c+=c;</span><br><span class="line">            ret+=c;</span><br><span class="line">            <span class="keyword">if</span>(ret==maxf)   <span class="keyword">return</span>  ret;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    --level[now]; <span class="comment">//一个优化，说明往level[now]+1找流量已经找不到了。自己就降一个level。</span></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dinic</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(makelevel(s,t))   ans+=dfs(s,INF,t);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> c,<span class="keyword">int</span> f)</span> </span>&#123;<span class="comment">//有向边f为0 ,否则为 c</span></span><br><span class="line">    edge[ip].to=v;edge[ip].c=c;edge[ip].next=head[u];head[u]=ip++;</span><br><span class="line">    edge[ip].to=u;edge[ip].c=f;edge[ip].next=head[v];head[v]=ip++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>网络流，也被称为最大流。</p>
-<p>模型也非常简单，就是一个管道系统，在有源点，汇点，和一堆有流速限制的管道连接的情况下，问能从源点到汇点传输流量的最大流速是多少。如下图所示。</p>
-<p><img src="http://7tszmu.com1.z0.glb.clouddn.com/网络流.png" alt="Alt text"><br>]]>
     
     </summary>
     

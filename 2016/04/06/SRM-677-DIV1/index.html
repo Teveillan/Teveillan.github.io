@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta name="baidu-site-verification" content="FNQZfwk2LO" />
+  <meta name="google-site-verification" content="Tiy4g_fxDyWORG0NcTPGtG9BomPV280Nfmd_a4DwBnM" />
+ 
+  
+  <title>SRM 677 DIV1 | Teveillan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Easy:  DoubleOrOneEasy给出a, b, A, B,有两种操作：
+
+a, b同时乘2
+a, b同时加1
+
+问最少经过多少次操作使得 a == A &amp;amp;&amp;amp; b == b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SRM 677 DIV1">
+<meta property="og:url" content="http://teveillan.com/2016/04/06/SRM-677-DIV1/index.html">
+<meta property="og:site_name" content="Teveillan">
+<meta property="og:description" content="Easy:  DoubleOrOneEasy给出a, b, A, B,有两种操作：
+
+a, b同时乘2
+a, b同时加1
+
+问最少经过多少次操作使得 a == A &amp;amp;&amp;amp; b == b">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SRM 677 DIV1">
+<meta name="twitter:description" content="Easy:  DoubleOrOneEasy给出a, b, A, B,有两种操作：
+
+a, b同时乘2
+a, b同时加1
+
+问最少经过多少次操作使得 a == A &amp;amp;&amp;amp; b == b">
+  
+    <link rel="alternative" href="/atom.xml" title="Teveillan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Teveillan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/红名之路">红名之路</a></li>
+				        
+							<li><a href="/categories/Algorithm">Algorithm</a></li>
+				        
+							<li><a href="/categories/Tech">Tech</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SRM/" style="font-size: 13.33px;">SRM</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://darkrhythm.net/">Pira-黄大神</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhuoyifan.net/">Yifan</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Teveillan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Teveillan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">不把CF TC刷红的人生是不完整的。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/红名之路">红名之路</a></li>
+		        
+					<li><a href="/categories/Algorithm">Algorithm</a></li>
+		        
+					<li><a href="/categories/Tech">Tech</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/teveillan" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="mail" target="_blank" href="mailto:teveillan@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-SRM-677-DIV1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/06/SRM-677-DIV1/" class="article-date">
+  	<time datetime="2016-04-06T04:58:13.000Z" itemprop="datePublished">4月 6 2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SRM 677 DIV1
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SRM/">SRM</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Easy:_DoubleOrOneEasy">Easy:  DoubleOrOneEasy</h2><p>给出a, b, A, B,有两种操作：</p>
+<ul>
+<li>a, b同时乘2</li>
+<li>a, b同时加1</li>
+</ul>
+<p>问最少经过多少次操作使得 a == A &amp;&amp; b == b<br><a id="more"></a><br>首先明确一点，在什么情况下有解。</p>
+<p>假如进行过x次乘法之后，a变为aa, b变为bb。<br>令$ aa = a * 2^x + y, bb = b * 2^x + z $，则y == z。</p>
+<p>也就是说，如果有解，则存在一个x，使得<br> $A - a * 2^x == B - b * 2 ^ x$</p>
+<p>一般来说这样的x是只有一个的(A == B &amp;&amp; a == b时特殊)。<br>贪心找到最大的x，就是最后进行过乘法的次数。<br>然后在此基础上找加法的个数。</p>
+<p>还是令 $y = A - a * 2^x$<br>首先贪心，最开始先进行$y / (1&lt;&lt;x)$次加法操作, 还剩下$z = y \% (1&lt;&lt;x) $需要补，再加上bitcount(z)就好了（自己想为什么）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = -<span class="number">1</span>, num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a &lt;= aa &amp;&amp; b &lt;= bb) &#123;</span><br><span class="line">        <span class="keyword">if</span>(aa - a == bb - b) ret = max(ret, num);</span><br><span class="line">        a &lt;&lt;= <span class="number">1</span>, b &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        ++num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> DoubleOrOneEasy</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">minimalSteps</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> num = solve(a, b, aa, bb);</span><br><span class="line">            <span class="keyword">if</span>(num == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> tmp = aa - (a &lt;&lt; num);</span><br><span class="line">            <span class="keyword">return</span> num + tmp / (<span class="number">1</span>&lt;&lt;num) + __builtin_popcount(tmp % (<span class="number">1</span>&lt;&lt;num));</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Medium:_DiameterOfRandomTree">Medium: DiameterOfRandomTree</h2><p>给出一个棵树,每条边等概率长度为1或2，求树的直径。</p>
+<p>用<code>dp[root][d1][l1]</code>表示根为root的子树，直径为d1，从根往下最长的链长度为l1的方案数。<br><code>dp[son][d2][l2]</code>表示子树的状态。<br>状态转移公式:</p>
+<blockquote>
+<p>$$ dp[root][max(max(d1, d2), l1 + l2 + 1)][max(l1, l2 + 1)] += dp[root][d1][l1] * dp[son][d2][l2] $$</p>
+<p>$$ dp[root][max(max(d1, d2), l1 + l2 + 2)][max(l1, l2 + 2)] += dp[root][d1][l1] * dp[son][d2][l2] $$</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">VI head[<span class="number">55</span>];</span><br><span class="line">LL dp[<span class="number">55</span>][<span class="number">2</span>][<span class="number">101</span>][<span class="number">101</span>], max_l[<span class="number">55</span>], dia[<span class="number">55</span>];<span class="comment">//dp中加了一维作滚动数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mem(dp), mem(max_l), mem(dia);</span><br><span class="line">    REP(i, <span class="number">50</span>) head[i].clear();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> pre)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sta = <span class="number">0</span>;</span><br><span class="line">    dp[cur][sta][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> to: head[cur]) &#123;</span><br><span class="line">        <span class="keyword">if</span>(to == pre) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">int</span> to_sta = dfs(to, cur); sta ^= <span class="number">1</span>;</span><br><span class="line">        mem(dp[cur][sta]);</span><br><span class="line">        FOR(d1, <span class="number">0</span>, dia[cur])</span><br><span class="line">            FOR(l1, <span class="number">0</span>, max_l[cur])</span><br><span class="line">                FOR(d2, <span class="number">0</span>, dia[to])</span><br><span class="line">                    FOR(l2, <span class="number">0</span>, max_l[to]) &#123;</span><br><span class="line">                        <span class="keyword">int</span> d = max(max(d1, d2), l1 + l2 + <span class="number">1</span>), l = max(l1, l2 + <span class="number">1</span>);</span><br><span class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</span><br><span class="line"></span><br><span class="line">                        d = max(max(d1, d2), l1 + l2 + <span class="number">2</span>), l = max(l1, l2 + <span class="number">2</span>);</span><br><span class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</span><br><span class="line">                    &#125;</span><br><span class="line">        dia[cur] = max(max(dia[cur], dia[to]), max_l[cur] + max_l[to] + <span class="number">2</span>);</span><br><span class="line">        max_l[cur] = max(max_l[cur], max_l[to] + <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sta;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> DiameterOfRandomTree</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">double</span> <span class="title">getExpectation</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; b)</span></span>&#123;</span><br><span class="line">            init();</span><br><span class="line">            REP(i, a.size()) &#123;</span><br><span class="line">                head[a[i]].pb(b[i]);</span><br><span class="line">                head[b[i]].pb(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> sta = dfs(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">double</span> ret = <span class="number">0</span>, div = (<span class="keyword">double</span>)(<span class="number">1l</span>l &lt;&lt; a.size());</span><br><span class="line">            FOR(i, <span class="number">0</span>, dia[<span class="number">0</span>])</span><br><span class="line">                FOR(j, <span class="number">0</span>, max_l[<span class="number">0</span>])</span><br><span class="line">                    ret += (<span class="keyword">double</span>) dp[<span class="number">0</span>][sta][i][j] / div * i;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/03/HDU-5657-CA-Loves-Math/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HDU 5657 CA Loves Math</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SRM-677-DIV1" data-title="SRM 677 DIV1" data-url="http://teveillan.com/2016/04/06/SRM-677-DIV1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"teveillan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Teveillan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-75903760-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
