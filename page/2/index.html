@@ -122,7 +122,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SRM/" style="font-size: 13.33px;">SRM</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/Codeforces/" style="font-size: 10px;">Codeforces</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SRM/" style="font-size: 13.33px;">SRM</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,71 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-HDU-5290-Bombing-plan" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/19/HDU-5290-Bombing-plan/" class="article-date">
+  	<time datetime="2015-11-19T08:07:43.000Z" itemprop="datePublished">11月 19 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/19/HDU-5290-Bombing-plan/">HDU 5290 Bombing plan</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>题目链接： <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5290">http://acm.hdu.edu.cn/showproblem.php?pid=5290</a></p>
+<p>官方题解已经说的很详细了。我也引用一下官方题解吧（有修改，加重部分）。</p>
+<blockquote>
+<p> DP,定义两个数组$F[I][J]$,$G[I][J]$。<br> $F[I][J]$表示以第i个点为根的子树上的点被全部破坏掉，并且还能向上破坏掉<strong>不少于</strong>j个距离，满足这样条件需要选取的最小点数；<br> $G[I][J]$表示以第i个点为根的子树上的点被未被全部破坏，且未被破坏的点中距离i最远的点距离为<strong>不超过</strong>j，满足这样条件需要选取的最小点数。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/红名之路/">红名之路</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/19/HDU-5290-Bombing-plan/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-机器学习笔记-线性回归-Linear-Regression" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -772,72 +837,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/01/07/Mac中安装Vim7-4/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-最短路-SPFA" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/04/最短路-SPFA/" class="article-date">
-  	<time datetime="2015-01-04T07:32:34.000Z" itemprop="datePublished">1月 4 2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/04/最短路-SPFA/">最短路 SPFA</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先，为了简化分析，我们假定图中是没有负环的。<br>如果有负环，则就没有最短路径。</p>
-<blockquote>
-<p>负环：一条从a到a的路径，路径上每条边的边权和为负。</p>
-</blockquote>
-<p>但是SPFA算法是可以判断是否有负环存在的，比较基本的做法是判断每个点进队出队的次数，这个复杂度比较高。其实有一种DFS版的SPFA，用这个来判断是否有负环的效率是非常高的，这个我们后续再讲。</p>
-<p>最短路的算法中都用着一种通用的思路：</p>
-<ul>
-<li>初始化</li>
-<li>松弛操作
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/01/04/最短路-SPFA/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

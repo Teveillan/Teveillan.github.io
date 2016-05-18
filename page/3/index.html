@@ -122,7 +122,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SRM/" style="font-size: 13.33px;">SRM</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
+						<a href="/tags/BestCoder/" style="font-size: 13.33px;">BestCoder</a><a href="/tags/Codeforces/" style="font-size: 10px;">Codeforces</a><a href="/tags/HDU/" style="font-size: 20px;">HDU</a><a href="/tags/LaTeX/" style="font-size: 10px;">LaTeX</a><a href="/tags/MacOS/" style="font-size: 16.67px;">MacOS</a><a href="/tags/SRM/" style="font-size: 13.33px;">SRM</a><a href="/tags/SublimeText/" style="font-size: 10px;">SublimeText</a><a href="/tags/VIM/" style="font-size: 10px;">VIM</a><a href="/tags/编程之美/" style="font-size: 10px;">编程之美</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,72 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-最短路-SPFA" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/04/最短路-SPFA/" class="article-date">
+  	<time datetime="2015-01-04T07:32:34.000Z" itemprop="datePublished">1月 4 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/最短路-SPFA/">最短路 SPFA</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，为了简化分析，我们假定图中是没有负环的。<br>如果有负环，则就没有最短路径。</p>
+<blockquote>
+<p>负环：一条从a到a的路径，路径上每条边的边权和为负。</p>
+</blockquote>
+<p>但是SPFA算法是可以判断是否有负环存在的，比较基本的做法是判断每个点进队出队的次数，这个复杂度比较高。其实有一种DFS版的SPFA，用这个来判断是否有负环的效率是非常高的，这个我们后续再讲。</p>
+<p>最短路的算法中都用着一种通用的思路：</p>
+<ul>
+<li>初始化</li>
+<li>松弛操作
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/01/04/最短路-SPFA/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-网络流" class="article article-type-post" itemscope itemprop="blogPost">
   
