@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teveillan.com/"/>
-  <updated>2016-05-18T15:37:10.000Z</updated>
+  <updated>2016-05-20T12:23:44.000Z</updated>
   <id>http://teveillan.com/</id>
   
   <author>
@@ -13,6 +13,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Topcoder Open 2016 Round 2A]]></title>
+    <link href="http://teveillan.com/2016/05/20/TCO-2016-2A/"/>
+    <id>http://teveillan.com/2016/05/20/TCO-2016-2A/</id>
+    <published>2016-05-20T12:20:21.000Z</published>
+    <updated>2016-05-20T12:23:44.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>学算法学到后期简直就是在学玄学。</p>
+</blockquote>
+<p>叉姐有一份题解：<a href="http://async.icpc-camp.org/d/420-topcoder-open-2016-round-2a" target="_blank" rel="external">http://async.icpc-camp.org/d/420-topcoder-open-2016-round-2a</a></p>
+<h2 id="Easy:_LCMGCD">Easy: LCMGCD</h2><p>最初有1~100一百个数字。 选定一个数N(&lt;=100)。<br>A可以从其中取出K(&lt;= 15)个数字，把其他数字扔掉。<br>B可以从剩余的数字中再扔掉一些数，然后再给剩余的一些数中取负号，使得最后的和为N。<br>问A该怎么取才能使得B一定得不到和为N的结果。</p>
+<a id="more"></a>
+<p>推论：当N不能被d整除时，如果我们取的数都为d的倍数，则和一定不为N。</p>
+<p>当[2,6]中有一个数d不为N的因子时, 从小到大选取K个d的倍数。<br>不然此时N必为60的倍数，因为N&lt;=100，所以N＝60。如果选15个7的倍数，则最大值105&gt;100，超出范围。此时选14个7的倍数，再选一个1就好。</p>
+<h2 id="Medium:_CliqueCuts">Medium: CliqueCuts</h2><p>这个解法应该算peter的改进版。简直就是玄学。</p>
+<p>题意：<br>有n(&lt;=45)个点，无向图。<br>每次选一个点的集合A，保证集合中的点为团（任意两点之间都有边）。<br>则B ＝ V - A。<br>对于任意一条边， 权重为c：</p>
+<ul>
+<li>如果两个端点都在A中，则res += c</li>
+<li>如果两个端点都在B中，则res -= c</li>
+</ul>
+<p>问对于所有的{A, B}，res之和为多少。</p>
+<p>记忆话搜索。<br>对于每个点的邻边我们用状态压缩存起来。<br>V&lt;=23的部分用记忆化，这部分的复杂度$O(2^{23})$<br>V &gt;23的部分用dfs，这部分复杂度$O(2^{22})$<br>再枚举两个端点，此时已经能求解了。</p>
+<p><strong>玄学部分</strong><br>对于一个集合{A, B}:</p>
+<ul>
+<li>对于两个端点都在A中的边, res += c * 1</li>
+<li>对于一个端点在A中，一个端点在B中的边, res += c * 0</li>
+<li>对于两个端点都在B中的边, res += c * -1</li>
+</ul>
+<p>这三个系数分别为{1, 0, -1}, 如果此时我们给每个值+1，变为{2, 1, 0}，我们发现了什么？<br><strong>此时的系数与端点在A中的个数一样！！</strong><br>也就是说，假如一条边的两个端点都在A中，则这条边权加两次。<br>如果只有一个端点在A中，只加一次。<br>否则一次都不加。</p>
+<p>这样的话便不用一条一条边的求解。<br>我们记录每个点在团中出现的次数$num_i$, 邻边的权重之和$cost_i$，则$res += num_i * cost_i$</p>
+<p>最后，令A的总数为$num$, 总边权和为$cost$，则$res -= num * cost$。这就是最终解。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50</span>;</span><br><span class="line">LL cost[N], g[N];</span><br><span class="line"><span class="built_in">map</span>&lt;LL, LL&gt;dp; <span class="comment">//我没有对V&lt;=23时进行记忆化，而是所有状态都用map存</span></span><br><span class="line"><span class="function">LL <span class="title">dfs</span><span class="params">(LL mask)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(mask == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>((mask &amp; (mask - <span class="number">1</span>)) == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(!dp.count(mask)) &#123;</span><br><span class="line">        <span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>((mask &amp; (<span class="number">1l</span>l &lt;&lt; id)) == <span class="number">0</span>) id++;</span><br><span class="line">        dp[mask] = (dfs(mask &amp; g[id]) + dfs(mask ^ (<span class="number">1l</span>l &lt;&lt; id))) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[mask];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> CliqueCuts</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; b, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; z)</span> </span>&#123;</span><br><span class="line">            dp.clear();</span><br><span class="line">            <span class="built_in">memset</span>(g, <span class="number">0</span>, <span class="keyword">sizeof</span>(g));</span><br><span class="line">            <span class="built_in">memset</span>(cost, <span class="number">0</span>, <span class="keyword">sizeof</span>(cost));</span><br><span class="line">            REP(i, a.size()) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = a[i], y = b[i], c = z[i];</span><br><span class="line">                g[x] |= (<span class="number">1l</span>l &lt;&lt; y), g[y] |= (<span class="number">1l</span>l &lt;&lt; x);</span><br><span class="line">                (cost[x] += c) %= MOD, (cost[y] += c) %= MOD;</span><br><span class="line">            &#125;</span><br><span class="line">            LL sum = accumulate(z.begin(), z.end(), <span class="number">0l</span>l) % MOD;</span><br><span class="line">            (sum *= dfs((<span class="number">1l</span>l &lt;&lt; n) - <span class="number">1</span>) - <span class="number">1</span>) %= MOD;</span><br><span class="line">            LL ret = <span class="number">0</span>;</span><br><span class="line">            REP(i, n) (ret += dfs(g[i]) * cost[i] % MOD) %= MOD;</span><br><span class="line">            ret = (ret - sum) % MOD;</span><br><span class="line">            ret = (ret + MOD) % MOD;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>学算法学到后期简直就是在学玄学。</p>
+</blockquote>
+<p>叉姐有一份题解：<a href="http://async.icpc-camp.org/d/420-topcoder-open-2016-round-2a">http://async.icpc-camp.org/d/420-topcoder-open-2016-round-2a</a></p>
+<h2 id="Easy:_LCMGCD">Easy: LCMGCD</h2><p>最初有1~100一百个数字。 选定一个数N(&lt;=100)。<br>A可以从其中取出K(&lt;= 15)个数字，把其他数字扔掉。<br>B可以从剩余的数字中再扔掉一些数，然后再给剩余的一些数中取负号，使得最后的和为N。<br>问A该怎么取才能使得B一定得不到和为N的结果。</p>]]>
+    
+    </summary>
+    
+      <category term="Topcoder" scheme="http://teveillan.com/tags/Topcoder/"/>
+    
+      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Codeforces #352 Div.1 C. Ultimate Weirdness of an Array]]></title>
@@ -830,45 +878,6 @@
     </summary>
     
       <category term="Algorithm" scheme="http://teveillan.com/categories/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[(转) Mac中安装Vim7.4]]></title>
-    <link href="http://teveillan.com/2015/01/07/Mac%E4%B8%AD%E5%AE%89%E8%A3%85Vim7-4/"/>
-    <id>http://teveillan.com/2015/01/07/Mac中安装Vim7-4/</id>
-    <published>2015-01-07T04:58:51.000Z</published>
-    <updated>2015-05-06T13:24:03.000Z</updated>
-    <content type="html"><![CDATA[<p>Mac本身其实是预装了Vim的，但是目前的系统中都是Vim7.3版本的，而最新的Vim已经是7.4版了，因此为了能够使用最新版的vim，必须要对Mac中的vim要么升级，要么重装。在折腾过程中，遇到了一些问题，这里记录，以鉴后人。</p>
-<a id="more"></a>
-<h1 id="可选方案"><strong>可选方案</strong></h1><p><strong>升级原生的Vim7.3</strong><br> 这种方法貌似是最”干净”的，不会引入其他任何多余的东西，对于有洁癖的人这应该是一种比较好的方案。但是，这个方案也有缺点，那就是它会覆盖原生的Vim，会改变系统的默认设置，并且一旦升级过程中出现了问题，那你就再也没有可用的vim了。另外一个问题是，以后当你系统升级的时候，很有可能你自己的vim又会被新系统的vim给覆盖，这样会比较麻烦。</p>
-<p><strong>使用MacVim</strong><br>这是一种比较好的方案，Vim官网上也是推荐使用这种方案的，MacVim是针对Mac系统特别定制的Vim版本，安装过程也很简单，网上一搜一大把。它功能上和vim完全一致，不会有任何的问题。要说这种方案其实已经算是一个完美的解决方案了，但是它有一点不太方便的地方，那就是不能直接在终端中使用vim，每次使用MacVim的时候都会单独开启一个窗口，有点类似于windows中的gvim。而我个人是比较习惯在终端中写代码的，因此这个方案还是不能满足我的需求。</p>
-<p><strong>自己编译</strong><br>这是一种终极的方案，但是自己编译的时候注意要手动更改默认的安装目录，不然它就会覆盖原生的vim7.3，这样就会变成第一种方案了。将vim7.4安装在其他目录，然后在.bash_profile中添加一个vim命令的别名，将其指向新安装的vim7.4的目录，而不是原生的vim7.3目录。这个方案就能在终端中直接使用vim7.4了，并且不会对原生的vim7.3又任何影响。这个方案唯一的缺点大概就是会在系统中产生两个不同版本的vim了，这也许对一些有洁癖的人是难以接受的。</p>
-<p>我自己最终选择了第三套方案，也就是自己编译新版本的vim.</p>
-<h1 id="重新编译"><strong>重新编译</strong></h1><p>好了，现在让我们开始折腾吧。</p>
-<p>首先上vim的官网下载vim7.4的源文件。（<a href="http://www.vim.org/sources.ph" target="_blank" rel="external">下载链接</a>）</p>
-<p>新建目录<code>/opt/local</code>，这个目录就是用来存放我们新安装的vim7.4的，你也可以建立其他的目录，这里只是一个示例。</p>
-<p>进入vim的源文件目录中，在终端中运行命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-features=huge --enable-pythoninterp=yes  --enable-cscope --enable-fontset --enable-perlinterp --enable-rubyinterp --with-python-config-dir=/usr/lib/python2.<span class="number">6</span>/config --prefix=/opt/<span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
-<p>这个命令是完成对vim的一些配置选项，启用了python和ruby的支持特性，这还是比较重要的，因为vim中有些插件会使用python和ruby的，如果没有开启这些特性，有些插件是无法运行的。在这些配置命令中，最后一个<code>--prefix=/opt/local</code>是用来指明安装目录的，你也可以修改成你自己的目录。</p>
-<p>在写配置命令的时候，需要注意的是，不能写上<code>--enable-gui</code>，这是开启gui特性的，但是我们是在终端环境下安装的，因此不能开启这个特性，否则会出现编译错误。</p>
-<p>在终端中执行<code>make</code>命令。在make过程中，会出现一个错误，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">:info:build os_unix.c:<span class="number">830</span>:<span class="number">46</span>: warning: declaration of <span class="string">'struct sigaltstack'</span> will not be visible outside of this <span class="keyword">function</span> [-Wvisibility]</span><br><span class="line">:info:build         extern int sigaltstack __ARGS((const struct sigaltstack *ss, struct sigaltstack *oss));</span><br><span class="line">:info:build                                                     ^</span><br><span class="line">:info:build ./os_unix.h:<span class="number">88</span>:<span class="number">21</span>: note: expanded from macro <span class="string">'__ARGS'</span></span><br><span class="line">:info:build <span class="comment">#  define __ARGS(x) x</span></span><br><span class="line">:info:build                     ^</span><br><span class="line">:info:build os_unix.c:<span class="number">830</span>:<span class="number">13</span>: error: conflicting types <span class="keyword">for</span> <span class="string">'sigaltstack'</span></span><br><span class="line">:info:build         extern int sigaltstack __ARGS((const struct sigaltstack *ss, struct sigaltstack *oss));</span><br><span class="line">:info:build                    ^</span><br><span class="line">:info:build /usr/include/signal.h:<span class="number">89</span>:<span class="number">5</span>: note: previous declaration is here</span><br><span class="line">:info:build int     sigaltstack(const stack_t * __restrict, stack_t * __restrict)  __DARWIN_ALIAS(sigaltstack);</span><br><span class="line">:info:build         ^</span><br><span class="line">:info:build <span class="number">1</span> warning and <span class="number">1</span> error generated.</span><br><span class="line">:info:build make[<span class="number">1</span>]: *** [objects/os_unix.o] Error <span class="number">1</span></span><br><span class="line">:info:build make[<span class="number">1</span>]: *** Waiting <span class="keyword">for</span> unfinished <span class="built_in">jobs</span>….)</span><br></pre></td></tr></table></figure></p>
-<p>解决方案也很简单，只需要在os_unix.h(src文件夹中)中加上<code>#include &lt;AvailabilityMacros.h&gt;</code>就可以了。</p>
-<p>执行<code>make install</code>.执行完成之后，vim7.4就安装完成了。</p>
-<p>添加vim命令的别名，在.bash_profile中添加一行<code>alias vim=&#39;/opt/local/bin/vim&#39;</code>，然后在终端中执行<code>source ~/.bash_profile</code></p>
-<p>好了，现在你的Mac系统已经安装好了vim7.4了，现在可以开始愉快的工作了。</p>
-<p>参考资料<br><a href="http://stackoverflow.com/questions/7211820/update-built-in-vim-on-mac-os-x" target="_blank" rel="external">http://stackoverflow.com/questions/7211820/update-built-in-vim-on-mac-os-x</a><br><a href="http://www.jokerlin.us/2014/04/13/Vim74.html" target="_blank" rel="external">http://www.jokerlin.us/2014/04/13/Vim74.html</a><br><a href="http://trac.macports.org/ticket/41774" target="_blank" rel="external">http://trac.macports.org/ticket/41774</a></p>
-<p>声明:本文采用<code>BY-NC-SA</code>协议进行授权.转载请注明: <a href="http://zhouyichu.com/vim/Vim-in-Mac.html" target="_blank" rel="external">Mac中安装Vim7.4</a><br>转自:Flyaway<br>原文链接: <a href="http://zhouyichu.com/vim/Vim-in-Mac.html" target="_blank" rel="external">http://zhouyichu.com/vim/Vim-in-Mac.html</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Mac本身其实是预装了Vim的，但是目前的系统中都是Vim7.3版本的，而最新的Vim已经是7.4版了，因此为了能够使用最新版的vim，必须要对Mac中的vim要么升级，要么重装。在折腾过程中，遇到了一些问题，这里记录，以鉴后人。</p>]]>
-    
-    </summary>
-    
-      <category term="MacOS" scheme="http://teveillan.com/tags/MacOS/"/>
-    
-      <category term="VIM" scheme="http://teveillan.com/tags/VIM/"/>
-    
-      <category term="Tech" scheme="http://teveillan.com/categories/Tech/"/>
     
   </entry>
   
