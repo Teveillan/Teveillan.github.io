@@ -1,0 +1,719 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="Tiy4g_fxDyWORG0NcTPGtG9BomPV280Nfmd_a4DwBnM" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="topcoder," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Teveillan" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Easy: Sunnygraphs题意： 最初有n个点，每个点i与a[i]相连，另外又一个点P。在原先的n个点中，选一个点的集合S，对于任意点 $~i \in S$，进行以下两种操作：
+
+删除i与a[i]的那条边
+添加i与P的边">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TopCoder SRM 691 (DIV.1)">
+<meta property="og:url" content="http://teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/index.html">
+<meta property="og:site_name" content="Teveillan">
+<meta property="og:description" content="Easy: Sunnygraphs题意： 最初有n个点，每个点i与a[i]相连，另外又一个点P。在原先的n个点中，选一个点的集合S，对于任意点 $~i \in S$，进行以下两种操作：
+
+删除i与a[i]的那条边
+添加i与P的边">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TopCoder SRM 691 (DIV.1)">
+<meta name="twitter:description" content="Easy: Sunnygraphs题意： 最初有n个点，每个点i与a[i]相连，另外又一个点P。在原先的n个点中，选一个点的集合S，对于任意点 $~i \in S$，进行以下两种操作：
+
+删除i与a[i]的那条边
+添加i与P的边">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> TopCoder SRM 691 (DIV.1) | Teveillan </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Teveillan</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不把CF TC刷红的人生是不完整的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                TopCoder SRM 691 (DIV.1)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-05-31T19:42:12+08:00" content="5月 31 2016">
+              5月 31 2016
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/红名之路/" itemprop="url" rel="index">
+                    <span itemprop="name">红名之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/31/TopCoder-SRM-691-DIV-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/TopCoder-SRM-691-DIV-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Easy:_Sunnygraphs">Easy: Sunnygraphs</h2><p>题意： 最初有n个点，每个点i与a[i]相连，另外又一个点P。<br>在原先的n个点中，选一个点的集合S，对于任意点 $~i \in S$，进行以下两种操作：</p>
+<ul>
+<li>删除i与a[i]的那条边</li>
+<li>添加i与P的边</li>
+</ul>
+<a id="more"></a>
+<p>问有多少种点的集合S，使得0与1最后相连。</p>
+<p>当图为有向图时，我们设：</p>
+<ul>
+<li>0能到达的点集为A；</li>
+<li>1能到达的点集为B；</li>
+</ul>
+<p>分一下两种情况：</p>
+<ol>
+<li>当0 1不连通（无向图）的时候， 自然从A至少选一个点，从B中至少选一个点。</li>
+<li>当0 1连通（无向图）的时候。以下两种情况不符合要求：<ul>
+<li>存在一个点$x \in S$，满足$x \in (A - B)  且 S \bigcap B = \emptyset $。也就是说有个0能到而1却不能到达的点x在集合S中 ，且B能到达的点不在S中。</li>
+<li>存在一个点$x \in S$，满足$x \in (B - A)  且 S \bigcap A = \emptyset $。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">55</span>;</span><br><span class="line"><span class="keyword">bool</span> g[N][N], f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Sunnygraphs</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">count</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a)</span> </span>&#123;</span><br><span class="line">            <span class="built_in">memset</span>(g, <span class="number">0</span>, <span class="keyword">sizeof</span>(g)); <span class="comment">//有向图的连通性</span></span><br><span class="line">            <span class="built_in">memset</span>(f, <span class="number">0</span>, <span class="keyword">sizeof</span>(f)); <span class="comment">//无向图的连通性</span></span><br><span class="line">            <span class="keyword">int</span> n = a.size();</span><br><span class="line">            REP(i, n) g[i][i] = <span class="number">1</span>;</span><br><span class="line">            REP(i, n) g[i][a[i]] = <span class="number">1</span>, f[i][a[i]] = f[a[i]][i] = <span class="number">1</span>;</span><br><span class="line">            REP(k, n) REP(i, n) REP(j, n) g[i][j] |= (g[i][k] &amp; g[k][j]), f[i][j] |= (f[i][k] &amp; f[k][j]);</span><br><span class="line">            <span class="keyword">int</span> num0 = <span class="number">0</span>, num1 = <span class="number">0</span>, num2 = <span class="number">0</span>;</span><br><span class="line">            REP(i, n) &#123;</span><br><span class="line">                <span class="keyword">if</span>(g[<span class="number">0</span>][i] &amp;&amp; g[<span class="number">1</span>][i]) ++num2;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(g[<span class="number">0</span>][i]) ++num0;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(g[<span class="number">1</span>][i]) ++num1;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!f[<span class="number">0</span>][<span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">int</span> tmp = n - num0 - num1;</span><br><span class="line">                <span class="keyword">return</span> ((<span class="number">1l</span>l&lt;&lt;num0) - <span class="number">1</span>) * ((<span class="number">1l</span>l&lt;&lt;num1) - <span class="number">1</span>) * (<span class="number">1l</span>l &lt;&lt; tmp);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> tmp = n - num0 - num1 - num2;</span><br><span class="line">            LL ret = <span class="number">1l</span>l &lt;&lt; n;</span><br><span class="line">            ret -= (((<span class="number">1l</span>l &lt;&lt; num0) - <span class="number">1</span> )* (<span class="number">1l</span>l &lt;&lt; tmp));</span><br><span class="line">            ret -= (((<span class="number">1l</span>l &lt;&lt; num1) - <span class="number">1</span>) * (<span class="number">1l</span>l &lt;&lt; tmp));</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Medium:_Money_Manager">Medium: Money Manager</h2><p>题意： 有n个项目，每做一个项目有经验值$a_i$以及基础奖金$b_i$。<br>每做完一个项目，设历史积攒的经验值总和为exp，则做完这个项目能得到的奖金为$b_i$ * exp。<br>另外，在第<code>n/2</code>个项目做完时，需要做一个项目，增加的经验值为X，但没有奖金。<br>问怎么安排项目顺序使得最后能获得的奖金总和最大。</p>
+<p>我们先考虑在没有X的情况下的方案。<br>有一个性质： 当 $a_i <em> b_j &gt; a_j </em> b_i$时， 则i必定在j之前。且这个式子是有传递性的。</p>
+<p>也就是说，当不考虑X的时候，用排序算法就能解决。如果我们选好了前n个需要做的项目有哪些，则相对顺序是确定了的。<br>当考虑X时，我们发现，影响因素仅仅是后n个项目的b之和。<br>因此，枚举后n个项目的b之和（假设为f）。<br>DP[l][r][sr], 表示前n个项目中以及选好了l个，后n个项目中已经选好了r个，且后n个项目的b之和为sr。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> pii &amp;a, <span class="keyword">const</span> pii &amp;b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.first * b.second &lt; a.second * b.first;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Moneymanager &#123;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">30</span>][<span class="number">30</span>][<span class="number">300</span>];</span><br><span class="line">    <span class="keyword">int</span> sum[<span class="number">55</span>];</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setmax</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123;x = max(x, y);&#125;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getbest</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; b, <span class="keyword">int</span> X)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = a.size(), m = n / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;pii&gt; vec;</span><br><span class="line">        REP(i, n) vec.pb(pii(a[i], b[i]));</span><br><span class="line">        sort(vec.begin(), vec.end(), cmp);</span><br><span class="line"></span><br><span class="line">        REP(i, n) &#123;</span><br><span class="line">            sum[i] = vec[i].second;</span><br><span class="line">            <span class="keyword">if</span>(i) sum[i] += sum[i-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        FOR(f, <span class="number">0</span>, m * <span class="number">10</span>) &#123;</span><br><span class="line">            <span class="built_in">memset</span>(dp, -<span class="number">1</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">            dp[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = f * X;</span><br><span class="line"></span><br><span class="line">            FOR(l, <span class="number">0</span>, m) FOR(r, <span class="number">0</span>, m) &#123;</span><br><span class="line">                <span class="keyword">if</span>(l == m &amp;&amp; r == m) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> a = vec[l+r].first, b = vec[l+r].second;</span><br><span class="line"></span><br><span class="line">                FOR(sr, <span class="number">0</span>, r * <span class="number">10</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> sl = sum[l + r] - sr - b;</span><br><span class="line">                    <span class="keyword">if</span>(sl &lt; <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                    setmax(dp[l+<span class="number">1</span>][r][sr], dp[l][r][sr] + a * (sl + b) + a * f);</span><br><span class="line">                    setmax(dp[l][r+<span class="number">1</span>][sr+b], dp[l][r][sr] + a * (sr + b));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            setmax(ret, dp[m][m][f]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/topcoder/" rel="tag">#topcoder</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/18/Codeforces-352-Div-1-C-Ultimate-Weirdness-of-an-Array/" rel="next" title="Codeforces #352 Div.1 C. Ultimate Weirdness of an Array">
+                <i class="fa fa-chevron-left"></i> Codeforces #352 Div.1 C. Ultimate Weirdness of an Array
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/31/TopCoder-SRM-691-DIV-1/"
+           data-title="TopCoder SRM 691 (DIV.1)" data-url="http://teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg"
+               alt="Teveillan" />
+          <p class="site-author-name" itemprop="name">Teveillan</p>
+          <p class="site-description motion-element" itemprop="description">不把CF TC刷红的人生是不完整的。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="mailto:teveillan@gmail.com" target="_blank" title="Google">
+                  
+                    <i class="fa fa-fw fa-google"></i>
+                  
+                  Google
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/teveillan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100004378576923" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://darkrhythm.net/" title="Pira" target="_blank">Pira</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhuoyifan.net/" title="Yifan" target="_blank">Yifan</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Easy:_Sunnygraphs"><span class="nav-number">1.</span> <span class="nav-text">Easy: Sunnygraphs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Medium:_Money_Manager"><span class="nav-number">2.</span> <span class="nav-text">Medium: Money Manager</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Teveillan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"teveillan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+</body>
+</html>
