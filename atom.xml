@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://teveillan.com/"/>
-  <updated>2016-05-31T11:43:05.000Z</updated>
+  <updated>2016-05-31T14:34:57.000Z</updated>
   <id>http://teveillan.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[TopCoder SRM 691 (DIV.1)]]></title>
+    <title><![CDATA[TopCoder SRM 691 Div1 ]]></title>
     <link href="http://teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/"/>
     <id>http://teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/</id>
     <published>2016-05-31T11:42:12.000Z</published>
-    <updated>2016-05-31T11:43:05.000Z</updated>
+    <updated>2016-05-31T14:34:57.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Easy:_Sunnygraphs">Easy: Sunnygraphs</h2><p>题意： 最初有n个点，每个点i与a[i]相连，另外又一个点P。<br>在原先的n个点中，选一个点的集合S，对于任意点 $~i \in S$，进行以下两种操作：</p>
 <ul>
 <li>删除i与a[i]的那条边</li>
@@ -101,11 +101,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[SRM 677 DIV1]]></title>
+    <title><![CDATA[Topcoder SRM 677 Div1]]></title>
     <link href="http://teveillan.com/2016/04/06/SRM-677-DIV1/"/>
     <id>http://teveillan.com/2016/04/06/SRM-677-DIV1/</id>
     <published>2016-04-06T04:58:13.000Z</published>
-    <updated>2016-04-06T05:22:58.000Z</updated>
+    <updated>2016-05-31T14:35:06.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Easy:_DoubleOrOneEasy">Easy:  DoubleOrOneEasy</h2><p>给出a, b, A, B,有两种操作：</p>
 <ul>
 <li>a, b同时乘2</li>
@@ -135,7 +135,7 @@
     
     </summary>
     
-      <category term="SRM" scheme="http://teveillan.com/tags/SRM/"/>
+      <category term="topcoder" scheme="http://teveillan.com/tags/topcoder/"/>
     
       <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
@@ -184,11 +184,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[SRM 678 DIV1]]></title>
+    <title><![CDATA[Topcoder SRM 678 Div1]]></title>
     <link href="http://teveillan.com/2016/04/01/SRM-678-DIV1/"/>
     <id>http://teveillan.com/2016/04/01/SRM-678-DIV1/</id>
     <published>2016-04-01T13:53:40.000Z</published>
-    <updated>2016-04-05T08:17:56.000Z</updated>
+    <updated>2016-05-31T14:35:15.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Easy:_A_New_Hope">Easy: A New Hope</h2><p>题意：假设一个星期有n天，一个人有n件不同的衣服（标号1~n），每件衣服每周穿一件。由此有N！种穿的方式。<br>但是洗一件衣服需要D天（第x天洗了，x+D天才能穿）。<br>现已知第一周和最后一周穿衣服的顺序，问中间最少隔了几个星期。</p>
 <a id="more"></a>
 <p>用数学方法表示，每周穿衣服的顺序可标示为长度为n的排序。<br>如{1, 2, 3, 4}。假设D＝3，则4号衣服下周最早可以在周三穿，提前了一天(4 - 3 ＝ 1)。</p>
@@ -205,7 +205,7 @@
     
     </summary>
     
-      <category term="SRM" scheme="http://teveillan.com/tags/SRM/"/>
+      <category term="topcoder" scheme="http://teveillan.com/tags/topcoder/"/>
     
       <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
