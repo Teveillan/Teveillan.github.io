@@ -1,0 +1,747 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="HRPrvnCVgDw3Wfg5ZnJlamIXtrjGoBHG4w5TVn02awM" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HDU," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Teveillan" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="参考文献：从《Cash》谈一类分治算法的应用 — 陈丹琦
+也因此简称CDQ分治。
+个人理解CDQ分治和普通分治最大的区别为：普通分治可以将问题拆成几个相互独立的子问题CDQ分治将问题分成了两个部分：
+
+相互独立的两个子问题  
+两个子问题之间的联系
+
+因此，CDQ分治的算法流程也分为以下几步：
+
+
+算法开始
+取一个中间点mid, 将问题分为[L, mid] 和 [mid + 1, R]两个部分。分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CDQ分治 && HDU 5126">
+<meta property="og:url" content="http://teveillan.com/2015/05/01/CDQ分治/index.html">
+<meta property="og:site_name" content="Teveillan">
+<meta property="og:description" content="参考文献：从《Cash》谈一类分治算法的应用 — 陈丹琦
+也因此简称CDQ分治。
+个人理解CDQ分治和普通分治最大的区别为：普通分治可以将问题拆成几个相互独立的子问题CDQ分治将问题分成了两个部分：
+
+相互独立的两个子问题  
+两个子问题之间的联系
+
+因此，CDQ分治的算法流程也分为以下几步：
+
+
+算法开始
+取一个中间点mid, 将问题分为[L, mid] 和 [mid + 1, R]两个部分。分">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CDQ分治 && HDU 5126">
+<meta name="twitter:description" content="参考文献：从《Cash》谈一类分治算法的应用 — 陈丹琦
+也因此简称CDQ分治。
+个人理解CDQ分治和普通分治最大的区别为：普通分治可以将问题拆成几个相互独立的子问题CDQ分治将问题分成了两个部分：
+
+相互独立的两个子问题  
+两个子问题之间的联系
+
+因此，CDQ分治的算法流程也分为以下几步：
+
+
+算法开始
+取一个中间点mid, 将问题分为[L, mid] 和 [mid + 1, R]两个部分。分">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CDQ分治 && HDU 5126 | Teveillan </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Teveillan</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">不把CF TC刷红的人生是不完整的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CDQ分治 && HDU 5126
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-05-01T22:48:26-10:00" content="5月 1 2015">
+              5月 1 2015
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/01/CDQ分治/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/01/CDQ分治/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>参考文献：<a href="http://wenku.baidu.com/view/52f9c11cff00bed5b9f31d2d.html" target="_blank" rel="external">从《Cash》谈一类分治算法的应用</a> — 陈丹琦</p>
+<p>也因此简称CDQ分治。</p>
+<p>个人理解CDQ分治和普通分治最大的区别为：<br>普通分治可以将问题拆成几个相互独立的子问题<br>CDQ分治将问题分成了两个部分：</p>
+<ol>
+<li>相互独立的两个子问题  </li>
+<li>两个子问题之间的联系</li>
+</ol>
+<p>因此，CDQ分治的算法流程也分为以下几步：</p>
+<blockquote>
+<ol>
+<li>算法开始</li>
+<li>取一个中间点mid, 将问题分为[L, mid] 和 [mid + 1, R]两个部分。分别处理两个子问题</li>
+<li>处理[L, mid] 和 [mid + 1, R]之间的联系</li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<p>举个例子：在二维坐标系中，有n个点，m个询问。对于每个询问(x, y)，求点(x1, x2) ，x1&lt;= x &amp;&amp; y1 &lt;= y 有多少个。</p>
+<p>当然，这题用树状数组就直接能写了。但是我们在这里用CDQ分治来解决一下这个问题。</p>
+<p>我们将n个点看做是n个更新，并和m个询问放在一起。定义一个结构体用vector存起来。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sovle1</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="built_in">vector</span>&lt;Struct&gt;vec1)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//在这里将vec1[l, r]按x从小到大排序</span></span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">    solve1(l, mid);</span><br><span class="line">    solve1(mid + <span class="number">1</span>, r);<span class="comment">//划分成相互独立的子问题</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//将vec1[l, mid]中的更新操作 和 vec1[mid + 1, r]中的询问操作,存到一个vec2中 </span></span><br><span class="line">    solve2(l, r, vec2);<span class="comment">//左半边的更新操作和右半边的询问操作之间有联系</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve2</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="built_in">vector</span>&lt;Struct&gt;vec2)</span> </span>&#123;</span><br><span class="line"><span class="comment">//此时在solve2中已经不需要管x了。在vec2中所有的更新操作的x必然小于等于询问操作的x。</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//在这里将vec2[l, r]按y从小到大排序</span></span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">    sovle2(l, mid);</span><br><span class="line">    solve2(mid + <span class="number">1</span>, r);<span class="comment">//独立子问题</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//将vec2[l, mid]中的更新操作和vec2[mid + 1, r]中得询问操作存到一个vec3中</span></span><br><span class="line">    solve3(l, r, vec3);<span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> solve3（<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="built_in">vector</span>&lt;Struct&gt;vec3） &#123;</span><br><span class="line"><span class="comment">//此时在solve3中，x和y都是已经排好序的。从前到后遍历该更新更新该询问询问就好。</span></span><br><span class="line">    <span class="keyword">int</span> cal = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(Struct tmp: vec3) &#123;</span><br><span class="line">        <span class="keyword">if</span>(tmp.type == Update)  ++cal;</span><br><span class="line">        <span class="keyword">else</span> tmp.query_anser += cal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这段代码其中有许多可以优化的地方，但是不要在意细节，主要是为了更加方便地理解算法</span></span><br></pre></td></tr></table></figure>
+<p>虽然解法不如树状数组，但是我们得看到题目扩展后的好处。<br>我们看到，当到solve2时，函数中的参数<code>vec2</code>已经不用再管他的x了（<code>请务必深刻理解为什么不用再管了</code>）。<br>这样的好处在哪里？没错，<strong>降维！</strong><br>假如我们要处理的不是二维，而是三维四维依旧可以这么处理，每一个维度只不过加了O(log)的复杂度而已。<br><strong>如果是随时可以更新查询的操作，只不过也只是把时间当成一个维度而已。</strong>（光是这一点就已经牛逼哄哄够解决大部分题目了。）</p>
+<p>然后就是下面这道题，三维且可随时更新查询：<br>HDU 5126 starts: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5126" target="_blank" rel="external">传送门</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;vector&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> FOR(i,l,r)  for(int i=(l); i&lt;=(r); ++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> REP(i,r)    for(int i=0; i&lt;(r); ++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DWN(i,r,l)  for(int i=(r);i&gt;=(l);--i)</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> pb push_back</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;pii;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e4</span> + <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> que[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> ans[N];</span><br><span class="line"><span class="keyword">int</span> z_num;</span><br><span class="line"><span class="keyword">int</span> node[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="keyword">struct</span> Query &#123;</span><br><span class="line">    <span class="keyword">int</span> x, y, z, kind, id;</span><br><span class="line">    Query() &#123;&#125;</span><br><span class="line">    Query(<span class="keyword">int</span> _x, <span class="keyword">int</span> _y, <span class="keyword">int</span> _z, <span class="keyword">int</span> _kind, <span class="keyword">int</span> _id) : x(_x), y(_y), z(_z), kind(_kind), id(_id) &#123;&#125;</span><br><span class="line">&#125;queries[N &lt;&lt; <span class="number">3</span>], queries_x[N&lt;&lt;<span class="number">3</span>], queries_y[N &lt;&lt; <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpx</span><span class="params">(Query a, Query b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.x &lt; b.x || (a.x == b.x &amp;&amp; a.kind &lt; b.kind);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpy</span><span class="params">(Query a, Query b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.y &lt; b.y || (a.y == b.y &amp;&amp; a.kind &lt; b.kind);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span>    </span>&#123;<span class="keyword">return</span> x&amp;-x;&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(pos &lt;= z_num) &#123;</span><br><span class="line">        node[pos] += value;</span><br><span class="line">        pos += lowbit(pos);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(pos) &#123;</span><br><span class="line">        ret += node[pos];</span><br><span class="line">        pos -= lowbit(pos);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve3</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;<span class="comment">//只剩下二维y和z，直接就是二维的更新查询题目，树状数组解决就好了</span></span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r)  <span class="keyword">return</span>;</span><br><span class="line">    FOR(i, l, r)</span><br><span class="line">        <span class="keyword">if</span>(queries_y[i].kind == <span class="number">0</span>)  update(queries_y[i].z, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(queries_y[i].kind == <span class="number">1</span>)  ans[ queries_y[i].id ] -= query(queries_y[i].z);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(queries_y[i].kind == <span class="number">2</span>) ans[ queries_y[i].id ] += query(queries_y[i].z);</span><br><span class="line">    FOR(i, l, r)</span><br><span class="line">        <span class="keyword">if</span>(queries_y[i].kind == <span class="number">0</span>)  update(queries_y[i].z, -<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve2</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;<span class="comment">//把x这一维度消除</span></span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r)  <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = (l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    solve2(l, mid);</span><br><span class="line">    solve2(mid + <span class="number">1</span>, r);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    FOR(i, l, mid)  <span class="keyword">if</span>(queries_x[i].kind == <span class="number">0</span>)  queries_y[num++] = queries_x[i];</span><br><span class="line">    FOR(i, mid+<span class="number">1</span>, r)    <span class="keyword">if</span>(queries_x[i].kind)  queries_y[num++] = queries_x[i];</span><br><span class="line">    sort(queries_y, queries_y + num, cmpy);</span><br><span class="line">    solve3(<span class="number">0</span>, num - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve1</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;<span class="comment">//已经默认时间从小到大排序了，把时间这一维度消除</span></span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r)  <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = (l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    solve1(l, mid);</span><br><span class="line">    solve1(mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    FOR(i, l, mid)  <span class="keyword">if</span>(queries[i].kind == <span class="number">0</span>)    queries_x[num++] = queries[i];</span><br><span class="line">    FOR(i, mid + <span class="number">1</span>, r)  <span class="keyword">if</span>(queries[i].kind)     queries_x[num++] = queries[i];</span><br><span class="line">    sort(queries_x, queries_x + num, cmpx);<span class="comment">//对x从小到大排序</span></span><br><span class="line">    solve2(<span class="number">0</span>, num - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> casnum, n;</span><br><span class="line">    <span class="keyword">int</span> x1, x2, y1, y2, z1, z2, kind;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; casnum;</span><br><span class="line">    <span class="keyword">while</span>(casnum--) &#123;</span><br><span class="line">        <span class="built_in">memset</span>(ans, -<span class="number">1</span>, <span class="keyword">sizeof</span>(ans));</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">        z_num = <span class="number">0</span>;</span><br><span class="line">        REP(i, n) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;kind);</span><br><span class="line">            <span class="keyword">if</span>(kind == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x1, &amp;y1, &amp;z1);</span><br><span class="line">                queries[id++] = Query(x1, y1, z1, <span class="number">0</span>, i);</span><br><span class="line">                que[z_num++] = z1;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ans[i] = <span class="number">0</span>;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d%d"</span>, &amp;x1, &amp;y1, &amp;z1, &amp;x2, &amp;y2, &amp;z2);</span><br><span class="line">                queries[id++] = Query(x2    , y2    , z2    , <span class="number">2</span>, i);</span><br><span class="line">                queries[id++] = Query(x2    , y2    , z1 - <span class="number">1</span>, <span class="number">1</span>, i);</span><br><span class="line">                queries[id++] = Query(x2    , y1 - <span class="number">1</span>, z2    , <span class="number">1</span>, i);</span><br><span class="line">                queries[id++] = Query(x1 - <span class="number">1</span>, y2    , z2    , <span class="number">1</span>, i);</span><br><span class="line">                queries[id++] = Query(x2    , y1 - <span class="number">1</span>, z1 - <span class="number">1</span>, <span class="number">2</span>, i);</span><br><span class="line">                queries[id++] = Query(x1 - <span class="number">1</span>, y2    , z1 - <span class="number">1</span>, <span class="number">2</span>, i);</span><br><span class="line">                queries[id++] = Query(x1 - <span class="number">1</span>, y1 - <span class="number">1</span>, z2    , <span class="number">2</span>, i);</span><br><span class="line">                queries[id++] = Query(x1 - <span class="number">1</span>, y1 - <span class="number">1</span>, z1 - <span class="number">1</span>, <span class="number">1</span>, i);</span><br><span class="line">                que[z_num++] = z2;</span><br><span class="line">                que[z_num++] = z1 - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">            sort(que, que + z_num);</span><br><span class="line">            z_num = unique(que, que + z_num) - que;</span><br><span class="line">            REP(i, id)  queries[i].z = lower_bound(que, que + z_num, queries[i].z) - que + <span class="number">1</span>;</span><br><span class="line">            solve1(<span class="number">0</span>, id - <span class="number">1</span>);</span><br><span class="line">            REP(i, n)</span><br><span class="line">                <span class="keyword">if</span>(ans[i] != -<span class="number">1</span>)</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HDU/" rel="tag">#HDU</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/04/20/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/" rel="next" title="HDU 5208 Where is Bob && Bestcoder Round38 C题">
+                <i class="fa fa-chevron-left"></i> HDU 5208 Where is Bob && Bestcoder Round38 C题
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/07/编程之美2015初赛第一场/" rel="prev" title="编程之美2015初赛第一场">
+                编程之美2015初赛第一场 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/05/01/CDQ分治/"
+           data-title="CDQ分治 && HDU 5126" data-url="http://teveillan.com/2015/05/01/CDQ分治/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7tszmu.com1.z0.glb.clouddn.com/teveillan.jpg"
+               alt="Teveillan" />
+          <p class="site-author-name" itemprop="name">Teveillan</p>
+          <p class="site-description motion-element" itemprop="description">不把CF TC刷红的人生是不完整的。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="mailto:teveillan@gmail.com" target="_blank" title="Google">
+                  
+                    <i class="fa fa-fw fa-google"></i>
+                  
+                  Google
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/teveillan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/profile.php?id=100004378576923" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://darkrhythm.net/" title="Pira" target="_blank">Pira</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhuoyifan.net/" title="Yifan" target="_blank">Yifan</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Teveillan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"teveillan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
