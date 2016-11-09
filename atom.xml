@@ -3,9 +3,9 @@
   <title><![CDATA[Teveillan]]></title>
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://teveillan.com/"/>
-  <updated>2016-06-02T12:40:23.000Z</updated>
-  <id>http://teveillan.com/</id>
+  <link href="http://www.teveillan.com/"/>
+  <updated>2016-06-02T12:41:04.000Z</updated>
+  <id>http://www.teveillan.com/</id>
   
   <author>
     <name><![CDATA[Teveillan]]></name>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[TopCoder SRM 691 Div1 ]]></title>
-    <link href="http://teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/"/>
-    <id>http://teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/</id>
-    <published>2016-05-31T11:42:12.000Z</published>
-    <updated>2016-06-02T12:40:23.000Z</updated>
+    <link href="http://www.teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/"/>
+    <id>http://www.teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/</id>
+    <published>2016-06-01T02:42:12.000Z</published>
+    <updated>2016-06-02T12:41:04.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Easy:_Sunnygraphs">Easy: Sunnygraphs</h2><p>题意： 最初有n个点，每个点i与a[i]相连，另外又一个点P。<br>在原先的n个点中，选一个点的集合S，对于任意点 $~i \in S$，进行以下两种操作：</p>
 <ul>
 <li>删除i与a[i]的那条边</li>
@@ -56,17 +56,17 @@
     
     </summary>
     
-      <category term="topcoder" scheme="http://teveillan.com/tags/topcoder/"/>
+      <category term="topcoder" scheme="http://www.teveillan.com/tags/topcoder/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Codeforces #352 Div.1 C. Ultimate Weirdness of an Array]]></title>
-    <link href="http://teveillan.com/2016/05/18/Codeforces-352-Div-1-C-Ultimate-Weirdness-of-an-Array/"/>
-    <id>http://teveillan.com/2016/05/18/Codeforces-352-Div-1-C-Ultimate-Weirdness-of-an-Array/</id>
-    <published>2016-05-18T15:24:11.000Z</published>
+    <link href="http://www.teveillan.com/2016/05/18/Codeforces-352-Div-1-C-Ultimate-Weirdness-of-an-Array/"/>
+    <id>http://www.teveillan.com/2016/05/18/Codeforces-352-Div-1-C-Ultimate-Weirdness-of-an-Array/</id>
+    <published>2016-05-19T06:24:11.000Z</published>
     <updated>2016-05-18T15:37:10.000Z</updated>
     <content type="html"><![CDATA[<p>对数论不是很在行…每次碰到gcd相关的题都是一脸懵逼…以后遇到这种题还是多总结一下吧。</p>
 <p>最初以为是要分解质因子，然后用容斥乱搞一番，结果发现完全搞不出来..</p>
@@ -94,17 +94,17 @@
     
     </summary>
     
-      <category term="Codeforces" scheme="http://teveillan.com/tags/Codeforces/"/>
+      <category term="Codeforces" scheme="http://www.teveillan.com/tags/Codeforces/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Topcoder SRM 677 Div1]]></title>
-    <link href="http://teveillan.com/2016/04/05/SRM-677-DIV1/"/>
-    <id>http://teveillan.com/2016/04/05/SRM-677-DIV1/</id>
-    <published>2016-04-06T04:58:13.000Z</published>
+    <link href="http://www.teveillan.com/2016/04/06/SRM-677-DIV1/"/>
+    <id>http://www.teveillan.com/2016/04/06/SRM-677-DIV1/</id>
+    <published>2016-04-06T19:58:13.000Z</published>
     <updated>2016-05-31T14:35:06.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Easy:_DoubleOrOneEasy">Easy:  DoubleOrOneEasy</h2><p>给出a, b, A, B,有两种操作：</p>
 <ul>
@@ -135,17 +135,17 @@
     
     </summary>
     
-      <category term="topcoder" scheme="http://teveillan.com/tags/topcoder/"/>
+      <category term="topcoder" scheme="http://www.teveillan.com/tags/topcoder/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5657 CA Loves Math]]></title>
-    <link href="http://teveillan.com/2016/04/03/HDU-5657-CA-Loves-Math/"/>
-    <id>http://teveillan.com/2016/04/03/HDU-5657-CA-Loves-Math/</id>
-    <published>2016-04-03T12:44:47.000Z</published>
+    <link href="http://www.teveillan.com/2016/04/03/HDU-5657-CA-Loves-Math/"/>
+    <id>http://www.teveillan.com/2016/04/03/HDU-5657-CA-Loves-Math/</id>
+    <published>2016-04-04T03:44:47.000Z</published>
     <updated>2016-04-04T08:54:40.000Z</updated>
     <content type="html"><![CDATA[<p>传送门: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5657" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5657</a><br>题意：求[1, $A^n_{(10)}$]中，长度小于等于n，且为k的倍数的数有多少。</p>
 <p>此题…巨坑…</p>
@@ -177,17 +177,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Topcoder SRM 678 Div1]]></title>
-    <link href="http://teveillan.com/2016/04/01/SRM-678-DIV1/"/>
-    <id>http://teveillan.com/2016/04/01/SRM-678-DIV1/</id>
-    <published>2016-04-01T13:53:40.000Z</published>
+    <link href="http://www.teveillan.com/2016/04/01/SRM-678-DIV1/"/>
+    <id>http://www.teveillan.com/2016/04/01/SRM-678-DIV1/</id>
+    <published>2016-04-02T04:53:40.000Z</published>
     <updated>2016-05-31T14:35:15.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Easy:_A_New_Hope">Easy: A New Hope</h2><p>题意：假设一个星期有n天，一个人有n件不同的衣服（标号1~n），每件衣服每周穿一件。由此有N！种穿的方式。<br>但是洗一件衣服需要D天（第x天洗了，x+D天才能穿）。<br>现已知第一周和最后一周穿衣服的顺序，问中间最少隔了几个星期。</p>
 <a id="more"></a>
@@ -205,17 +205,17 @@
     
     </summary>
     
-      <category term="topcoder" scheme="http://teveillan.com/tags/topcoder/"/>
+      <category term="topcoder" scheme="http://www.teveillan.com/tags/topcoder/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Mac OS Sublime Text 3 C/C++ 配置]]></title>
-    <link href="http://teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-%E9%85%8D%E7%BD%AE/"/>
-    <id>http://teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/</id>
-    <published>2016-03-30T08:57:59.000Z</published>
+    <link href="http://www.teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-%E9%85%8D%E7%BD%AE/"/>
+    <id>http://www.teveillan.com/2016/03/30/Mac-OS-Sublime-Text-3-C-C-配置/</id>
+    <published>2016-03-30T23:57:59.000Z</published>
     <updated>2016-03-30T09:22:53.000Z</updated>
     <content type="html"><![CDATA[<h2 id="安装sublime_text_3_插件"><strong>安装sublime text 3 插件</strong></h2><p><strong>1.安装 Package Control组件：</strong></p>
 <ul>
@@ -251,17 +251,17 @@
     
     </summary>
     
-      <category term="MacOS" scheme="http://teveillan.com/tags/MacOS/"/>
+      <category term="MacOS" scheme="http://www.teveillan.com/tags/MacOS/"/>
     
-      <category term="SublimeText" scheme="http://teveillan.com/tags/SublimeText/"/>
+      <category term="SublimeText" scheme="http://www.teveillan.com/tags/SublimeText/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5649 DZY Loves Sorting]]></title>
-    <link href="http://teveillan.com/2016/03/26/HDU-5649-DZY-Loves-Sorting/"/>
-    <id>http://teveillan.com/2016/03/26/HDU-5649-DZY-Loves-Sorting/</id>
-    <published>2016-03-26T14:40:46.000Z</published>
+    <link href="http://www.teveillan.com/2016/03/26/HDU-5649-DZY-Loves-Sorting/"/>
+    <id>http://www.teveillan.com/2016/03/26/HDU-5649-DZY-Loves-Sorting/</id>
+    <published>2016-03-27T05:40:46.000Z</published>
     <updated>2016-03-26T14:42:01.000Z</updated>
     <content type="html"><![CDATA[<p>祭奠我因为一个坑被白白浪费的一天…</p>
 <p>基础数据结构。线段树。区间更新，区间查询。</p>
@@ -290,17 +290,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5648 DZY Loves Math]]></title>
-    <link href="http://teveillan.com/2016/03/24/HDU-5648-DZY-Loves-Math/"/>
-    <id>http://teveillan.com/2016/03/24/HDU-5648-DZY-Loves-Math/</id>
-    <published>2016-03-25T04:37:42.000Z</published>
+    <link href="http://www.teveillan.com/2016/03/25/HDU-5648-DZY-Loves-Math/"/>
+    <id>http://www.teveillan.com/2016/03/25/HDU-5648-DZY-Loves-Math/</id>
+    <published>2016-03-25T19:37:42.000Z</published>
     <updated>2016-03-25T04:43:20.000Z</updated>
     <content type="html"><![CDATA[<p>DZY Loves 系列…DZY大神你怎么什么都喜欢…</p>
 <p>传送门: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5648" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5648</a></p>
@@ -340,17 +340,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5296 Annoying problem]]></title>
-    <link href="http://teveillan.com/2015/12/16/HDU-5296-Annoying-problem/"/>
-    <id>http://teveillan.com/2015/12/16/HDU-5296-Annoying-problem/</id>
-    <published>2015-12-16T14:39:30.000Z</published>
+    <link href="http://www.teveillan.com/2015/12/16/HDU-5296-Annoying-problem/"/>
+    <id>http://www.teveillan.com/2015/12/16/HDU-5296-Annoying-problem/</id>
+    <published>2015-12-17T06:39:30.000Z</published>
     <updated>2015-12-16T14:40:15.000Z</updated>
     <content type="html"><![CDATA[<p>最初以为是DP，结果发现并不是。= =</p>
 <p>题意：在一棵树上，边有权重。有两种操作：</p>
@@ -374,17 +374,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5293 Tree chain problem]]></title>
-    <link href="http://teveillan.com/2015/11/23/HDU-5293-Tree-chain-problem/"/>
-    <id>http://teveillan.com/2015/11/23/HDU-5293-Tree-chain-problem/</id>
-    <published>2015-11-23T15:39:29.000Z</published>
+    <link href="http://www.teveillan.com/2015/11/23/HDU-5293-Tree-chain-problem/"/>
+    <id>http://www.teveillan.com/2015/11/23/HDU-5293-Tree-chain-problem/</id>
+    <published>2015-11-24T07:39:29.000Z</published>
     <updated>2015-11-23T15:40:15.000Z</updated>
     <content type="html"><![CDATA[<p>题目链接: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5293" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5293</a></p>
 <p>题目大意：有个N的点的树。其中树上有M条已知的链，每条链有一个权值。从中选出任意个不相交的链使得链的权值和最大。</p>
@@ -408,17 +408,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5291 Candy Distribution]]></title>
-    <link href="http://teveillan.com/2015/11/22/HDU-5291-Candy-Distribution/"/>
-    <id>http://teveillan.com/2015/11/22/HDU-5291-Candy-Distribution/</id>
-    <published>2015-11-22T11:11:35.000Z</published>
+    <link href="http://www.teveillan.com/2015/11/22/HDU-5291-Candy-Distribution/"/>
+    <id>http://www.teveillan.com/2015/11/22/HDU-5291-Candy-Distribution/</id>
+    <published>2015-11-23T03:11:35.000Z</published>
     <updated>2015-11-22T11:15:22.000Z</updated>
     <content type="html"><![CDATA[<p>题目链接：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=5291" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5291</a></p>
 <p>题目大概意思就是有K种物品，第i种物品有ai个，要把全部的物品分成两堆，每个物品可以用也可以不用， 问最后两边物品数量一样多的方案数。</p>
@@ -441,17 +441,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5290 Bombing plan]]></title>
-    <link href="http://teveillan.com/2015/11/19/HDU-5290-Bombing-plan/"/>
-    <id>http://teveillan.com/2015/11/19/HDU-5290-Bombing-plan/</id>
-    <published>2015-11-19T08:07:43.000Z</published>
+    <link href="http://www.teveillan.com/2015/11/19/HDU-5290-Bombing-plan/"/>
+    <id>http://www.teveillan.com/2015/11/19/HDU-5290-Bombing-plan/</id>
+    <published>2015-11-20T00:07:43.000Z</published>
     <updated>2015-11-22T11:13:51.000Z</updated>
     <content type="html"><![CDATA[<p>题目链接： <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5290" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5290</a></p>
 <p>官方题解已经说的很详细了。我也引用一下官方题解吧（有修改，加重部分）。</p>
@@ -470,17 +470,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[机器学习笔记---线性回归(Linear Regression)]]></title>
-    <link href="http://teveillan.com/2015/07/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Linear-Regression/"/>
-    <id>http://teveillan.com/2015/07/28/机器学习笔记-线性回归-Linear-Regression/</id>
-    <published>2015-07-28T12:36:26.000Z</published>
+    <link href="http://www.teveillan.com/2015/07/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92-Linear-Regression/"/>
+    <id>http://www.teveillan.com/2015/07/28/机器学习笔记-线性回归-Linear-Regression/</id>
+    <published>2015-07-29T03:36:26.000Z</published>
     <updated>2015-11-18T14:19:04.000Z</updated>
     <content type="html"><![CDATA[<p>作为机器学习的第一课，深刻理解线性回归将<strong>非常</strong>有助于我们学习后面的课程。</p>
 <p>在上篇文章中我们将机器学习分为监督学习和非监督学习，线性回归就属于监督学习算法的一种。</p>
@@ -563,15 +563,15 @@
     
     </summary>
     
-      <category term="Tech" scheme="http://teveillan.com/categories/Tech/"/>
+      <category term="Tech" scheme="http://www.teveillan.com/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[机器学习笔记—机器学习简介]]></title>
-    <link href="http://teveillan.com/2015/07/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"/>
-    <id>http://teveillan.com/2015/07/01/机器学习笔记—机器学习简介/</id>
-    <published>2015-07-01T12:14:03.000Z</published>
+    <link href="http://www.teveillan.com/2015/07/01/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/"/>
+    <id>http://www.teveillan.com/2015/07/01/机器学习笔记—机器学习简介/</id>
+    <published>2015-07-02T03:14:03.000Z</published>
     <updated>2015-11-18T14:18:41.000Z</updated>
     <content type="html"><![CDATA[<p>一直以来都想学习机器学习，但是苦于找不到好的入门书籍或者教学视频（Andrew NG的斯坦福公开课没有练习），直到发现了这个:</p>
 <blockquote>
@@ -619,15 +619,15 @@
     
     </summary>
     
-      <category term="Tech" scheme="http://teveillan.com/categories/Tech/"/>
+      <category term="Tech" scheme="http://www.teveillan.com/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[[转]部署MAC上的Sublime Text+LaTeX中文环境]]></title>
-    <link href="http://teveillan.com/2015/05/10/%E8%BD%AC-%E9%83%A8%E7%BD%B2MAC%E4%B8%8A%E7%9A%84Sublime-Text-LaTex%E4%B8%AD%E6%96%87%E7%8E%AF%E5%A2%83/"/>
-    <id>http://teveillan.com/2015/05/10/转-部署MAC上的Sublime-Text-LaTex中文环境/</id>
-    <published>2015-05-11T06:35:22.000Z</published>
+    <link href="http://www.teveillan.com/2015/05/11/%E8%BD%AC-%E9%83%A8%E7%BD%B2MAC%E4%B8%8A%E7%9A%84Sublime-Text-LaTex%E4%B8%AD%E6%96%87%E7%8E%AF%E5%A2%83/"/>
+    <id>http://www.teveillan.com/2015/05/11/转-部署MAC上的Sublime-Text-LaTex中文环境/</id>
+    <published>2015-05-11T21:35:22.000Z</published>
     <updated>2015-05-11T06:39:19.000Z</updated>
     <content type="html"><![CDATA[<p>原文链接：<a href="http://www.readern.com/sublime-text-latex-chinese-under-mac.html" target="_blank" rel="external">http://www.readern.com/sublime-text-latex-chinese-under-mac.html</a><br>作者：Read ERN</p>
 <p>LaTex就不多做介绍了，其实一般人用到的机会也不多（包括我）。只是这段时间在Coursera上新课程的时候，偶尔需要，所以从零开始摸索了一下，也顺便进一步发现了Sublime Text的强大。</p>
@@ -667,19 +667,19 @@
     
     </summary>
     
-      <category term="LaTeX" scheme="http://teveillan.com/tags/LaTeX/"/>
+      <category term="LaTeX" scheme="http://www.teveillan.com/tags/LaTeX/"/>
     
-      <category term="MacOS" scheme="http://teveillan.com/tags/MacOS/"/>
+      <category term="MacOS" scheme="http://www.teveillan.com/tags/MacOS/"/>
     
-      <category term="Tech" scheme="http://teveillan.com/categories/Tech/"/>
+      <category term="Tech" scheme="http://www.teveillan.com/categories/Tech/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[编程之美2015初赛第一场]]></title>
-    <link href="http://teveillan.com/2015/05/07/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E2015%E5%88%9D%E8%B5%9B%E7%AC%AC%E4%B8%80%E5%9C%BA/"/>
-    <id>http://teveillan.com/2015/05/07/编程之美2015初赛第一场/</id>
-    <published>2015-05-07T11:51:01.000Z</published>
+    <link href="http://www.teveillan.com/2015/05/07/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E2015%E5%88%9D%E8%B5%9B%E7%AC%AC%E4%B8%80%E5%9C%BA/"/>
+    <id>http://www.teveillan.com/2015/05/07/编程之美2015初赛第一场/</id>
+    <published>2015-05-08T02:51:01.000Z</published>
     <updated>2015-05-07T14:39:16.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Hihocoder_1156_彩色的树">Hihocoder 1156 彩色的树</h2><p>题目链接: <a href="http://hihocoder.com/problemset/problem/1156" target="_blank" rel="external">http://hihocoder.com/problemset/problem/1156</a></p>
 <p>在每个更新操作的过程中，假设点P最初的颜色为color1，更新后的颜色为color2。<br>我们记与点P相邻，颜色为color1的点为num1, 颜色为color2的点为num2。<br>则 ans += num1 - 1, ans -= num2 - 1。</p>
@@ -717,17 +717,17 @@
     
     </summary>
     
-      <category term="编程之美" scheme="http://teveillan.com/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E/"/>
+      <category term="编程之美" scheme="http://www.teveillan.com/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[CDQ分治 && HDU 5126]]></title>
-    <link href="http://teveillan.com/2015/05/02/CDQ%E5%88%86%E6%B2%BB/"/>
-    <id>http://teveillan.com/2015/05/02/CDQ分治/</id>
-    <published>2015-05-02T08:48:26.000Z</published>
+    <link href="http://www.teveillan.com/2015/05/02/CDQ%E5%88%86%E6%B2%BB/"/>
+    <id>http://www.teveillan.com/2015/05/02/CDQ分治/</id>
+    <published>2015-05-02T23:48:26.000Z</published>
     <updated>2015-05-06T13:24:03.000Z</updated>
     <content type="html"><![CDATA[<p>参考文献：<a href="http://wenku.baidu.com/view/52f9c11cff00bed5b9f31d2d.html" target="_blank" rel="external">从《Cash》谈一类分治算法的应用</a> — 陈丹琦</p>
 <p>也因此简称CDQ分治。</p>
@@ -772,17 +772,17 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://teveillan.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://www.teveillan.com/tags/HDU/"/>
     
-      <category term="Algorithm" scheme="http://teveillan.com/categories/Algorithm/"/>
+      <category term="Algorithm" scheme="http://www.teveillan.com/categories/Algorithm/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[HDU 5208 Where is Bob && Bestcoder Round38 C题]]></title>
-    <link href="http://teveillan.com/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C%E9%A2%98/"/>
-    <id>http://teveillan.com/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/</id>
-    <published>2015-04-21T09:57:45.000Z</published>
+    <link href="http://www.teveillan.com/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C%E9%A2%98/"/>
+    <id>http://www.teveillan.com/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/</id>
+    <published>2015-04-22T00:57:45.000Z</published>
     <updated>2015-05-07T11:53:49.000Z</updated>
     <content type="html"><![CDATA[<p>题目链接：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=5208" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=5208</a></p>
 <p>近似于数位DP的思路。<br>用数位DP求区间中符号条件的数有多少的时候，有时会用一个符号位来记录当前的取值是否达到区间的上界。这里同样用这个办法。（官方题解我有点没看懂，我的解法有可能和官方题解不一样）</p>
@@ -812,17 +812,17 @@
     
     </summary>
     
-      <category term="BestCoder" scheme="http://teveillan.com/tags/BestCoder/"/>
+      <category term="BestCoder" scheme="http://www.teveillan.com/tags/BestCoder/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[BestCoder Round #25]]></title>
-    <link href="http://teveillan.com/2015/01/08/BestCoder-Round-25/"/>
-    <id>http://teveillan.com/2015/01/08/BestCoder-Round-25/</id>
-    <published>2015-01-09T05:57:46.000Z</published>
+    <link href="http://www.teveillan.com/2015/01/09/BestCoder-Round-25/"/>
+    <id>http://www.teveillan.com/2015/01/09/BestCoder-Round-25/</id>
+    <published>2015-01-09T21:57:46.000Z</published>
     <updated>2015-05-07T11:53:38.000Z</updated>
     <content type="html"><![CDATA[<h2 id="1001_Harry_and_Magical_Computer">1001 Harry and Magical Computer</h2><p>就是判断有没有环存在。<br>点比较少，Floyd一遍O(n^3)就行。</p>
 <h2 id="1002_Harry_And_Magic_Box">1002 Harry And Magic Box</h2><p>官方题解是O(n^4)的，其实中间有一维可以省略。（小地方而已。。不管也罢。。）<br><a id="more"></a><br>dp[i][j]表示第i行已经有j列被选过（这j个不一定全都是在第i行选的，有可能包括之前选的）。<br>则dp公式为： <code>(1 &lt;= k &lt;= j)</code></p>
@@ -844,17 +844,17 @@
     
     </summary>
     
-      <category term="BestCoder" scheme="http://teveillan.com/tags/BestCoder/"/>
+      <category term="BestCoder" scheme="http://www.teveillan.com/tags/BestCoder/"/>
     
-      <category term="红名之路" scheme="http://teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
+      <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[[转]Manacher算法-回文串处理]]></title>
-    <link href="http://teveillan.com/2015/01/08/-%E8%BD%AC-Manacher%E7%AE%97%E6%B3%95-%E5%9B%9E%E6%96%87%E4%B8%B2%E5%A4%84%E7%90%86/"/>
-    <id>http://teveillan.com/2015/01/08/-转-Manacher算法-回文串处理/</id>
-    <published>2015-01-09T03:45:39.000Z</published>
+    <link href="http://www.teveillan.com/2015/01/09/-%E8%BD%AC-Manacher%E7%AE%97%E6%B3%95-%E5%9B%9E%E6%96%87%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+    <id>http://www.teveillan.com/2015/01/09/-转-Manacher算法-回文串处理/</id>
+    <published>2015-01-09T19:45:39.000Z</published>
     <updated>2015-05-11T06:53:09.000Z</updated>
     <content type="html"><![CDATA[<p><strong>Manacher</strong>算法是查找一个字符串的最长回文子串的线性算法。<br>在介绍算法之前，首先介绍一下什么是回文串，所谓回文串，简单来说就是正着读和反着读都是一样的字符串，比如abba，noon等等，一个字符串的最长回文子串即为这个字符串的子串中，是回文串的最长的那个。<br>计算字符串的最长回文字串最简单的算法就是枚举该字符串的每一个子串，并且判断这个子串是否为回文串，这个算法的时间复杂度为O(n^3)的，显然无法令人满意，稍微优化的一个算法是枚举回文串的中点，这里要分为两种情况，一种是回文串长度是奇数的情况，另一种是回文串长度是偶数的情况，枚举中点再判断是否是回文串，这样能把算法的时间复杂度降为O(n^2)，但是当n比较大的时候仍然无法令人满意，Manacher算法可以在线性时间复杂度内求出一个字符串的最长回文字串，达到了理论上的下界。</p>
 <a id="more"></a>
@@ -877,7 +877,7 @@
     
     </summary>
     
-      <category term="Algorithm" scheme="http://teveillan.com/categories/Algorithm/"/>
+      <category term="Algorithm" scheme="http://www.teveillan.com/categories/Algorithm/"/>
     
   </entry>
   
