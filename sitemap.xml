@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.teveillan.com/2015/01/02/New-Year/</loc>
+    <lastmod>2016-11-14T04:49:38.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.teveillan.com/2016/05/31/TopCoder-SRM-691-DIV-1/</loc>
     <lastmod>2016-06-02T12:41:04.000Z</lastmod>
   </url>
@@ -114,11 +119,6 @@
   <url>
     <loc>http://www.teveillan.com/2015/01/04/%E6%9C%80%E7%9F%AD%E8%B7%AF-SPFA/</loc>
     <lastmod>2015-05-07T08:05:28.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.teveillan.com/2015/01/02/New-Year/</loc>
-    <lastmod>2015-05-06T13:24:03.000Z</lastmod>
   </url>
   
   <url>
