@@ -4,7 +4,7 @@
   <subtitle><![CDATA[不把CF TC刷红的人生是不完整的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.teveillan.com/"/>
-  <updated>2016-06-02T12:41:04.000Z</updated>
+  <updated>2017-03-04T03:17:19.000Z</updated>
   <id>http://www.teveillan.com/</id>
   
   <author>
@@ -13,6 +13,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[饥荒Don't starve together Mac独立服务器搭建]]></title>
+    <link href="http://www.teveillan.com/2017/03/03/%E9%A5%A5%E8%8D%92Don-t-starve-together-Mac%E7%8B%AC%E7%AB%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+    <id>http://www.teveillan.com/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/</id>
+    <published>2017-03-04T03:08:03.000Z</published>
+    <updated>2017-03-04T03:17:19.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="饥荒Don’t_starve_together_Mac独立服务器搭建">饥荒Don’t starve together Mac独立服务器搭建</h1><h2 id="1-_购买正版饥荒">1. 购买正版饥荒</h2><h2 id="2-_创建世界">2. 创建世界</h2><ol>
+<li>先创建好世界（进去一次地图后再退出来）。</li>
+<li><p>再次进入，看看你建立的世界是第几个世界。（此时为第一个）<br><img src="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/" alt="此时是第一个"> </p>
+</li>
+<li><p>在刚登入游戏的界面，点击右下角的“个人资料”（应该是左起第二个），会弹出来一个页面。随机生成一个专用服务器令牌（下图马赛克中的部分），记录下来。</p>
+</li>
+</ol>
+<p><img src="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/" alt="Alt text"></p>
+<p>准备工作做完了，剩下的是配置过程。</p>
+<h2 id="3-配置">3.配置</h2><h3 id="3-1_建立验证文件（估计是为了防盗版）">3.1 建立验证文件（估计是为了防盗版）</h3><p>先找到你刚刚创建的那个世界的文件夹，Mac下在<code>~/Documents/Klei/DoNotStarveTogether/</code>中，跳转至这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Documents/Klei/DoNotStarveTogether/</span><br></pre></td></tr></table></figure></p>
+<p> 这个文件夹下应该有多个文件<code>Cluster_1</code>, <code>Cluster_2</code>等等。我刚刚创建的是第一个世界，这就应该是<code>Cluster_1</code>，跳转进这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Cluster_1</span><br></pre></td></tr></table></figure></p>
+<p>建立文件<code>cluster_token.txt</code>并把刚刚的专用服务器令牌(your_token替换为你的token)写进文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> your_token &gt; cluster_token.txt</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2_创建启动脚本">3.2 创建启动脚本</h3><p>跳转DST提供的独立服务器的脚本目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Application Support/Steam/steamapps/common/Don<span class="string">'t Starve Together/dontstarve_steam.app/Contents/MacOS</span></span><br></pre></td></tr></table></figure></p>
+<p>该目录下<code>dontstarve_dedicated_server_nullrenderer</code>这个文件，是DST提供的独立服务器的执行文件。<br>写两个脚本文件分别用来生成地上和洞穴的服务器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Master"</span> &gt; start.sh &amp;&amp; chmod +x start.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Caves"</span> &gt; start_cave.sh &amp;&amp; chmod +x start_cave.sh</span><br></pre></td></tr></table></figure></p>
+<p> 然后执行脚本文件<code>./start.sh id</code>,  id就是你地图的编号，再进入游戏就能找到地图了（不是在创建世界中，在寻找房间里。如果你是本机上搭建的服务器，那就在本地找。其他人照常在服务器上找。）</p>
+<p><strong>注意，先打开游戏以后再建立服务器。</strong> 我先建立服务器再进游戏就进不去了，不知道是不是我的个例。</p>
+<h2 id="3-3_快速启动脚本">3.3 快速启动脚本</h2><p>之前的步骤已经足够搭建服务器了。但是如果不想每次都生成一下验证文件还专门跳转到启动脚本的文件夹，可以按我下面写的脚本快速启动（放在哪里都行，记着替换里面的token）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> <span class="operator">-lt</span> <span class="number">1</span> ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Need cluster id"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	path=~/Documents/Klei/DoNotStarveTogether/Cluster_<span class="variable">$1</span></span><br><span class="line">	<span class="built_in">cd</span> <span class="variable">$path</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"your_token"</span> &gt; cluster_token.txt //替换你的token</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cd</span> ~/Library/Application\ Support/Steam/steamapps/common/Don\<span class="string">'t\ Starve\ Together/dontstarve_steam.app/Contents/MacOS</span><br><span class="line">	sh start.sh $1 1 &gt; /dev/null &amp;</span><br><span class="line">    echo "Start to run cluster"</span><br><span class="line"></span><br><span class="line">    if [ $# -eq 2 -a $2 = '</span>Y<span class="string">' ]</span><br><span class="line">    then</span><br><span class="line">        sh start_cave.sh $1 &gt; /dev/null &amp;</span><br><span class="line">        echo "Start to run cave"</span><br><span class="line">    else</span><br><span class="line">        echo "Didn'</span>t run cave<span class="string">"</span><br><span class="line">    fi</span><br><span class="line">fi</span></span><br></pre></td></tr></table></figure>
+<p>启动时候只需执行:</p>
+<blockquote>
+<p><code>sh DST_start.sh id</code> (只生成地上)<br><code>sh DST_start.sh id Y</code> (同时生成地上和洞穴地图)</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="饥荒Don’t_starve_together_Mac独立服务器搭建">饥荒Don’t starve together Mac独立服务器搭建</h1><h2 id="1-_购买正版饥荒">1. 购买正版饥荒</h2><h2 id="2-_创建世界">2. 创建世界]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[TopCoder SRM 691 Div1 ]]></title>
@@ -131,7 +166,7 @@
 <li>a, b同时乘2</li>
 <li>a, b同时加1</li>
 </ul>
-<p>问最少经过多少次操作使得 a == A &amp;&amp; b == b<br>]]>
+<p>问最少经过多少次操作使得 a == A &amp;&amp; b == b<br></p>]]>
     
     </summary>
     
@@ -173,7 +208,7 @@
 <li>n = 0 or n = 1时坑比较多，建议单独处理</li>
 <li><strong>前导0是不算的!!!</strong>。但是题目给的数据比较坑，刚好两位，如果算了前导0，刚好也对。（包括第一题中MOD值为1e8+7…我充满了对这个世界的怨念…）</li>
 </ol>
-<p>所以说一直WA的可以按我上面的几点检查一下…我感觉我应该是把坑都踩完了…<br>]]>
+<p>所以说一直WA的可以按我上面的几点检查一下…我感觉我应该是把坑都踩完了…<br></p>]]>
     
     </summary>
     
@@ -466,7 +501,7 @@
     <![CDATA[<p>题目链接： <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5290">http://acm.hdu.edu.cn/showproblem.php?pid=5290</a></p>
 <p>官方题解已经说的很详细了。我也引用一下官方题解吧（有修改，加重部分）。</p>
 <blockquote>
-<p> DP,定义两个数组$F[I][J]$,$G[I][J]$。<br> $F[I][J]$表示以第i个点为根的子树上的点被全部破坏掉，并且还能向上破坏掉<strong>不少于</strong>j个距离，满足这样条件需要选取的最小点数；<br> $G[I][J]$表示以第i个点为根的子树上的点被未被全部破坏，且未被破坏的点中距离i最远的点距离为<strong>不超过</strong>j，满足这样条件需要选取的最小点数。<br>]]>
+<p> DP,定义两个数组$F[I][J]$,$G[I][J]$。<br> $F[I][J]$表示以第i个点为根的子树上的点被全部破坏掉，并且还能向上破坏掉<strong>不少于</strong>j个距离，满足这样条件需要选取的最小点数；<br> $G[I][J]$表示以第i个点为根的子树上的点被未被全部破坏，且未被破坏的点中距离i最远的点距离为<strong>不超过</strong>j，满足这样条件需要选取的最小点数。<br></p></blockquote>]]>
     
     </summary>
     
@@ -615,7 +650,7 @@
 <p><a href="https://www.coursera.org/learn/machine-learning/home/welcome">https://www.coursera.org/learn/machine-learning/home/welcome</a></p>
 </blockquote>
 <p>虽然也是Andrew NG老师的，不过是在Coursera上的，相对于课堂上的录制视频，这个用PPT来讲更直观，视频中间会有问答检测关键知识点是否理解正确，强制性要求的课后作业虽然不难，但确实能加深理解。比起只看书或者只看公开课，优点不用多说。</p>
-<p>由于本人也是初学者，所以各位客官在看得时候务必以教学视频和自己的理解为主，若发现有问题的地方欢迎指正共同学习。<br>]]>
+<p>由于本人也是初学者，所以各位客官在看得时候务必以教学视频和自己的理解为主，若发现有问题的地方欢迎指正共同学习。<br></p>]]>
     
     </summary>
     
@@ -713,7 +748,7 @@
 <li><code>num1 = map[P][color1] + (color[ fa[P] ] == color1)</code></li>
 <li><code>num2 = map[P][color2] + (color[ fa[p] ] == color2)</code></li>
 </ul>
-<p>更新的时候只用将父节点的子节点的color1—, color2++。<br>在O(log)级的复杂度内就能完成更新查询操作。<br>]]>
+<p>更新的时候只用将父节点的子节点的color1—, color2++。<br>在O(log)级的复杂度内就能完成更新查询操作。<br></p>]]>
     
     </summary>
     
@@ -808,7 +843,7 @@
 <li>第一个人只能取0或1中的一个。这时候第二个人一定是尽量取和第一个人一样的值。</li>
 <li>第二个人只能取0或1中得一个，而第一个人两个都可以选。第一个人自然取第二个人取不到的值。</li>
 </ul>
-<p>但是，当在这两种情况之外，决策就不唯一了。这时，先把低位的决策解决了就很有必要。<br>]]>
+<p>但是，当在这两种情况之外，决策就不唯一了。这时，先把低位的决策解决了就很有必要。<br></p>]]>
     
     </summary>
     
@@ -840,44 +875,13 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="1001_Harry_and_Magical_Computer">1001 Harry and Magical Computer</h2><p>就是判断有没有环存在。<br>点比较少，Floyd一遍O(n^3)就行。</p>
-<h2 id="1002_Harry_And_Magic_Box">1002 Harry And Magic Box</h2><p>官方题解是O(n^4)的，其实中间有一维可以省略。（小地方而已。。不管也罢。。）<br>]]>
+<h2 id="1002_Harry_And_Magic_Box">1002 Harry And Magic Box</h2><p>官方题解是O(n^4)的，其实中间有一维可以省略。（小地方而已。。不管也罢。。）<br></p>]]>
     
     </summary>
     
       <category term="BestCoder" scheme="http://www.teveillan.com/tags/BestCoder/"/>
     
       <category term="红名之路" scheme="http://www.teveillan.com/categories/%E7%BA%A2%E5%90%8D%E4%B9%8B%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[[转]Manacher算法-回文串处理]]></title>
-    <link href="http://www.teveillan.com/2015/01/09/-%E8%BD%AC-Manacher%E7%AE%97%E6%B3%95-%E5%9B%9E%E6%96%87%E4%B8%B2%E5%A4%84%E7%90%86/"/>
-    <id>http://www.teveillan.com/2015/01/09/-转-Manacher算法-回文串处理/</id>
-    <published>2015-01-09T19:45:39.000Z</published>
-    <updated>2015-05-11T06:53:09.000Z</updated>
-    <content type="html"><![CDATA[<p><strong>Manacher</strong>算法是查找一个字符串的最长回文子串的线性算法。<br>在介绍算法之前，首先介绍一下什么是回文串，所谓回文串，简单来说就是正着读和反着读都是一样的字符串，比如abba，noon等等，一个字符串的最长回文子串即为这个字符串的子串中，是回文串的最长的那个。<br>计算字符串的最长回文字串最简单的算法就是枚举该字符串的每一个子串，并且判断这个子串是否为回文串，这个算法的时间复杂度为O(n^3)的，显然无法令人满意，稍微优化的一个算法是枚举回文串的中点，这里要分为两种情况，一种是回文串长度是奇数的情况，另一种是回文串长度是偶数的情况，枚举中点再判断是否是回文串，这样能把算法的时间复杂度降为O(n^2)，但是当n比较大的时候仍然无法令人满意，Manacher算法可以在线性时间复杂度内求出一个字符串的最长回文字串，达到了理论上的下界。</p>
-<a id="more"></a>
-<h1 id="Manacher算法原理与实现">Manacher算法原理与实现</h1><p>下面介绍Manacher算法的原理与步骤。<br>首先，Manacher算法提供了一种巧妙地办法，将长度为奇数的回文串和长度为偶数的回文串一起考虑，具体做法是，在原字符串的每个相邻两个字符中间插入一个分隔符，同时在首尾也要添加一个分隔符，分隔符的要求是不在原串中出现，一般情况下可以用#号。下面举一个例子：<br><img src="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-1.png" alt=""></p>
-<h2 id="Len数组简介与性质">Len数组简介与性质</h2><p>Manacher算法用一个辅助数组Len[i]表示以字符T[i]为中心的最长回文字串的最右字符到T[i]的长度，比如以T[i]为中心的最长回文字串是T[l,r],那么Len[i]=r-i+1。<br>对于上面的例子，可以得出Len[i]数组为:</p>
-<p><img src="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-2.png" alt=""></p>
-<p>Len数组有一个性质，那就是Len[i]-1就是该回文子串在原字符串S中的长度，至于证明，首先在转换得到的字符串T中，所有的回文字串的长度都为奇数，那么对于以T[i]为中心的最长回文字串，其长度就为2*Len[i]-1,经过观察可知，T中所有的回文子串，其中分隔符的数量一定比其他字符的数量多1，也就是有Len[i]个分隔符，剩下Len[i]-1个字符来自原字符串，所以该回文串在原字符串中的长度就为Len[i]-1。<br>有了这个性质，那么原问题就转化为求所有的Len[i]。下面介绍如何在线性时间复杂度内求出所有的Len。</p>
-<h2 id="Len数组的计算">Len数组的计算</h2><p>首先从左往右依次计算Len[i]，当计算Len[i]时，Len<a href="0&lt;=j&lt;i">j</a>已经计算完毕。设P为之前计算中最长回文子串的右端点的最大值，并且设取得这个最大值的位置为po，分两种情况：<br>第一种情况：i&lt;=P<br>那么找到i相对于po的对称位置，设为j，那么如果Len[j]&lt;P-i，如下图：</p>
-<p><img src="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-3.png" alt=""></p>
-<p>那么说明以j为中心的回文串一定在以po为中心的回文串的内部，且j和i关于位置po对称，由回文串的定义可知，一个回文串反过来还是一个回文串，所以以i为中心的回文串的长度至少和以j为中心的回文串一样，即Len[i]&gt;=Len[j]。因为Len[j]<p-i,所以说i+len[j]<p。由对称性可知len[i]=len[j]。 如果len[j]="">=P-i,由对称性，说明以i为中心的回文串可能会延伸到P之外，而大于P的部分我们还没有进行匹配，所以要从P+1位置开始一个一个进行匹配，直到发生失配，从而更新P和对应的po以及Len[i]。</p-i,所以说i+len[j]<p。由对称性可知len[i]=len[j]。></p>
-<p><img src="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-4.png" alt=""></p>
-<p>第二种情况: i&gt;P<br>如果i比P还要大，说明对于中点为i的回文串还一点都没有匹配，这个时候，就只能老老实实地一个一个匹配了，匹配完成后要更新P的位置和对应的po以及Len[i]。</p>
-<p><img src="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-5.png" alt=""></p>
-<h1 id="时间复杂度分析">时间复杂度分析</h1><p>Manacher算法的时间复杂度分析和Z算法类似，因为算法只有遇到还没有匹配的位置时才进行匹配，已经匹配过的位置不再进行匹配，所以对于T字符串中的每一个位置，只进行一次匹配，所以Manacher算法的总体时间复杂度为O(n)，其中n为T字符串的长度，由于T的长度事实上是S的两倍，所以时间复杂度依然是线性的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_LEN = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Len[MAX_LEN&lt;&lt;<span class="number">1</span>]; <span class="comment">//记录算法完成后以i点为中心最长回文串向左向右延伸的半径</span></span><br><span class="line"><span class="keyword">struct</span> Manacher &#123;</span><br><span class="line">    <span class="keyword">char</span> tmp_str[MAX_LEN&lt;&lt;<span class="number">1</span>]; <span class="comment">//记录预处理过后的字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">init</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123; <span class="comment">//在solve中就直接调用了。对原串进行预处理。</span></span><br><span class="line">        <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">        <span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">        tmp_str[id++] = <span class="string">'#'</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i) &#123;</span><br><span class="line">            tmp_str[id++] = s[i];</span><br><span class="line">            tmp_str[id++] = <span class="string">'#'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        tmp_str[id] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">return</span> id; <span class="comment">//此时的id即为处理过后的字符串长度</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123; <span class="comment">//从这开始处理</span></span><br><span class="line">        <span class="keyword">int</span> len = init(s);</span><br><span class="line">        <span class="keyword">int</span> max_r = -<span class="number">1</span>, max_id = -<span class="number">1</span>; <span class="comment">// 最右能到得地方，以及最右时的中心点id</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(max_r &gt; i)   Len[i] = min(max_r - i, Len[<span class="number">2</span> * max_id - i]);</span><br><span class="line">            <span class="keyword">else</span> Len[i] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(i - Len[i] &gt;= <span class="number">0</span> &amp;&amp; i + Len[i] &lt; len &amp;&amp; tmp_str[i - Len[i]] == tmp_str[i + Len[i]])</span><br><span class="line">                ++Len[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(i + Len[i] &gt; max_r) &#123;</span><br><span class="line">                max_r = i + Len[i];</span><br><span class="line">                max_id = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>转自：<a href="http://blog.csdn.net/dyx404514/article/details/42061017" target="_blank" rel="external">http://blog.csdn.net/dyx404514/article/details/42061017</a><br>作者：dyx心心</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><strong>Manacher</strong>算法是查找一个字符串的最长回文子串的线性算法。<br>在介绍算法之前，首先介绍一下什么是回文串，所谓回文串，简单来说就是正着读和反着读都是一样的字符串，比如abba，noon等等，一个字符串的最长回文子串即为这个字符串的子串中，是回文串的最长的那个。<br>计算字符串的最长回文字串最简单的算法就是枚举该字符串的每一个子串，并且判断这个子串是否为回文串，这个算法的时间复杂度为O(n^3)的，显然无法令人满意，稍微优化的一个算法是枚举回文串的中点，这里要分为两种情况，一种是回文串长度是奇数的情况，另一种是回文串长度是偶数的情况，枚举中点再判断是否是回文串，这样能把算法的时间复杂度降为O(n^2)，但是当n比较大的时候仍然无法令人满意，Manacher算法可以在线性时间复杂度内求出一个字符串的最长回文字串，达到了理论上的下界。</p>]]>
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://www.teveillan.com/categories/Algorithm/"/>
     
   </entry>
   

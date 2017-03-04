@@ -247,6 +247,137 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/" itemprop="url">
+                  饥荒Don't starve together Mac独立服务器搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2017-03-03T19:08:03-08:00" content="3月 3 2017">
+              3月 3 2017
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/" class="leancloud_visitors" data-flag-title="饥荒Don't starve together Mac独立服务器搭建">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="饥荒Don’t_starve_together_Mac独立服务器搭建">饥荒Don’t starve together Mac独立服务器搭建</h1><h2 id="1-_购买正版饥荒">1. 购买正版饥荒</h2><h2 id="2-_创建世界">2. 创建世界</h2><ol>
+<li>先创建好世界（进去一次地图后再退出来）。</li>
+<li><p>再次进入，看看你建立的世界是第几个世界。（此时为第一个）<br><img src="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/" alt="此时是第一个"> </p>
+</li>
+<li><p>在刚登入游戏的界面，点击右下角的“个人资料”（应该是左起第二个），会弹出来一个页面。随机生成一个专用服务器令牌（下图马赛克中的部分），记录下来。</p>
+</li>
+</ol>
+<p><img src="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/" alt="Alt text"></p>
+<p>准备工作做完了，剩下的是配置过程。</p>
+<h2 id="3-配置">3.配置</h2><h3 id="3-1_建立验证文件（估计是为了防盗版）">3.1 建立验证文件（估计是为了防盗版）</h3><p>先找到你刚刚创建的那个世界的文件夹，Mac下在<code>~/Documents/Klei/DoNotStarveTogether/</code>中，跳转至这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Documents/Klei/DoNotStarveTogether/</span><br></pre></td></tr></table></figure></p>
+<p> 这个文件夹下应该有多个文件<code>Cluster_1</code>, <code>Cluster_2</code>等等。我刚刚创建的是第一个世界，这就应该是<code>Cluster_1</code>，跳转进这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Cluster_1</span><br></pre></td></tr></table></figure></p>
+<p>建立文件<code>cluster_token.txt</code>并把刚刚的专用服务器令牌(your_token替换为你的token)写进文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> your_token &gt; cluster_token.txt</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2_创建启动脚本">3.2 创建启动脚本</h3><p>跳转DST提供的独立服务器的脚本目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Application Support/Steam/steamapps/common/Don<span class="string">'t Starve Together/dontstarve_steam.app/Contents/MacOS</span></span><br></pre></td></tr></table></figure></p>
+<p>该目录下<code>dontstarve_dedicated_server_nullrenderer</code>这个文件，是DST提供的独立服务器的执行文件。<br>写两个脚本文件分别用来生成地上和洞穴的服务器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Master"</span> &gt; start.sh &amp;&amp; chmod +x start.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Caves"</span> &gt; start_cave.sh &amp;&amp; chmod +x start_cave.sh</span><br></pre></td></tr></table></figure></p>
+<p> 然后执行脚本文件<code>./start.sh id</code>,  id就是你地图的编号，再进入游戏就能找到地图了（不是在创建世界中，在寻找房间里。如果你是本机上搭建的服务器，那就在本地找。其他人照常在服务器上找。）</p>
+<p><strong>注意，先打开游戏以后再建立服务器。</strong> 我先建立服务器再进游戏就进不去了，不知道是不是我的个例。</p>
+<h2 id="3-3_快速启动脚本">3.3 快速启动脚本</h2><p>之前的步骤已经足够搭建服务器了。但是如果不想每次都生成一下验证文件还专门跳转到启动脚本的文件夹，可以按我下面写的脚本快速启动（放在哪里都行，记着替换里面的token）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> <span class="operator">-lt</span> <span class="number">1</span> ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Need cluster id"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	path=~/Documents/Klei/DoNotStarveTogether/Cluster_<span class="variable">$1</span></span><br><span class="line">	<span class="built_in">cd</span> <span class="variable">$path</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"your_token"</span> &gt; cluster_token.txt //替换你的token</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cd</span> ~/Library/Application\ Support/Steam/steamapps/common/Don\<span class="string">'t\ Starve\ Together/dontstarve_steam.app/Contents/MacOS</span><br><span class="line">	sh start.sh $1 1 &gt; /dev/null &amp;</span><br><span class="line">    echo "Start to run cluster"</span><br><span class="line"></span><br><span class="line">    if [ $# -eq 2 -a $2 = '</span>Y<span class="string">' ]</span><br><span class="line">    then</span><br><span class="line">        sh start_cave.sh $1 &gt; /dev/null &amp;</span><br><span class="line">        echo "Start to run cave"</span><br><span class="line">    else</span><br><span class="line">        echo "Didn'</span>t run cave<span class="string">"</span><br><span class="line">    fi</span><br><span class="line">fi</span></span><br></pre></td></tr></table></figure>
+<p>启动时候只需执行:</p>
+<blockquote>
+<p><code>sh DST_start.sh id</code> (只生成地上)<br><code>sh DST_start.sh id Y</code> (同时生成地上和洞穴地图)</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/31/TopCoder-SRM-691-DIV-1/" itemprop="url">
                   TopCoder SRM 691 Div1 
                 </a>
@@ -598,7 +729,7 @@
 <li>a, b同时乘2</li>
 <li>a, b同时加1</li>
 </ul>
-<p>问最少经过多少次操作使得 a == A &amp;&amp; b == b<br>
+<p>问最少经过多少次操作使得 a == A &amp;&amp; b == b<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/06/SRM-677-DIV1/#more" rel="contents">
               閱讀全文 &raquo;
@@ -739,7 +870,7 @@
 <li>n = 0 or n = 1时坑比较多，建议单独处理</li>
 <li><strong>前导0是不算的!!!</strong>。但是题目给的数据比较坑，刚好两位，如果算了前导0，刚好也对。（包括第一题中MOD值为1e8+7…我充满了对这个世界的怨念…）</li>
 </ol>
-<p>所以说一直WA的可以按我上面的几点检查一下…我感觉我应该是把坑都踩完了…<br>
+<p>所以说一直WA的可以按我上面的几点检查一下…我感觉我应该是把坑都踩完了…<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/03/HDU-5657-CA-Loves-Math/#more" rel="contents">
               閱讀全文 &raquo;
@@ -1429,139 +1560,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/23/HDU-5293-Tree-chain-problem/" itemprop="url">
-                  HDU 5293 Tree chain problem
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-11-23T23:39:29-08:00" content="11月 23 2015">
-              11月 23 2015
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/红名之路/" itemprop="url" rel="index">
-                    <span itemprop="name">红名之路</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/23/HDU-5293-Tree-chain-problem/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/23/HDU-5293-Tree-chain-problem/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/11/23/HDU-5293-Tree-chain-problem/" class="leancloud_visitors" data-flag-title="HDU 5293 Tree chain problem">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>题目链接: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5293">http://acm.hdu.edu.cn/showproblem.php?pid=5293</a></p>
-<p>题目大意：有个N的点的树。其中树上有M条已知的链，每条链有一个权值。从中选出任意个不相交的链使得链的权值和最大。</p>
-<p>树形DP。<br>我们用dp[i]表示以i点为根的子树的最优解。<br>用sum[i]表示以i点为根的子树中不选i点的最优解，即$sum[i]=\sum dp[k] $  (k为i的儿子节点)</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/23/HDU-5293-Tree-chain-problem/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1607,7 +1605,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1721,7 +1719,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

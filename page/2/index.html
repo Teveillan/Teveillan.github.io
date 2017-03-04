@@ -247,6 +247,139 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/23/HDU-5293-Tree-chain-problem/" itemprop="url">
+                  HDU 5293 Tree chain problem
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-11-23T23:39:29-08:00" content="11月 23 2015">
+              11月 23 2015
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/红名之路/" itemprop="url" rel="index">
+                    <span itemprop="name">红名之路</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/23/HDU-5293-Tree-chain-problem/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/23/HDU-5293-Tree-chain-problem/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/11/23/HDU-5293-Tree-chain-problem/" class="leancloud_visitors" data-flag-title="HDU 5293 Tree chain problem">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>题目链接: <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5293">http://acm.hdu.edu.cn/showproblem.php?pid=5293</a></p>
+<p>题目大意：有个N的点的树。其中树上有M条已知的链，每条链有一个权值。从中选出任意个不相交的链使得链的权值和最大。</p>
+<p>树形DP。<br>我们用dp[i]表示以i点为根的子树的最优解。<br>用sum[i]表示以i点为根的子树中不选i点的最优解，即$sum[i]=\sum dp[k] $  (k为i的儿子节点)</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/23/HDU-5293-Tree-chain-problem/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/22/HDU-5291-Candy-Distribution/" itemprop="url">
                   HDU 5291 Candy Distribution
                 </a>
@@ -464,7 +597,7 @@
           <p>题目链接： <a href="http://acm.hdu.edu.cn/showproblem.php?pid=5290">http://acm.hdu.edu.cn/showproblem.php?pid=5290</a></p>
 <p>官方题解已经说的很详细了。我也引用一下官方题解吧（有修改，加重部分）。</p>
 <blockquote>
-<p> DP,定义两个数组$F[I][J]$,$G[I][J]$。<br> $F[I][J]$表示以第i个点为根的子树上的点被全部破坏掉，并且还能向上破坏掉<strong>不少于</strong>j个距离，满足这样条件需要选取的最小点数；<br> $G[I][J]$表示以第i个点为根的子树上的点被未被全部破坏，且未被破坏的点中距离i最远的点距离为<strong>不超过</strong>j，满足这样条件需要选取的最小点数。<br>
+<p> DP,定义两个数组$F[I][J]$,$G[I][J]$。<br> $F[I][J]$表示以第i个点为根的子树上的点被全部破坏掉，并且还能向上破坏掉<strong>不少于</strong>j个距离，满足这样条件需要选取的最小点数；<br> $G[I][J]$表示以第i个点为根的子树上的点被未被全部破坏，且未被破坏的点中距离i最远的点距离为<strong>不超过</strong>j，满足这样条件需要选取的最小点数。<br></p></blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/11/19/HDU-5290-Bombing-plan/#more" rel="contents">
               閱讀全文 &raquo;
@@ -733,7 +866,7 @@
 <p><a href="https://www.coursera.org/learn/machine-learning/home/welcome">https://www.coursera.org/learn/machine-learning/home/welcome</a></p>
 </blockquote>
 <p>虽然也是Andrew NG老师的，不过是在Coursera上的，相对于课堂上的录制视频，这个用PPT来讲更直观，视频中间会有问答检测关键知识点是否理解正确，强制性要求的课后作业虽然不难，但确实能加深理解。比起只看书或者只看公开课，优点不用多说。</p>
-<p>由于本人也是初学者，所以各位客官在看得时候务必以教学视频和自己的理解为主，若发现有问题的地方欢迎指正共同学习。<br>
+<p>由于本人也是初学者，所以各位客官在看得时候务必以教学视频和自己的理解为主，若发现有问题的地方欢迎指正共同学习。<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/07/01/机器学习笔记—机器学习简介/#more" rel="contents">
               閱讀全文 &raquo;
@@ -1006,7 +1139,7 @@
 <li><code>num1 = map[P][color1] + (color[ fa[P] ] == color1)</code></li>
 <li><code>num2 = map[P][color2] + (color[ fa[p] ] == color2)</code></li>
 </ul>
-<p>更新的时候只用将父节点的子节点的color1—, color2++。<br>在O(log)级的复杂度内就能完成更新查询操作。<br>
+<p>更新的时候只用将父节点的子节点的color1—, color2++。<br>在O(log)级的复杂度内就能完成更新查询操作。<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/07/编程之美2015初赛第一场/#more" rel="contents">
               閱讀全文 &raquo;
@@ -1289,7 +1422,7 @@
 <li>第一个人只能取0或1中的一个。这时候第二个人一定是尽量取和第一个人一样的值。</li>
 <li>第二个人只能取0或1中得一个，而第一个人两个都可以选。第一个人自然取第二个人取不到的值。</li>
 </ul>
-<p>但是，当在这两种情况之外，决策就不唯一了。这时，先把低位的决策解决了就很有必要。<br>
+<p>但是，当在这两种情况之外，决策就不唯一了。这时，先把低位的决策解决了就很有必要。<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/21/HDU-5208-Where-is-Bob-Bestcoder-Round38-C题/#more" rel="contents">
               閱讀全文 &raquo;
@@ -1421,140 +1554,9 @@
       
         
           <h2 id="1001_Harry_and_Magical_Computer">1001 Harry and Magical Computer</h2><p>就是判断有没有环存在。<br>点比较少，Floyd一遍O(n^3)就行。</p>
-<h2 id="1002_Harry_And_Magic_Box">1002 Harry And Magic Box</h2><p>官方题解是O(n^4)的，其实中间有一维可以省略。（小地方而已。。不管也罢。。）<br>
+<h2 id="1002_Harry_And_Magic_Box">1002 Harry And Magic Box</h2><p>官方题解是O(n^4)的，其实中间有一维可以省略。（小地方而已。。不管也罢。。）<br></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/01/09/BestCoder-Round-25/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/09/-转-Manacher算法-回文串处理/" itemprop="url">
-                  [转]Manacher算法-回文串处理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-01-09T11:45:39-08:00" content="1月 9 2015">
-              1月 9 2015
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/01/09/-转-Manacher算法-回文串处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/09/-转-Manacher算法-回文串处理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/01/09/-转-Manacher算法-回文串处理/" class="leancloud_visitors" data-flag-title="[转]Manacher算法-回文串处理">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>Manacher</strong>算法是查找一个字符串的最长回文子串的线性算法。<br>在介绍算法之前，首先介绍一下什么是回文串，所谓回文串，简单来说就是正着读和反着读都是一样的字符串，比如abba，noon等等，一个字符串的最长回文子串即为这个字符串的子串中，是回文串的最长的那个。<br>计算字符串的最长回文字串最简单的算法就是枚举该字符串的每一个子串，并且判断这个子串是否为回文串，这个算法的时间复杂度为O(n^3)的，显然无法令人满意，稍微优化的一个算法是枚举回文串的中点，这里要分为两种情况，一种是回文串长度是奇数的情况，另一种是回文串长度是偶数的情况，枚举中点再判断是否是回文串，这样能把算法的时间复杂度降为O(n^2)，但是当n比较大的时候仍然无法令人满意，Manacher算法可以在线性时间复杂度内求出一个字符串的最长回文字串，达到了理论上的下界。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/09/-转-Manacher算法-回文串处理/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -1629,7 +1631,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1743,7 +1745,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
