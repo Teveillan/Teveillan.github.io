@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LaTeX,MacOS," />
+  <meta name="keywords" content="MacOS,LaTeX," />
 
 
 
@@ -70,6 +70,7 @@ MAC上的LaTex部署，一般是两条思路，">
 <meta property="og:description" content="原文链接：http://www.readern.com/sublime-text-latex-chinese-under-mac.html作者：Read ERN
 LaTex就不多做介绍了，其实一般人用到的机会也不多（包括我）。只是这段时间在Coursera上新课程的时候，偶尔需要，所以从零开始摸索了一下，也顺便进一步发现了Sublime Text的强大。
 MAC上的LaTex部署，一般是两条思路，">
+<meta property="og:updated_time" content="2015-05-11T06:39:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转]部署MAC上的Sublime Text+LaTeX中文环境">
 <meta name="twitter:description" content="原文链接：http://www.readern.com/sublime-text-latex-chinese-under-mac.html作者：Read ERN
@@ -87,7 +88,7 @@ MAC上的LaTex部署，一般是两条思路，">
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -163,7 +164,7 @@ MAC上的LaTex部署，一般是两条思路，">
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            首頁
+            Startseite
           </a>
         </li>
       
@@ -171,7 +172,7 @@ MAC上的LaTex部署，一般是两条思路，">
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-            分類
+            Kategorien
           </a>
         </li>
       
@@ -179,7 +180,7 @@ MAC上的LaTex部署，一般是两条思路，">
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            歸檔
+            Archiv
           </a>
         </li>
       
@@ -187,7 +188,7 @@ MAC上的LaTex部署，一般是两条思路，">
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -198,7 +199,7 @@ MAC上的LaTex部署，一般是两条思路，">
             <a href="javascript:;" class="popup-trigger">
           
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -261,7 +262,7 @@ MAC上的LaTex部署，一般是两条思路，">
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-05-11T14:35:22-07:00" content="5月 11 2015">
               5月 11 2015
             </time>
@@ -273,7 +274,7 @@ MAC上的LaTex部署，一般是两条思路，">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分類於</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Tech/" itemprop="url" rel="index">
@@ -308,7 +309,7 @@ MAC上的LaTex部署，一般是两条思路，">
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="post-meta-item-text">visitors </span>
                <span class="leancloud-visitors-count"></span>
               </span>
           
@@ -345,7 +346,7 @@ MAC上的LaTex部署，一般是两条思路，">
 </blockquote>
 <p>调出命令窗口(<code>Command+Shift+P</code>), 输入如下命令: <code>LaTeXTools: Reconfigure and migrate setting</code>.</p>
 <p>最后再给一个个性化设置。上面写了，LaTeXTools默认调用Skim，这一方面是因为LaTeXTools是跨平台的插件，Skim也同样跨平台开源，另一方面Skim确实对LaTeX的PDF支持很好。但是用OS X的网友们其实还有个选择，就是调用系统默认的PDF程序来打开编译后的成果，特别是“预览”还是很好用的。目前LaTeXTools的开发者还没有给出设置方法，所以，仍然要靠改代码：<br>修改<code>~/Library/Application\ Support/Sublime\ Text\ 3/Packages/LaTeXTools/jumpToPDF.py</code>, 将其中<code>if plat == &#39;darwin&#39;:</code> 之后开始的两段直接注释掉，替换为：<br><code>subprocess.Popen([‘open’] + [pdffile])</code><br>同样保存后就生效啦。目前用起来，系统自带的预览还是能满足我的需求滴。</p>
-<p>测试代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;&#10;\usepackage&#123;fontspec, xunicode, xltxtra&#125;  &#10;\setmainfont&#123;Hiragino Sans GB&#125;  &#10;&#10;\title&#123;Title&#125;&#10;\author&#123;&#125;&#10;&#10;\begin&#123;document&#125;&#10;&#10;\maketitle&#123;&#125;&#10;&#10;\section&#123;Introduction&#125;&#10;&#10;This is where you will write your content. &#22312;&#36825;&#37324;&#20889;&#19978;&#20869;&#23481;&#12290;&#10;&#10;\end&#123;document&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">\documentclass&#123;article&#125;</div><div class="line">\usepackage&#123;fontspec, xunicode, xltxtra&#125;  </div><div class="line">\setmainfont&#123;Hiragino Sans GB&#125;  </div><div class="line"></div><div class="line">\title&#123;Title&#125;</div><div class="line">\author&#123;&#125;</div><div class="line"></div><div class="line">\begin&#123;document&#125;</div><div class="line"></div><div class="line">\maketitle&#123;&#125;</div><div class="line"></div><div class="line">\section&#123;Introduction&#125;</div><div class="line"></div><div class="line">This is where you will write your content. 在这里写上内容。</div><div class="line"></div><div class="line">\end&#123;document&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="LaTex的其他选择">LaTex的其他选择</h3><p>如果只是偶尔需要输入公式，这里介绍一个在线的LaTex公式编辑器<a href="http://www.codecogs.com/latex/eqneditor.php" target="_blank" rel="external">http://www.codecogs.com/latex/eqneditor.php</a></p>
 <p>有iPad的，你们有福了，还有个手写公式后自动识别、生成LaTex公式的App：<a href="https://itunes.apple.com/us/app/myscript-mathpad-handwriting/id674996719?mt=8" target="_blank" rel="external">Script MathPad</a>。简单的使用已经足够了，如果需要经常使用，导出功能需要内购（4.99刀）。顺便说一句，这家公司的手写App都很强大，手写计算器、手写Notes都挺好用，而且不贵。</p>
 <h4 id="参考链接：">参考链接：</h4><p>MacTex页面：<a href="http://tug.org/mactex/morepackages.html" target="_blank" rel="external">http://tug.org/mactex/morepackages.html</a></p>
@@ -376,9 +377,9 @@ MAC上的LaTex部署，一般是两条思路，">
       
         <div class="post-tags">
           
-            <a href="/tags/LaTeX/" rel="tag">#LaTeX</a>
-          
             <a href="/tags/MacOS/" rel="tag">#MacOS</a>
+          
+            <a href="/tags/LaTeX/" rel="tag">#LaTeX</a>
           
         </div>
       
@@ -450,10 +451,10 @@ MAC上的LaTex部署，一般是两条思路，">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Übersicht
           </li>
         </ul>
       
@@ -470,7 +471,7 @@ MAC上的LaTex部署，一般是两条思路，">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -478,7 +479,7 @@ MAC上的LaTex部署，一般是两条思路，">
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -487,7 +488,7 @@ MAC上的LaTex部署，一般是两条思路，">
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -602,11 +603,11 @@ MAC上的LaTex部署，一般是两条思路，">
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

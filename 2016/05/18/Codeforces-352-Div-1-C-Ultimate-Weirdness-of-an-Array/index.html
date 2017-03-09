@@ -70,6 +70,7 @@
 <meta property="og:description" content="对数论不是很在行…每次碰到gcd相关的题都是一脸懵逼…以后遇到这种题还是多总结一下吧。
 最初以为是要分解质因子，然后用容斥乱搞一番，结果发现完全搞不出来..
 题意: $1 &amp;lt;= n &amp;lt;= 2 * 10^5$， 求 $$ \sum_{1 &amp;lt;= l &amp;lt;= r &amp;lt;= n} max(gcd(a_i, a_j))  ~~~  {( i, j\notin [l, r])}$$">
+<meta property="og:updated_time" content="2016-05-18T15:37:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces #352 Div.1 C. Ultimate Weirdness of an Array">
 <meta name="twitter:description" content="对数论不是很在行…每次碰到gcd相关的题都是一脸懵逼…以后遇到这种题还是多总结一下吧。
@@ -87,7 +88,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -163,7 +164,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            首頁
+            Startseite
           </a>
         </li>
       
@@ -171,7 +172,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-            分類
+            Kategorien
           </a>
         </li>
       
@@ -179,7 +180,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            歸檔
+            Archiv
           </a>
         </li>
       
@@ -187,7 +188,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -198,7 +199,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -261,7 +262,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-05-18T23:24:11-07:00" content="5月 18 2016">
               5月 18 2016
             </time>
@@ -273,7 +274,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分類於</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/红名之路/" itemprop="url" rel="index">
@@ -308,7 +309,7 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="post-meta-item-text">visitors </span>
                <span class="leancloud-visitors-count"></span>
               </span>
           
@@ -342,7 +343,7 @@
 <p>需要删的部分确定了，接下来就是确定怎么删的问题。暴力会TLE，直接减也会导致重复。</p>
 <p>对于最初所有的二元数组[l, r] (l &lt;= r)， 我们可以看作为一个以 x=y 为底边，x轴为腰的一个等腰直角三角形。<br>每当删除一个区间[l, r]，对于任意区间[i, j] ($ l &lt;= i &lt;= j &lt;= r$) ，我们也应该删除。<br>在图形上表示出来的意义就是，对于任意的i (l &lt;= i &lt;= r)，删掉 j &lt;= r 的部分。（自己动手画一下）。于是便可以用数据结构进行维护了。</p>
 <p>我用的线段树：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdlib&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstdio&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;cstring&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;algorithm&gt;</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;string&gt;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> REP(i,n) for(int i=0;i&lt;(n);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> FOR(i,l,h) for(int i=(l);i&lt;=(h);++i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> DWN(i,h,l) for(int i=(h);i&gt;=(l);--i)</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MEM(arr, v) memset(arr, v, sizeof(arr))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> L LL, l, MID</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> R RR, MID + 1, r</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> LL mask &lt;&lt; 1</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> RR mask &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> MID ((l + r) &gt;&gt; 1)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> mn[N &lt;&lt; <span class="number">2</span>], lazy[N &lt;&lt; <span class="number">2</span>], mx[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> area[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_down</span><span class="params">(<span class="keyword">int</span> mask, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(lazy[mask] == -<span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">    mn[LL] = mn[RR] = mx[LL] = mx[RR] = lazy[mask];</span><br><span class="line">    area[LL] = (<span class="keyword">long</span> <span class="keyword">long</span>)(MID - l + <span class="number">1</span>) * mn[LL];</span><br><span class="line">    area[RR] = (<span class="keyword">long</span> <span class="keyword">long</span>)(r - MID) * mn[RR];</span><br><span class="line">    lazy[LL] = lazy[RR] = lazy[mask];</span><br><span class="line">    lazy[mask] = -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_up</span><span class="params">(<span class="keyword">int</span> mask)</span> </span>&#123;</span><br><span class="line">    mn[mask] = min(mn[LL], mn[RR]);</span><br><span class="line">    mx[mask] = max(mx[LL], mx[RR]);</span><br><span class="line">    area[mask] = area[LL] + area[RR];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> mask, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> ll, <span class="keyword">int</span> rr, <span class="keyword">int</span> h)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(ll &gt; r || rr &lt; l || h &lt;= mn[mask]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(l == r) &#123;</span><br><span class="line">        mn[mask] = mx[mask] = area[mask] = max(mx[mask], h);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ll &lt;= l &amp;&amp; rr &gt;= r &amp;&amp; h &gt;= mx[mask]) &#123;</span><br><span class="line">        mn[mask] = lazy[mask] = mx[mask] = h;</span><br><span class="line">        area[mask] = (<span class="keyword">long</span> <span class="keyword">long</span>)(r - l + <span class="number">1</span>) * h;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        push_down(mask, l, r);</span><br><span class="line">        update(L, ll, rr, h);</span><br><span class="line">        update(R, ll, rr, h);</span><br><span class="line">        push_up(mask);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans[N];</span><br><span class="line"><span class="keyword">int</span> l[N], r[N], l2[N], r2[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n) &#123;</span><br><span class="line">        MEM(mn, <span class="number">0</span>), MEM(mx, <span class="number">0</span>), MEM(area, <span class="number">0</span>), MEM(lazy, -<span class="number">1</span>), MEM(l, -<span class="number">1</span>), MEM(r, -<span class="number">1</span>), MEM(l2, -<span class="number">1</span>), MEM(r2, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        FOR(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">            m = max(x, m);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j * j &lt;= x; ++j) &#123; <span class="comment">//其实对于每个d，只用维护最左和最右两个数就够了</span></span><br><span class="line">                <span class="keyword">if</span>(x % j) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(l[j] == -<span class="number">1</span>) l[j] = i;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(l2[j] == -<span class="number">1</span>) l2[j] = i;</span><br><span class="line">                r2[j] = r[j], r[j] = i;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(j * j == x) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(l[x / j] == -<span class="number">1</span>) l[x / j] = i;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(l2[x / j] == -<span class="number">1</span>) l2[x / j] = i;</span><br><span class="line">                r2[x / j] = r[x / j], r[x / j] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        FOR(i, <span class="number">1</span>, n) update(<span class="number">1</span>, <span class="number">1</span>, n, i, i, i-<span class="number">1</span>); <span class="comment">// 最开始都是矩形，剪掉一部分成三角形的形状</span></span><br><span class="line">        DWN(i, m + <span class="number">1</span>, <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(l[i] != r[i]) &#123;</span><br><span class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, l[i]+<span class="number">1</span> , r[i]-<span class="number">1</span>  , r[i] - <span class="number">1</span>); <span class="comment">//删掉中间</span></span><br><span class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, <span class="number">1</span>      , r2[i]- <span class="number">1</span>, r2[i] - <span class="number">1</span>);<span class="comment">//删左边</span></span><br><span class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, l2[i]+<span class="number">1</span>, n       , n);<span class="comment">//删右边</span></span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = (<span class="keyword">long</span> <span class="keyword">long</span>)n * n - area[<span class="number">1</span>];<span class="comment">//前面加不加n*n不影响，但是加上以后实际意义为剩余三角形的面积</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ret = <span class="number">0</span>;</span><br><span class="line">        FOR(i, <span class="number">1</span>, m) ret += (ans[i+<span class="number">1</span>] - ans[i]) * i;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(i,n) for(int i=0;i&lt;(n);++i)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> FOR(i,l,h) for(int i=(l);i&lt;=(h);++i)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DWN(i,h,l) for(int i=(h);i&gt;=(l);--i)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MEM(arr, v) memset(arr, v, sizeof(arr))</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> L LL, l, MID</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> R RR, MID + 1, r</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LL mask &lt;&lt; 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RR mask &lt;&lt; 1 | 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MID ((l + r) &gt;&gt; 1)</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> mn[N &lt;&lt; <span class="number">2</span>], lazy[N &lt;&lt; <span class="number">2</span>], mx[N &lt;&lt; <span class="number">2</span>];</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> area[N &lt;&lt; <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_down</span><span class="params">(<span class="keyword">int</span> mask, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(lazy[mask] == <span class="number">-1</span>) <span class="keyword">return</span>;</div><div class="line">    mn[LL] = mn[RR] = mx[LL] = mx[RR] = lazy[mask];</div><div class="line">    area[LL] = (<span class="keyword">long</span> <span class="keyword">long</span>)(MID - l + <span class="number">1</span>) * mn[LL];</div><div class="line">    area[RR] = (<span class="keyword">long</span> <span class="keyword">long</span>)(r - MID) * mn[RR];</div><div class="line">    lazy[LL] = lazy[RR] = lazy[mask];</div><div class="line">    lazy[mask] = <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_up</span><span class="params">(<span class="keyword">int</span> mask)</span> </span>&#123;</div><div class="line">    mn[mask] = min(mn[LL], mn[RR]);</div><div class="line">    mx[mask] = max(mx[LL], mx[RR]);</div><div class="line">    area[mask] = area[LL] + area[RR];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> mask, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> ll, <span class="keyword">int</span> rr, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(ll &gt; r || rr &lt; l || h &lt;= mn[mask]) <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">if</span>(l == r) &#123;</div><div class="line">        mn[mask] = mx[mask] = area[mask] = max(mx[mask], h);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(ll &lt;= l &amp;&amp; rr &gt;= r &amp;&amp; h &gt;= mx[mask]) &#123;</div><div class="line">        mn[mask] = lazy[mask] = mx[mask] = h;</div><div class="line">        area[mask] = (<span class="keyword">long</span> <span class="keyword">long</span>)(r - l + <span class="number">1</span>) * h;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        push_down(mask, l, r);</div><div class="line">        update(L, ll, rr, h);</div><div class="line">        update(R, ll, rr, h);</div><div class="line">        push_up(mask);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans[N];</div><div class="line"><span class="keyword">int</span> l[N], r[N], l2[N], r2[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n, x;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; n) &#123;</div><div class="line">        MEM(mn, <span class="number">0</span>), MEM(mx, <span class="number">0</span>), MEM(area, <span class="number">0</span>), MEM(lazy, <span class="number">-1</span>), MEM(l, <span class="number">-1</span>), MEM(r, <span class="number">-1</span>), MEM(l2, <span class="number">-1</span>), MEM(r2, <span class="number">-1</span>);</div><div class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</div><div class="line">        FOR(i, <span class="number">1</span>, n) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</div><div class="line">            m = max(x, m);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j * j &lt;= x; ++j) &#123; <span class="comment">//其实对于每个d，只用维护最左和最右两个数就够了</span></div><div class="line">                <span class="keyword">if</span>(x % j) <span class="keyword">continue</span>;</div><div class="line">                <span class="keyword">if</span>(l[j] == <span class="number">-1</span>) l[j] = i;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(l2[j] == <span class="number">-1</span>) l2[j] = i;</div><div class="line">                r2[j] = r[j], r[j] = i;</div><div class="line"></div><div class="line">                <span class="keyword">if</span>(j * j == x) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">                <span class="keyword">if</span>(l[x / j] == <span class="number">-1</span>) l[x / j] = i;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(l2[x / j] == <span class="number">-1</span>) l2[x / j] = i;</div><div class="line">                r2[x / j] = r[x / j], r[x / j] = i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        FOR(i, <span class="number">1</span>, n) update(<span class="number">1</span>, <span class="number">1</span>, n, i, i, i<span class="number">-1</span>); <span class="comment">// 最开始都是矩形，剪掉一部分成三角形的形状</span></div><div class="line">        DWN(i, m + <span class="number">1</span>, <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span>(l[i] != r[i]) &#123;</div><div class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, l[i]+<span class="number">1</span> , r[i]<span class="number">-1</span>  , r[i] - <span class="number">1</span>); <span class="comment">//删掉中间</span></div><div class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, <span class="number">1</span>      , r2[i]- <span class="number">1</span>, r2[i] - <span class="number">1</span>);<span class="comment">//删左边</span></div><div class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, l2[i]+<span class="number">1</span>, n       , n);<span class="comment">//删右边</span></div><div class="line">            &#125;</div><div class="line">            ans[i] = (<span class="keyword">long</span> <span class="keyword">long</span>)n * n - area[<span class="number">1</span>];<span class="comment">//前面加不加n*n不影响，但是加上以后实际意义为剩余三角形的面积</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">long</span> <span class="keyword">long</span> ret = <span class="number">0</span>;</div><div class="line">        FOR(i, <span class="number">1</span>, m) ret += (ans[i+<span class="number">1</span>] - ans[i]) * i;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; ret &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -437,10 +438,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Übersicht
           </li>
         </ul>
       
@@ -457,7 +458,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -465,7 +466,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -474,7 +475,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -562,7 +563,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
             
           </div>
         </section>
@@ -589,11 +590,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

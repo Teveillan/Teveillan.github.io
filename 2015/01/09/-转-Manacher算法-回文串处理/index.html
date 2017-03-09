@@ -71,9 +71,11 @@
 <meta property="og:image" content="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-3.png">
 <meta property="og:image" content="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-4.png">
 <meta property="og:image" content="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-5.png">
+<meta property="og:updated_time" content="2015-05-11T06:53:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[转]Manacher算法-回文串处理">
 <meta name="twitter:description" content="Manacher算法是查找一个字符串的最长回文子串的线性算法。在介绍算法之前，首先介绍一下什么是回文串，所谓回文串，简单来说就是正着读和反着读都是一样的字符串，比如abba，noon等等，一个字符串的最长回文子串即为这个字符串的子串中，是回文串的最长的那个。计算字符串的最长回文字串最简单的算法就是枚举该字符串的每一个子串，并且判断这个子串是否为回文串，这个算法的时间复杂度为O(n^3)的，显然无法">
+<meta name="twitter:image" content="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-1.png">
 
 
 
@@ -86,7 +88,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -162,7 +164,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            首頁
+            Startseite
           </a>
         </li>
       
@@ -170,7 +172,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-            分類
+            Kategorien
           </a>
         </li>
       
@@ -178,7 +180,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            歸檔
+            Archiv
           </a>
         </li>
       
@@ -186,7 +188,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -197,7 +199,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -260,7 +262,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-01-09T11:45:39-08:00" content="1月 9 2015">
               1月 9 2015
             </time>
@@ -272,7 +274,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分類於</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Algorithm/" itemprop="url" rel="index">
@@ -307,7 +309,7 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="post-meta-item-text">visitors </span>
                <span class="leancloud-visitors-count"></span>
               </span>
           
@@ -337,7 +339,7 @@
 <p>第二种情况: i&gt;P<br>如果i比P还要大，说明对于中点为i的回文串还一点都没有匹配，这个时候，就只能老老实实地一个一个匹配了，匹配完成后要更新P的位置和对应的po以及Len[i]。</p>
 <p><img src="http://7tszmu.com1.z0.glb.clouddn.com/Manacher-5.png" alt=""></p>
 <h1 id="时间复杂度分析">时间复杂度分析</h1><p>Manacher算法的时间复杂度分析和Z算法类似，因为算法只有遇到还没有匹配的位置时才进行匹配，已经匹配过的位置不再进行匹配，所以对于T字符串中的每一个位置，只进行一次匹配，所以Manacher算法的总体时间复杂度为O(n)，其中n为T字符串的长度，由于T的长度事实上是S的两倍，所以时间复杂度依然是线性的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_LEN = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Len[MAX_LEN&lt;&lt;<span class="number">1</span>]; <span class="comment">//记录算法完成后以i点为中心最长回文串向左向右延伸的半径</span></span><br><span class="line"><span class="keyword">struct</span> Manacher &#123;</span><br><span class="line">    <span class="keyword">char</span> tmp_str[MAX_LEN&lt;&lt;<span class="number">1</span>]; <span class="comment">//记录预处理过后的字符串</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">init</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123; <span class="comment">//在solve中就直接调用了。对原串进行预处理。</span></span><br><span class="line">        <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</span><br><span class="line">        <span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">        tmp_str[id++] = <span class="string">'#'</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i) &#123;</span><br><span class="line">            tmp_str[id++] = s[i];</span><br><span class="line">            tmp_str[id++] = <span class="string">'#'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        tmp_str[id] = <span class="string">'\0'</span>;</span><br><span class="line">        <span class="keyword">return</span> id; <span class="comment">//此时的id即为处理过后的字符串长度</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123; <span class="comment">//从这开始处理</span></span><br><span class="line">        <span class="keyword">int</span> len = init(s);</span><br><span class="line">        <span class="keyword">int</span> max_r = -<span class="number">1</span>, max_id = -<span class="number">1</span>; <span class="comment">// 最右能到得地方，以及最右时的中心点id</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(max_r &gt; i)   Len[i] = min(max_r - i, Len[<span class="number">2</span> * max_id - i]);</span><br><span class="line">            <span class="keyword">else</span> Len[i] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(i - Len[i] &gt;= <span class="number">0</span> &amp;&amp; i + Len[i] &lt; len &amp;&amp; tmp_str[i - Len[i]] == tmp_str[i + Len[i]])</span><br><span class="line">                ++Len[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(i + Len[i] &gt; max_r) &#123;</span><br><span class="line">                max_r = i + Len[i];</span><br><span class="line">                max_id = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_LEN = <span class="number">1e5</span> + <span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> Len[MAX_LEN&lt;&lt;<span class="number">1</span>]; <span class="comment">//记录算法完成后以i点为中心最长回文串向左向右延伸的半径</span></div><div class="line"><span class="keyword">struct</span> Manacher &#123;</div><div class="line">    <span class="keyword">char</span> tmp_str[MAX_LEN&lt;&lt;<span class="number">1</span>]; <span class="comment">//记录预处理过后的字符串</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">init</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123; <span class="comment">//在solve中就直接调用了。对原串进行预处理。</span></div><div class="line">        <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</div><div class="line">        <span class="keyword">int</span> id = <span class="number">0</span>;</div><div class="line">        tmp_str[id++] = <span class="string">'#'</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i) &#123;</div><div class="line">            tmp_str[id++] = s[i];</div><div class="line">            tmp_str[id++] = <span class="string">'#'</span>;</div><div class="line">        &#125;</div><div class="line">        tmp_str[id] = <span class="string">'\0'</span>;</div><div class="line">        <span class="keyword">return</span> id; <span class="comment">//此时的id即为处理过后的字符串长度</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123; <span class="comment">//从这开始处理</span></div><div class="line">        <span class="keyword">int</span> len = init(s);</div><div class="line">        <span class="keyword">int</span> max_r = <span class="number">-1</span>, max_id = <span class="number">-1</span>; <span class="comment">// 最右能到得地方，以及最右时的中心点id</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; ++i) &#123;</div><div class="line">            <span class="keyword">if</span>(max_r &gt; i)   Len[i] = min(max_r - i, Len[<span class="number">2</span> * max_id - i]);</div><div class="line">            <span class="keyword">else</span> Len[i] = <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">while</span>(i - Len[i] &gt;= <span class="number">0</span> &amp;&amp; i + Len[i] &lt; len &amp;&amp; tmp_str[i - Len[i]] == tmp_str[i + Len[i]])</div><div class="line">                ++Len[i];</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(i + Len[i] &gt; max_r) &#123;</div><div class="line">                max_r = i + Len[i];</div><div class="line">                max_id = i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>转自：<a href="http://blog.csdn.net/dyx404514/article/details/42061017" target="_blank" rel="external">http://blog.csdn.net/dyx404514/article/details/42061017</a><br>作者：dyx心心</p>
 
       
@@ -427,10 +429,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Übersicht
           </li>
         </ul>
       
@@ -447,7 +449,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -455,7 +457,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -464,7 +466,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -579,11 +581,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

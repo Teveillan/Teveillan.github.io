@@ -69,10 +69,12 @@
 <meta property="og:description" content="网络流，也被称为最大流。
 模型也非常简单，就是一个管道系统，在有源点，汇点，和一堆有流速限制的管道连接的情况下，问能从源点到汇点传输流量的最大流速是多少。如下图所示。">
 <meta property="og:image" content="http://7tszmu.com1.z0.glb.clouddn.com/网络流.png">
+<meta property="og:updated_time" content="2015-05-06T13:24:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络流">
 <meta name="twitter:description" content="网络流，也被称为最大流。
 模型也非常简单，就是一个管道系统，在有源点，汇点，和一堆有流速限制的管道连接的情况下，问能从源点到汇点传输流量的最大流速是多少。如下图所示。">
+<meta name="twitter:image" content="http://7tszmu.com1.z0.glb.clouddn.com/网络流.png">
 
 
 
@@ -85,7 +87,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -161,7 +163,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            首頁
+            Startseite
           </a>
         </li>
       
@@ -169,7 +171,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-            分類
+            Kategorien
           </a>
         </li>
       
@@ -177,7 +179,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            歸檔
+            Archiv
           </a>
         </li>
       
@@ -185,7 +187,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -196,7 +198,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -259,7 +261,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-01-04T13:01:59-08:00" content="1月 4 2015">
               1月 4 2015
             </time>
@@ -271,7 +273,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分類於</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Algorithm/" itemprop="url" rel="index">
@@ -306,7 +308,7 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="post-meta-item-text">visitors </span>
                <span class="leancloud-visitors-count"></span>
               </span>
           
@@ -367,7 +369,7 @@
 <li>从队列中取出一个点u，遍历以它为起点还有流量的边，找到点v。如果点v还没被加入队列过，将v的level设为level[u]+1，并将v加入队列。</li>
 <li>回到步骤2，直到队列为空。</li>
 </ul>
-<p>然后我们规定，level为<code>a</code>的点只能向level为<code>a+1</code>的点找流量,这样就能很有效地避免环的出现。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e7</span> + <span class="number">100</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1e9</span>;</span><br><span class="line"><span class="keyword">struct</span> Edge&#123;</span><br><span class="line">    <span class="keyword">int</span> to,next;</span><br><span class="line">    <span class="keyword">int</span> c;</span><br><span class="line">&#125;edge[M];</span><br><span class="line"><span class="keyword">int</span> head[N], level[N], que[N], ip;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(head, -<span class="number">1</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line">    ip = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">makelevel</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span> </span>&#123; <span class="comment">//将图分层</span></span><br><span class="line">    <span class="built_in">memset</span>(level,<span class="number">0</span>,<span class="keyword">sizeof</span>(level));</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    que[num++]=s;</span><br><span class="line">    level[s]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> top=que[i];</span><br><span class="line">        <span class="keyword">if</span>(top==t)  <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">//找到t了，后面再找level肯定比t大</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=head[top];k!=-<span class="number">1</span>;k=edge[k].next) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!level[edge[k].to]&amp;&amp;edge[k].c&gt;<span class="number">0</span>) &#123;</span><br><span class="line">                que[num++]=edge[k].to;</span><br><span class="line">                level[edge[k].to]=level[top]+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now,<span class="keyword">int</span> maxf,<span class="keyword">int</span> t)</span> </span>&#123; <span class="comment">//从残余网络中找流量</span></span><br><span class="line">    <span class="keyword">if</span>(now==t)  <span class="keyword">return</span> maxf;</span><br><span class="line">    <span class="keyword">int</span> ret=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=head[now];k!=-<span class="number">1</span>;k=edge[k].next) &#123;</span><br><span class="line">        <span class="keyword">if</span>(edge[k].c&gt;<span class="number">0</span>&amp;&amp;level[edge[k].to]==(level[now]+<span class="number">1</span>)) &#123;</span><br><span class="line">            <span class="keyword">int</span> c=dfs(edge[k].to,min(maxf-ret,edge[k].c),t);</span><br><span class="line">            edge[k].c-=c;</span><br><span class="line">            edge[k^<span class="number">1</span>].c+=c;</span><br><span class="line">            ret+=c;</span><br><span class="line">            <span class="keyword">if</span>(ret==maxf)   <span class="keyword">return</span>  ret;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    --level[now]; <span class="comment">//一个优化，说明往level[now]+1找流量已经找不到了。自己就降一个level。</span></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dinic</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(makelevel(s,t))   ans+=dfs(s,INF,t);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> c,<span class="keyword">int</span> f)</span> </span>&#123;<span class="comment">//有向边f为0 ,否则为 c</span></span><br><span class="line">    edge[ip].to=v;edge[ip].c=c;edge[ip].next=head[u];head[u]=ip++;</span><br><span class="line">    edge[ip].to=u;edge[ip].c=f;edge[ip].next=head[v];head[v]=ip++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后我们规定，level为<code>a</code>的点只能向level为<code>a+1</code>的点找流量,这样就能很有效地避免环的出现。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">100</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">1e7</span> + <span class="number">100</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1e9</span>;</div><div class="line"><span class="keyword">struct</span> Edge&#123;</div><div class="line">    <span class="keyword">int</span> to,next;</div><div class="line">    <span class="keyword">int</span> c;</div><div class="line">&#125;edge[M];</div><div class="line"><span class="keyword">int</span> head[N], level[N], que[N], ip;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</div><div class="line">    ip = <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">makelevel</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span> </span>&#123; <span class="comment">//将图分层</span></div><div class="line">    <span class="built_in">memset</span>(level,<span class="number">0</span>,<span class="keyword">sizeof</span>(level));</div><div class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</div><div class="line">    que[num++]=s;</div><div class="line">    level[s]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;num;i++) &#123;</div><div class="line">        <span class="keyword">int</span> top=que[i];</div><div class="line">        <span class="keyword">if</span>(top==t)  <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">//找到t了，后面再找level肯定比t大</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=head[top];k!=<span class="number">-1</span>;k=edge[k].next) &#123;</div><div class="line">            <span class="keyword">if</span>(!level[edge[k].to]&amp;&amp;edge[k].c&gt;<span class="number">0</span>) &#123;</div><div class="line">                que[num++]=edge[k].to;</div><div class="line">                level[edge[k].to]=level[top]+<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now,<span class="keyword">int</span> maxf,<span class="keyword">int</span> t)</span> </span>&#123; <span class="comment">//从残余网络中找流量</span></div><div class="line">    <span class="keyword">if</span>(now==t)  <span class="keyword">return</span> maxf;</div><div class="line">    <span class="keyword">int</span> ret=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=head[now];k!=<span class="number">-1</span>;k=edge[k].next) &#123;</div><div class="line">        <span class="keyword">if</span>(edge[k].c&gt;<span class="number">0</span>&amp;&amp;level[edge[k].to]==(level[now]+<span class="number">1</span>)) &#123;</div><div class="line">            <span class="keyword">int</span> c=dfs(edge[k].to,min(maxf-ret,edge[k].c),t);</div><div class="line">            edge[k].c-=c;</div><div class="line">            edge[k^<span class="number">1</span>].c+=c;</div><div class="line">            ret+=c;</div><div class="line">            <span class="keyword">if</span>(ret==maxf)   <span class="keyword">return</span>  ret;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    --level[now]; <span class="comment">//一个优化，说明往level[now]+1找流量已经找不到了。自己就降一个level。</span></div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dinic</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>  ans=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(makelevel(s,t))   ans+=dfs(s,INF,t);</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> c,<span class="keyword">int</span> f)</span> </span>&#123;<span class="comment">//有向边f为0 ,否则为 c</span></div><div class="line">    edge[ip].to=v;edge[ip].c=c;edge[ip].next=head[u];head[u]=ip++;</div><div class="line">    edge[ip].to=u;edge[ip].c=f;edge[ip].next=head[v];head[v]=ip++;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -456,10 +458,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Übersicht
           </li>
         </ul>
       
@@ -476,7 +478,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -484,7 +486,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -493,7 +495,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -581,7 +583,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
             
           </div>
         </section>
@@ -608,11 +610,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

@@ -66,6 +66,7 @@
 <meta property="og:url" content="http://www.teveillan.com/2015/01/07/Mac中安装Vim7-4/index.html">
 <meta property="og:site_name" content="Teveillan">
 <meta property="og:description" content="Mac本身其实是预装了Vim的，但是目前的系统中都是Vim7.3版本的，而最新的Vim已经是7.4版了，因此为了能够使用最新版的vim，必须要对Mac中的vim要么升级，要么重装。在折腾过程中，遇到了一些问题，这里记录，以鉴后人。">
+<meta property="og:updated_time" content="2015-05-06T13:24:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(转) Mac中安装Vim7.4">
 <meta name="twitter:description" content="Mac本身其实是预装了Vim的，但是目前的系统中都是Vim7.3版本的，而最新的Vim已经是7.4版了，因此为了能够使用最新版的vim，必须要对Mac中的vim要么升级，要么重装。在折腾过程中，遇到了一些问题，这里记录，以鉴后人。">
@@ -81,7 +82,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -157,7 +158,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            首頁
+            Startseite
           </a>
         </li>
       
@@ -165,7 +166,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-            分類
+            Kategorien
           </a>
         </li>
       
@@ -173,7 +174,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            歸檔
+            Archiv
           </a>
         </li>
       
@@ -181,7 +182,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -192,7 +193,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -255,7 +256,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2015-01-07T12:58:51-08:00" content="1月 7 2015">
               1月 7 2015
             </time>
@@ -267,7 +268,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分類於</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Tech/" itemprop="url" rel="index">
@@ -302,7 +303,7 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="post-meta-item-text">visitors </span>
                <span class="leancloud-visitors-count"></span>
               </span>
           
@@ -328,10 +329,10 @@
 <h1 id="重新编译"><strong>重新编译</strong></h1><p>好了，现在让我们开始折腾吧。</p>
 <p>首先上vim的官网下载vim7.4的源文件。（<a href="http://www.vim.org/sources.ph" target="_blank" rel="external">下载链接</a>）</p>
 <p>新建目录<code>/opt/local</code>，这个目录就是用来存放我们新安装的vim7.4的，你也可以建立其他的目录，这里只是一个示例。</p>
-<p>进入vim的源文件目录中，在终端中运行命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-features=huge --enable-pythoninterp=yes  --enable-cscope --enable-fontset --enable-perlinterp --enable-rubyinterp --with-python-config-dir=/usr/lib/python2.<span class="number">6</span>/config --prefix=/opt/<span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
+<p>进入vim的源文件目录中，在终端中运行命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure --with-features=huge --enable-pythoninterp=yes  --enable-cscope --enable-fontset --enable-perlinterp --enable-rubyinterp --with-python-config-dir=/usr/lib/python2.6/config --prefix=/opt/<span class="built_in">local</span></div></pre></td></tr></table></figure></p>
 <p>这个命令是完成对vim的一些配置选项，启用了python和ruby的支持特性，这还是比较重要的，因为vim中有些插件会使用python和ruby的，如果没有开启这些特性，有些插件是无法运行的。在这些配置命令中，最后一个<code>--prefix=/opt/local</code>是用来指明安装目录的，你也可以修改成你自己的目录。</p>
 <p>在写配置命令的时候，需要注意的是，不能写上<code>--enable-gui</code>，这是开启gui特性的，但是我们是在终端环境下安装的，因此不能开启这个特性，否则会出现编译错误。</p>
-<p>在终端中执行<code>make</code>命令。在make过程中，会出现一个错误，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">:info:build os_unix.c:<span class="number">830</span>:<span class="number">46</span>: warning: declaration of <span class="string">'struct sigaltstack'</span> will not be visible outside of this <span class="keyword">function</span> [-Wvisibility]</span><br><span class="line">:info:build         extern int sigaltstack __ARGS((const struct sigaltstack *ss, struct sigaltstack *oss));</span><br><span class="line">:info:build                                                     ^</span><br><span class="line">:info:build ./os_unix.h:<span class="number">88</span>:<span class="number">21</span>: note: expanded from macro <span class="string">'__ARGS'</span></span><br><span class="line">:info:build <span class="comment">#  define __ARGS(x) x</span></span><br><span class="line">:info:build                     ^</span><br><span class="line">:info:build os_unix.c:<span class="number">830</span>:<span class="number">13</span>: error: conflicting types <span class="keyword">for</span> <span class="string">'sigaltstack'</span></span><br><span class="line">:info:build         extern int sigaltstack __ARGS((const struct sigaltstack *ss, struct sigaltstack *oss));</span><br><span class="line">:info:build                    ^</span><br><span class="line">:info:build /usr/include/signal.h:<span class="number">89</span>:<span class="number">5</span>: note: previous declaration is here</span><br><span class="line">:info:build int     sigaltstack(const stack_t * __restrict, stack_t * __restrict)  __DARWIN_ALIAS(sigaltstack);</span><br><span class="line">:info:build         ^</span><br><span class="line">:info:build <span class="number">1</span> warning and <span class="number">1</span> error generated.</span><br><span class="line">:info:build make[<span class="number">1</span>]: *** [objects/os_unix.o] Error <span class="number">1</span></span><br><span class="line">:info:build make[<span class="number">1</span>]: *** Waiting <span class="keyword">for</span> unfinished <span class="built_in">jobs</span>….)</span><br></pre></td></tr></table></figure></p>
+<p>在终端中执行<code>make</code>命令。在make过程中，会出现一个错误，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">:info:build os_unix.c:830:46: warning: declaration of <span class="string">'struct sigaltstack'</span> will not be visible outside of this <span class="keyword">function</span> [-Wvisibility]</div><div class="line">:info:build         extern int sigaltstack __ARGS((const struct sigaltstack *ss, struct sigaltstack *oss));</div><div class="line">:info:build                                                     ^</div><div class="line">:info:build ./os_unix.h:88:21: note: expanded from macro <span class="string">'__ARGS'</span></div><div class="line">:info:build <span class="comment">#  define __ARGS(x) x</span></div><div class="line">:info:build                     ^</div><div class="line">:info:build os_unix.c:830:13: error: conflicting types <span class="keyword">for</span> <span class="string">'sigaltstack'</span></div><div class="line">:info:build         extern int sigaltstack __ARGS((const struct sigaltstack *ss, struct sigaltstack *oss));</div><div class="line">:info:build                    ^</div><div class="line">:info:build /usr/include/signal.h:89:5: note: previous declaration is here</div><div class="line">:info:build int     sigaltstack(const stack_t * __restrict, stack_t * __restrict)  __DARWIN_ALIAS(sigaltstack);</div><div class="line">:info:build         ^</div><div class="line">:info:build 1 warning and 1 error generated.</div><div class="line">:info:build make[1]: *** [objects/os_unix.o] Error 1</div><div class="line">:info:build make[1]: *** Waiting <span class="keyword">for</span> unfinished <span class="built_in">jobs</span>….)</div></pre></td></tr></table></figure></p>
 <p>解决方案也很简单，只需要在os_unix.h(src文件夹中)中加上<code>#include &lt;AvailabilityMacros.h&gt;</code>就可以了。</p>
 <p>执行<code>make install</code>.执行完成之后，vim7.4就安装完成了。</p>
 <p>添加vim命令的别名，在.bash_profile中添加一行<code>alias vim=&#39;/opt/local/bin/vim&#39;</code>，然后在终端中执行<code>source ~/.bash_profile</code></p>
@@ -434,10 +435,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Übersicht
           </li>
         </ul>
       
@@ -454,7 +455,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -462,7 +463,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -471,7 +472,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -586,11 +587,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

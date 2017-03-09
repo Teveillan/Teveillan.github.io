@@ -70,13 +70,15 @@
 <meta property="og:description" content="购买正版饥荒创建世界
 先创建好世界（进去一次地图后再退出来）。
 再次进入，看看你建立的世界是第几个世界。（此时为第一个）">
-<meta property="og:image" content="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/001.png">
-<meta property="og:image" content="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/002.png">
+<meta property="og:image" content="http://www.teveillan.com/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/001.png">
+<meta property="og:image" content="http://www.teveillan.com/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/002.png">
+<meta property="og:updated_time" content="2017-03-04T05:26:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="饥荒Don't starve together Mac独立服务器搭建">
 <meta name="twitter:description" content="购买正版饥荒创建世界
 先创建好世界（进去一次地图后再退出来）。
 再次进入，看看你建立的世界是第几个世界。（此时为第一个）">
+<meta name="twitter:image" content="http://www.teveillan.com/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/001.png">
 
 
 
@@ -89,7 +91,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -165,7 +167,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            首頁
+            Startseite
           </a>
         </li>
       
@@ -173,7 +175,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-            分類
+            Kategorien
           </a>
         </li>
       
@@ -181,7 +183,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            歸檔
+            Archiv
           </a>
         </li>
       
@@ -189,7 +191,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -200,7 +202,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -263,7 +265,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2017-03-03T19:08:03-08:00" content="3月 3 2017">
               3月 3 2017
             </time>
@@ -291,7 +293,7 @@
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="post-meta-item-text">visitors </span>
                <span class="leancloud-visitors-count"></span>
               </span>
           
@@ -318,15 +320,15 @@
 </ol>
 <p><img src="/2017/03/03/饥荒Don-t-starve-together-Mac独立服务器搭建/002.png" alt="Alt text"></p>
 <p>准备工作做完了，剩下的是配置过程。</p>
-<h2 id="配置">配置</h2><h3 id="建立验证文件（估计是为了防盗版）">建立验证文件（估计是为了防盗版）</h3><p>先找到你刚刚创建的那个世界的文件夹，Mac下在<code>~/Documents/Klei/DoNotStarveTogether/</code>中，跳转至这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Documents/Klei/DoNotStarveTogether/</span><br></pre></td></tr></table></figure></p>
-<p> 这个文件夹下应该有多个文件<code>Cluster_1</code>, <code>Cluster_2</code>等等。我刚刚创建的是第一个世界，这就应该是<code>Cluster_1</code>，跳转进这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Cluster_1</span><br></pre></td></tr></table></figure></p>
-<p>建立文件<code>cluster_token.txt</code>并把刚刚的专用服务器令牌(your_token替换为你的token)写进文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> your_token &gt; cluster_token.txt</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建启动脚本">创建启动脚本</h3><p>跳转DST提供的独立服务器的脚本目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Application Support/Steam/steamapps/common/Don<span class="string">'t Starve Together/dontstarve_steam.app/Contents/MacOS</span></span><br></pre></td></tr></table></figure></p>
-<p>该目录下<code>dontstarve_dedicated_server_nullrenderer</code>这个文件，是DST提供的独立服务器的执行文件。<br>写两个脚本文件分别用来生成地上和洞穴的服务器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Master"</span> &gt; start.sh &amp;&amp; chmod +x start.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Caves"</span> &gt; start_cave.sh &amp;&amp; chmod +x start_cave.sh</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置">配置</h2><h3 id="建立验证文件（估计是为了防盗版）">建立验证文件（估计是为了防盗版）</h3><p>先找到你刚刚创建的那个世界的文件夹，Mac下在<code>~/Documents/Klei/DoNotStarveTogether/</code>中，跳转至这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Documents/Klei/DoNotStarveTogether/</div></pre></td></tr></table></figure></p>
+<p> 这个文件夹下应该有多个文件<code>Cluster_1</code>, <code>Cluster_2</code>等等。我刚刚创建的是第一个世界，这就应该是<code>Cluster_1</code>，跳转进这个文件夹。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> Cluster_1</div></pre></td></tr></table></figure></p>
+<p>建立文件<code>cluster_token.txt</code>并把刚刚的专用服务器令牌(your_token替换为你的token)写进文件中。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> your_token &gt; cluster_token.txt</div></pre></td></tr></table></figure></p>
+<h3 id="创建启动脚本">创建启动脚本</h3><p>跳转DST提供的独立服务器的脚本目录。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/Library/Application Support/Steam/steamapps/common/Don<span class="string">'t Starve Together/dontstarve_steam.app/Contents/MacOS</span></div></pre></td></tr></table></figure></p>
+<p>该目录下<code>dontstarve_dedicated_server_nullrenderer</code>这个文件，是DST提供的独立服务器的执行文件。<br>写两个脚本文件分别用来生成地上和洞穴的服务器。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Master"</span> &gt; start.sh &amp;&amp; chmod +x start.sh</div><div class="line"></div><div class="line"><span class="built_in">echo</span> <span class="string">"./dontstarve_dedicated_server_nullrenderer -console -cluster Cluster_\$1 -shard Caves"</span> &gt; start_cave.sh &amp;&amp; chmod +x start_cave.sh</div></pre></td></tr></table></figure></p>
 <p> 然后执行脚本文件<code>./start.sh id</code>,  id就是你地图的编号，再进入游戏就能找到地图了（不是在创建世界中，在寻找房间里。如果你是本机上搭建的服务器，那就在本地找。其他人照常在服务器上找。）</p>
 <p><strong>注意，先打开游戏以后再建立服务器。</strong> 我先建立服务器再进游戏就进不去了，不知道是不是我的个例。</p>
 <h2 id="快速启动脚本">快速启动脚本</h2><p>之前的步骤已经足够搭建服务器了。但是如果不想每次都生成一下验证文件还专门跳转到启动脚本的文件夹，可以按我下面写的脚本快速启动（放在哪里都行，记着替换里面的token）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> <span class="operator">-lt</span> <span class="number">1</span> ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Need cluster id"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	path=~/Documents/Klei/DoNotStarveTogether/Cluster_<span class="variable">$1</span></span><br><span class="line">	<span class="built_in">cd</span> <span class="variable">$path</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"your_token"</span> &gt; cluster_token.txt //替换你的token</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cd</span> ~/Library/Application\ Support/Steam/steamapps/common/Don\<span class="string">'t\ Starve\ Together/dontstarve_steam.app/Contents/MacOS</span><br><span class="line">	sh start.sh $1 1 &gt; /dev/null &amp;</span><br><span class="line">	echo "Start to run cluster"</span><br><span class="line"></span><br><span class="line">	if [ $# -eq 2 -a $2 = '</span>Y<span class="string">' ]</span><br><span class="line">		then</span><br><span class="line">			sh start_cave.sh $1 &gt; /dev/null &amp;</span><br><span class="line">			echo "Start to run cave"</span><br><span class="line">		else</span><br><span class="line">			echo "Didn'</span>t run cave<span class="string">"</span><br><span class="line">	fi</span><br><span class="line">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> <span class="_">-lt</span> 1 ]; <span class="keyword">then</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">"Need cluster id"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	path=~/Documents/Klei/DoNotStarveTogether/Cluster_<span class="variable">$1</span></div><div class="line">	<span class="built_in">cd</span> <span class="variable">$path</span></div><div class="line">	<span class="built_in">echo</span> <span class="string">"your_token"</span> &gt; cluster_token.txt //替换你的token</div><div class="line"></div><div class="line">	<span class="built_in">cd</span> ~/Library/Application\ Support/Steam/steamapps/common/Don\<span class="string">'t\ Starve\ Together/dontstarve_steam.app/Contents/MacOS</span></div><div class="line">	sh start.sh $1 1 &gt; /dev/null &amp;</div><div class="line">	echo "Start to run cluster"</div><div class="line"></div><div class="line">	if [ $# -eq 2 -a $2 = 'Y<span class="string">' ]</span></div><div class="line">		then</div><div class="line">			sh start_cave.sh $1 &gt; /dev/null &amp;</div><div class="line">			echo "Start to run cave"</div><div class="line">		else</div><div class="line">			echo "Didn't run cave<span class="string">"</span></div><div class="line">	fi</div><div class="line">fi</div></pre></td></tr></table></figure>
 <p>启动时候只需执行:</p>
 <blockquote>
 <p><code>sh DST_start.sh id</code> (只生成地上)<br><code>sh DST_start.sh id Y</code> (同时生成地上和洞穴地图)</p>
@@ -421,10 +423,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Übersicht
           </li>
         </ul>
       
@@ -441,7 +443,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -449,7 +451,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -458,7 +460,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -573,11 +575,11 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>

@@ -76,6 +76,7 @@ a, b同时乘2
 a, b同时加1
 
 问最少经过多少次操作使得 a == A &amp;amp;&amp;amp; b == b">
+<meta property="og:updated_time" content="2017-03-04T03:33:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Topcoder SRM 677 Div1">
 <meta name="twitter:description" content="Easy:  DoubleOrOneEasy给出a, b, A, B,有两种操作：
@@ -96,7 +97,7 @@ a, b同时加1
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -172,7 +173,7 @@ a, b同时加1
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            首頁
+            Startseite
           </a>
         </li>
       
@@ -180,7 +181,7 @@ a, b同时加1
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-            分類
+            Kategorien
           </a>
         </li>
       
@@ -188,7 +189,7 @@ a, b同时加1
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            歸檔
+            Archiv
           </a>
         </li>
       
@@ -196,7 +197,7 @@ a, b同时加1
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -207,7 +208,7 @@ a, b同时加1
             <a href="javascript:;" class="popup-trigger">
           
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -270,7 +271,7 @@ a, b同时加1
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">發表於</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-04-06T12:58:13-07:00" content="4月 6 2016">
               4月 6 2016
             </time>
@@ -282,7 +283,7 @@ a, b同时加1
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分類於</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/红名之路/" itemprop="url" rel="index">
@@ -317,7 +318,7 @@ a, b同时加1
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">閱讀次數 </span>
+               <span class="post-meta-item-text">visitors </span>
                <span class="leancloud-visitors-count"></span>
               </span>
           
@@ -344,14 +345,14 @@ a, b同时加1
 <p>也就是说，如果有解，则存在一个x，使得<br> $A - a * 2^x == B - b * 2 ^ x$</p>
 <p>一般来说这样的x是只有一个的(A == B &amp;&amp; a == b时特殊)。<br>贪心找到最大的x，就是最后进行过乘法的次数。<br>然后在此基础上找加法的个数。</p>
 <p>还是令 $y = A - a * 2^x$<br>首先贪心，最开始先进行$y / (1&lt;&lt;x)$次加法操作, 还剩下$z = y \% (1&lt;&lt;x) $需要补，再加上bitcount(z)就好了（自己想为什么）。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = -<span class="number">1</span>, num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(a &lt;= aa &amp;&amp; b &lt;= bb) &#123;</span><br><span class="line">        <span class="keyword">if</span>(aa - a == bb - b) ret = max(ret, num);</span><br><span class="line">        a &lt;&lt;= <span class="number">1</span>, b &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        ++num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> DoubleOrOneEasy</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">minimalSteps</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> num = solve(a, b, aa, bb);</span><br><span class="line">            <span class="keyword">if</span>(num == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> tmp = aa - (a &lt;&lt; num);</span><br><span class="line">            <span class="keyword">return</span> num + tmp / (<span class="number">1</span>&lt;&lt;num) + __builtin_popcount(tmp % (<span class="number">1</span>&lt;&lt;num));</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ret = <span class="number">-1</span>, num = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(a &lt;= aa &amp;&amp; b &lt;= bb) &#123;</div><div class="line">        <span class="keyword">if</span>(aa - a == bb - b) ret = max(ret, num);</div><div class="line">        a &lt;&lt;= <span class="number">1</span>, b &lt;&lt;= <span class="number">1</span>;</div><div class="line">        ++num;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> DoubleOrOneEasy</div><div class="line">&#123;</div><div class="line">        <span class="keyword">public</span>:</div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">minimalSteps</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> aa, <span class="keyword">int</span> bb)</span> </span>&#123;</div><div class="line">            <span class="keyword">int</span> num = solve(a, b, aa, bb);</div><div class="line">            <span class="keyword">if</span>(num == <span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">            <span class="keyword">int</span> tmp = aa - (a &lt;&lt; num);</div><div class="line">            <span class="keyword">return</span> num + tmp / (<span class="number">1</span>&lt;&lt;num) + __builtin_popcount(tmp % (<span class="number">1</span>&lt;&lt;num));</div><div class="line">        &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <h2 id="Medium:_DiameterOfRandomTree">Medium: DiameterOfRandomTree</h2><p>给出一个棵树,每条边等概率长度为1或2，求树的直径。</p>
 <p>用<code>dp[root][d1][l1]</code>表示根为root的子树，直径为d1，从根往下最长的链长度为l1的方案数。<br><code>dp[son][d2][l2]</code>表示子树的状态。<br>状态转移公式:</p>
 <blockquote>
 <p>$$ dp[root][max(max(d1, d2), l1 + l2 + 1)][max(l1, l2 + 1)] += dp[root][d1][l1] * dp[son][d2][l2] $$</p>
 <p>$$ dp[root][max(max(d1, d2), l1 + l2 + 2)][max(l1, l2 + 2)] += dp[root][d1][l1] * dp[son][d2][l2] $$</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">VI head[<span class="number">55</span>];</span><br><span class="line">LL dp[<span class="number">55</span>][<span class="number">2</span>][<span class="number">101</span>][<span class="number">101</span>], max_l[<span class="number">55</span>], dia[<span class="number">55</span>];<span class="comment">//dp中加了一维作滚动数组</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mem(dp), mem(max_l), mem(dia);</span><br><span class="line">    REP(i, <span class="number">50</span>) head[i].clear();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> pre)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sta = <span class="number">0</span>;</span><br><span class="line">    dp[cur][sta][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> to: head[cur]) &#123;</span><br><span class="line">        <span class="keyword">if</span>(to == pre) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">int</span> to_sta = dfs(to, cur); sta ^= <span class="number">1</span>;</span><br><span class="line">        mem(dp[cur][sta]);</span><br><span class="line">        FOR(d1, <span class="number">0</span>, dia[cur])</span><br><span class="line">            FOR(l1, <span class="number">0</span>, max_l[cur])</span><br><span class="line">                FOR(d2, <span class="number">0</span>, dia[to])</span><br><span class="line">                    FOR(l2, <span class="number">0</span>, max_l[to]) &#123;</span><br><span class="line">                        <span class="keyword">int</span> d = max(max(d1, d2), l1 + l2 + <span class="number">1</span>), l = max(l1, l2 + <span class="number">1</span>);</span><br><span class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</span><br><span class="line"></span><br><span class="line">                        d = max(max(d1, d2), l1 + l2 + <span class="number">2</span>), l = max(l1, l2 + <span class="number">2</span>);</span><br><span class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</span><br><span class="line">                    &#125;</span><br><span class="line">        dia[cur] = max(max(dia[cur], dia[to]), max_l[cur] + max_l[to] + <span class="number">2</span>);</span><br><span class="line">        max_l[cur] = max(max_l[cur], max_l[to] + <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sta;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> DiameterOfRandomTree</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">double</span> <span class="title">getExpectation</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; b)</span></span>&#123;</span><br><span class="line">            init();</span><br><span class="line">            REP(i, a.size()) &#123;</span><br><span class="line">                head[a[i]].pb(b[i]);</span><br><span class="line">                head[b[i]].pb(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> sta = dfs(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">double</span> ret = <span class="number">0</span>, div = (<span class="keyword">double</span>)(<span class="number">1l</span>l &lt;&lt; a.size());</span><br><span class="line">            FOR(i, <span class="number">0</span>, dia[<span class="number">0</span>])</span><br><span class="line">                FOR(j, <span class="number">0</span>, max_l[<span class="number">0</span>])</span><br><span class="line">                    ret += (<span class="keyword">double</span>) dp[<span class="number">0</span>][sta][i][j] / div * i;</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">VI head[<span class="number">55</span>];</div><div class="line">LL dp[<span class="number">55</span>][<span class="number">2</span>][<span class="number">101</span>][<span class="number">101</span>], max_l[<span class="number">55</span>], dia[<span class="number">55</span>];<span class="comment">//dp中加了一维作滚动数组</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">    mem(dp), mem(max_l), mem(dia);</div><div class="line">    REP(i, <span class="number">50</span>) head[i].clear();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> pre)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> sta = <span class="number">0</span>;</div><div class="line">    dp[cur][sta][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> to: head[cur]) &#123;</div><div class="line">        <span class="keyword">if</span>(to == pre) <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">int</span> to_sta = dfs(to, cur); sta ^= <span class="number">1</span>;</div><div class="line">        mem(dp[cur][sta]);</div><div class="line">        FOR(d1, <span class="number">0</span>, dia[cur])</div><div class="line">            FOR(l1, <span class="number">0</span>, max_l[cur])</div><div class="line">                FOR(d2, <span class="number">0</span>, dia[to])</div><div class="line">                    FOR(l2, <span class="number">0</span>, max_l[to]) &#123;</div><div class="line">                        <span class="keyword">int</span> d = max(max(d1, d2), l1 + l2 + <span class="number">1</span>), l = max(l1, l2 + <span class="number">1</span>);</div><div class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</div><div class="line"></div><div class="line">                        d = max(max(d1, d2), l1 + l2 + <span class="number">2</span>), l = max(l1, l2 + <span class="number">2</span>);</div><div class="line">                        dp[cur][sta][d][l] += dp[cur][sta^<span class="number">1</span>][d1][l1] * dp[to][to_sta][d2][l2];</div><div class="line">                    &#125;</div><div class="line">        dia[cur] = max(max(dia[cur], dia[to]), max_l[cur] + max_l[to] + <span class="number">2</span>);</div><div class="line">        max_l[cur] = max(max_l[cur], max_l[to] + <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sta;</div><div class="line">&#125;</div><div class="line"><span class="keyword">class</span> DiameterOfRandomTree</div><div class="line">&#123;</div><div class="line">        <span class="keyword">public</span>:</div><div class="line">        <span class="function"><span class="keyword">double</span> <span class="title">getExpectation</span><span class="params">(<span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; a, <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; b)</span></span>&#123;</div><div class="line">            init();</div><div class="line">            REP(i, a.size()) &#123;</div><div class="line">                head[a[i]].pb(b[i]);</div><div class="line">                head[b[i]].pb(a[i]);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> sta = dfs(<span class="number">0</span>, <span class="number">-1</span>);</div><div class="line">            <span class="keyword">double</span> ret = <span class="number">0</span>, div = (<span class="keyword">double</span>)(<span class="number">1l</span>l &lt;&lt; a.size());</div><div class="line">            FOR(i, <span class="number">0</span>, dia[<span class="number">0</span>])</div><div class="line">                FOR(j, <span class="number">0</span>, max_l[<span class="number">0</span>])</div><div class="line">                    ret += (<span class="keyword">double</span>) dp[<span class="number">0</span>][sta][i][j] / div * i;</div><div class="line">            <span class="keyword">return</span> ret;</div><div class="line">        &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -446,10 +447,10 @@ a, b同时加1
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Übersicht
           </li>
         </ul>
       
@@ -466,7 +467,7 @@ a, b同时加1
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
@@ -474,7 +475,7 @@ a, b同时加1
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -483,7 +484,7 @@ a, b同时加1
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -598,11 +599,11 @@ a, b同时加1
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
